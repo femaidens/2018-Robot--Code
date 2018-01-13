@@ -1,21 +1,23 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 
 /**
  *
  */
-public class ShiftLadder extends Command {
+public class Acquire extends Command {
 	
-	private boolean down;
+	private boolean acquired;
 	
-    public ShiftLadder(boolean w) {
+    public Acquire(boolean a) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	down = w;
+    	acquired = a;
     }
 
     // Called just before this Command runs the first time
@@ -24,13 +26,12 @@ public class ShiftLadder extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(down){
-    		Robot.ladder.extend();
+    	if(acquired){
+    		Robot.acquirer.acquire();
     		return;
     	}
-    	if(!down){
-    		Robot.ladder.retract();
-    		return;
+    	if(!acquired){
+    		Robot.acquirer.release();
     	}
     }
 
@@ -41,6 +42,8 @@ public class ShiftLadder extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Acquirer.acqLeft.set(ControlMode.PercentOutput,0);
+    	Acquirer.acqRight.set(ControlMode.PercentOutput,0);
     }
 
     // Called when another command which requires one or more of the same
