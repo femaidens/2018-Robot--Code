@@ -34,8 +34,8 @@ public class RobotMap {
 	public static int climberPort2 = 6;
 
 	// Solenoid Ports for gearChute
-	public static int gearPort1 = 6;
-	public static int gearPort2 = 7;
+	public static int ladderPort1 = 6;
+	public static int ladderPort2 = 7;
 	public static int basePort1 = 4; 
 	public static int basePort2 = 5; 
 
