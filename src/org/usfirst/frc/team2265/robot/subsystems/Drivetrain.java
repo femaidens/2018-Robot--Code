@@ -10,6 +10,7 @@ import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -22,10 +23,12 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	  public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
-	  public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
-	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	
+	public static PowerDistributionPanel PDB = new PowerDistributionPanel();
 
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 
@@ -53,6 +56,14 @@ public class Drivetrain extends Subsystem {
 		rearRight.set(ControlMode.PercentOutput,-rightVal);
 		frontLeft.set(ControlMode.PercentOutput,leftVal);
 		rearLeft.set(ControlMode.PercentOutput,leftVal);
+	}
+	
+	public void getTalonCurrent(){
+		System.out.println("frontRight: " + PDB.getCurrent(RobotMap.frontRightPort));
+		System.out.println("frontLeft: " + PDB.getCurrent(RobotMap.frontLeftPort));
+		System.out.println("rearRight: " + PDB.getCurrent(RobotMap.rearRightPort));
+		System.out.println("rearLeft: " + PDB.getCurrent(RobotMap.rearLeftPort));
+		System.out.println("Total: " + PDB.getTotalCurrent());
 	}
 	
 	public void driveSlow() {

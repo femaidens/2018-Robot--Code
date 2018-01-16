@@ -42,9 +42,9 @@ public class CenterAuto extends CommandGroup {
     		addSequential(new Acquire(false));
     	}
     	
-    	/*SmartDashboard.putString(“OurSwitchColor”,gameData.charAt(0));
-    	SmartDashboard.putString(“ScaleColor”,gameData.charAt(1));
-    	SmartDashboard.putString(“OtherSwitchColor”,gameData.charAt(2));*/
+    	/*SmartDashboard.putString("OurSwitchColor",gameData.charAt(0));
+    	SmartDashboard.putString("ScaleColor",gameData.charAt(1));
+    	SmartDashboard.putString("OtherSwitchColor",gameData.charAt(2));*/
     	
     }
     
