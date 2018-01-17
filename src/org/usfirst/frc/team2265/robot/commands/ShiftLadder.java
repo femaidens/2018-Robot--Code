@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShiftLadder extends Command {
 	
-	private boolean down;
+    private boolean down;
 	
     public ShiftLadder(boolean w) {
         // Use requires() here to declare subsystem dependencies
