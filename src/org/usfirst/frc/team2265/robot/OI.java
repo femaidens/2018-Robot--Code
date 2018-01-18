@@ -2,6 +2,7 @@ package org.usfirst.frc.team2265.robot;
 
 import org.usfirst.frc.team2265.robot.commands.Acquire;
 import org.usfirst.frc.team2265.robot.commands.Pivot;
+import org.usfirst.frc.team2265.robot.commands.AutoAlign;
 import org.usfirst.frc.team2265.robot.commands.ToggleCommpressor;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -78,6 +79,7 @@ public class OI {
 		pivotDown.whenPressed(new Pivot(false));
 		ladderUp.whenPressed(new Pivot(false));
 		ladderDown.whenPressed(new Pivot(true));
+		align.whileHeld(new AutoAlign());
 		//create align
 	
 		

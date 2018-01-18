@@ -19,6 +19,22 @@ import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.Ladder;
 
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Rect;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
+
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
+
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -54,6 +70,28 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		
 		compressy = new Compressor();
+		
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+	    camera.setResolution(640, 480);
+	    camera.setBrightness(0);
+	    CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+	    CvSink cvSink = CameraServer.getInstance().getVideo();
+	    
+	    new Thread(() -> {
+			
+			Mat source = new Mat();
+			Mat image = new Mat();
+			//Mat image2 = new Mat();
+
+			while (!Thread.interrupted()) {
+				cvSink.grabFrame(source);
+				Imgproc.cvtColor(source, image, Imgproc.COLOR_BGR2HSV, 0);
+				
+				outputStream.putFrame(image);
+				image.release();
+				source.release();
+			}
+	    }).start();
 	}
 
 	/**

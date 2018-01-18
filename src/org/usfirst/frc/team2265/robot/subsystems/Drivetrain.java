@@ -3,7 +3,7 @@ package org.usfirst.frc.team2265.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2265.robot.OI;
-import org.usfirst.frc.team2265.robot.Robot;
+//import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
@@ -137,7 +137,27 @@ public class Drivetrain extends Subsystem {
 	  return; 
 	  
 	}*/
+	
+	
+	//align to yellow cube
+	public void autoAlign(double difInLength){
+		//if difference is positive, right side is bigger so turn left
+			if (difInLength > 0){
+				Drivetrain.rearLeft.set(ControlMode.PercentOutput,1.0);
+				Drivetrain.frontLeft.set(ControlMode.PercentOutput,1.0);
+				Drivetrain.rearRight.set(ControlMode.PercentOutput,0.0);
+				Drivetrain.frontRight.set(ControlMode.PercentOutput,0.0);	
+			}
+		//if difference is negative, left side is bigger so turn right
+			else if(difInLength < 0){
+				Drivetrain.rearRight.set(ControlMode.PercentOutput,1.0);
+				Drivetrain.frontRight.set(ControlMode.PercentOutput,1.0);
+				Drivetrain.rearLeft.set(ControlMode.PercentOutput,0.0);
+				Drivetrain.frontLeft.set(ControlMode.PercentOutput,0.0);
+			}
+		}
 
+	 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new DriveTeleop());
