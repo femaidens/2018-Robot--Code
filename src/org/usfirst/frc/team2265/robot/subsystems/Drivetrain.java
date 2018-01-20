@@ -3,7 +3,6 @@ package org.usfirst.frc.team2265.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2265.robot.OI;
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
@@ -37,6 +36,9 @@ public class Drivetrain extends Subsystem {
 			Encoder.EncodingType.k1X);
 
 	public static double constant = 8.6;
+	
+	double rightVel;
+	double leftVel;
 
 	public Drivetrain() {
 		encoderLeft.setMaxPeriod(2);
@@ -98,7 +100,13 @@ public class Drivetrain extends Subsystem {
 		}
 
 	}
-	
+
+	public void stop() {
+		frontRight.set(ControlMode.PercentOutput, 0.0);
+		rearRight.set(ControlMode.PercentOutput,0.0);
+		frontLeft.set(ControlMode.PercentOutput,0.0);
+		rearLeft.set(ControlMode.PercentOutput, 0.0);
+	}
 
 	/*public void autoAlign() { 
 		while ((!AutoAlign.done) &&(Robot.midX < 285 || Robot.midX > 315)) { 

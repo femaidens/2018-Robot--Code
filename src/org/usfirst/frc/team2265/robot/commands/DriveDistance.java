@@ -59,7 +59,7 @@ public class DriveDistance extends Command {
 		}
     	
     	distanceLeft = Drivetrain.encoderLeft.get();
-		distanceRight = Drivetrain.encoderRight.get();
+	distanceRight = Drivetrain.encoderRight.get();
 		
     }
     
