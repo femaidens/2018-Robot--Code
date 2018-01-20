@@ -39,13 +39,17 @@ public class AutoAlign extends Command {
 		YellowCubesCV.removeNoise(source);
 		YellowCubesCV.contourImage(YellowCubesCV.blurredImage);
 		YellowCubesCV.findCube();
+		System.out.println(YellowCubesCV.onSide());
+		/*
 		if (YellowCubesCV.onSide() != 0) {
 			Robot.drivetrain.autoAlign(YellowCubesCV.onSide());
 		} else {
 			done = true;
 		}
+		*/
 		source.release();
 		YellowCubesCV.blurredImage.release();
+		done = true;
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -55,10 +59,12 @@ public class AutoAlign extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
+		/*
 		Drivetrain.rearLeft.set(ControlMode.PercentOutput, 0.0);
 		Drivetrain.frontLeft.set(ControlMode.PercentOutput, 0.0);
 		Drivetrain.rearRight.set(ControlMode.PercentOutput, 0.0);
 		Drivetrain.frontRight.set(ControlMode.PercentOutput, 0.0);
+		*/
 	}
 
 	// Called when another command which requires one or more of the same

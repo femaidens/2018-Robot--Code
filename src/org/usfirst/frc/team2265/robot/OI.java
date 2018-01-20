@@ -1,10 +1,10 @@
 package org.usfirst.frc.team2265.robot;
-
+/*
 import org.usfirst.frc.team2265.robot.commands.Acquire;
 import org.usfirst.frc.team2265.robot.commands.Pivot;
 import org.usfirst.frc.team2265.robot.commands.AutoAlign;
 import org.usfirst.frc.team2265.robot.commands.ToggleCommpressor;
-
+*/
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -72,6 +72,7 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
+		/*
 		compressorButton.toggleWhenPressed(new ToggleCommpressor());
 		acquire.whenPressed(new Acquire(true));
 		release.whenPressed(new Acquire(false));
@@ -81,7 +82,7 @@ public class OI {
 		ladderDown.whenPressed(new Pivot(true));
 		align.whileHeld(new AutoAlign());
 		//create align
-	
+	*/
 		
 	}
 }
