@@ -44,6 +44,7 @@ public class Acquire extends Command {
     protected void end() {
     	Acquirer.acqLeft.set(ControlMode.PercentOutput,0);
     	Acquirer.acqRight.set(ControlMode.PercentOutput,0);
+    	System.out.println();
     }
 
     // Called when another command which requires one or more of the same
