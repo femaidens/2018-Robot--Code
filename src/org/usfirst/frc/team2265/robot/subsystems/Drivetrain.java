@@ -74,9 +74,9 @@ public class Drivetrain extends Subsystem {
 		frontRight.set(ControlMode.PercentOutput,-rightVal*0.85);
 		rearRight.set(ControlMode.PercentOutput,-rightVal*0.85);
 		frontLeft.set(ControlMode.PercentOutput,leftVal*0.85);
-		rearLeft.set(ControlMode.PercentOutput,leftVal*0.85);
+		rearLeft.set(ControlMode.PercentOutput,leftVal*0.85);																													                                                                                   
 	}
-	// auton
+	//auton
 	public void drive(double l, double r) {
 		frontRight.set(ControlMode.PercentOutput,-r);
 		rearRight.set(ControlMode.PercentOutput,-r);
@@ -96,6 +96,7 @@ public class Drivetrain extends Subsystem {
 				rearLeft.set(ControlMode.PercentOutput,-0.25);
 				/*rightMotors.set(-0.25);
 				leftMotors.set(0.25);*/
+				//turns left
 			}
 		} else {
 			while (gyro.getAngle() > degrees) {
@@ -105,6 +106,7 @@ public class Drivetrain extends Subsystem {
 				rearLeft.set(ControlMode.PercentOutput,0.25);
 				/*rightMotors.set(0.25);
 				leftMotors.set(0.25);*/
+				//turns right
 			}
 		}
 

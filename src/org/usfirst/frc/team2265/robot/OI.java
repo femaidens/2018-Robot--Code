@@ -45,17 +45,20 @@ public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	//public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	
-	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
-	public static Button acquire = new JoystickButton(driveJoystick, 2);
-	public static Button release = new JoystickButton(driveJoystick, 1);
-	public static Button pivotUp = new JoystickButton(driveJoystick, 6);
-	public static Button pivotDown = new JoystickButton(driveJoystick, 5);
+	public static Button acquire = new JoystickButton(driveJoystick, 5);
+	public static Button release = new JoystickButton(driveJoystick, 6);
+	public static Button pivotUp = new JoystickButton(driveJoystick, 7);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 8);
 	public static Button ladderUp = new JoystickButton(driveJoystick, 9);
-	public static Button ladderDown= new JoystickButton(driveJoystick, 8);
+	public static Button ladderDown= new JoystickButton(driveJoystick, 10);
+	public static Button cascadeUp = new JoystickButton(driveJoystick, 1);
+	public static Button cascadeDown = new JoystickButton(driveJoystick, 3);
+	public static Button switchSpeed = new JoystickButton(driveJoystick, 2);
 	//public static Button dropGear = new JoystickButton(driveJoystick, 2);
 	//public static Button reset = new JoystickButton(driveJoystick, 1);
 	
-	public static Button align = new JoystickButton(driveJoystick, 11);
+	public static Button align = new JoystickButton(driveJoystick, 4);
+	public static Button driveStraight = new JoystickButton(driveJoystick, 11); //mode button, need to be tested
 	
 	//public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
 	//public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
@@ -65,7 +68,7 @@ public class OI {
 	
 	public void bindButtons() {
 		/*climberButton.whileHeld(new Climb(1.0));
-		//climberButton.whileHeld(new TurnDegrees(45));
+		//climberButton.whileHeld(new TurnDegrees(45)
 		compressorButton.toggleWhenPressed(new ToggleCompressor());
 		dropGear.whenPressed(new ShiftChute(false));
 		reset.whenPressed(new ShiftChute(true));
