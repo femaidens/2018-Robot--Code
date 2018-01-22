@@ -37,8 +37,8 @@ public class Drivetrain extends Subsystem {
 
 	public static double constant = 8.6;
 	
-	double rightVel;
-	double leftVel;
+	double rightVal;
+	double leftVal;
 
 	public Drivetrain() {
 		encoderLeft.setMaxPeriod(2);
@@ -47,8 +47,8 @@ public class Drivetrain extends Subsystem {
 
 	// Teleop
 	public void drive() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		leftVal = OI.driveJoystick.getRawAxis(5);
+		rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal);
@@ -58,8 +58,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void driveSlow() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		leftVal = OI.driveJoystick.getRawAxis(5);
+		rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal*0.85);
