@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep it up! I like the PID drive class =)
+	
 	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
 	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
 	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
@@ -66,9 +67,12 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	
 	@Override
 	protected void usePIDOutput(double output) {
-		// TODO Auto-generated method stub
-		
-	}
+		output *= 0.5;
+		/*frontLeft.pidWrite(output);
+		frontRight.pidWrite(output);
+		rearRight.pidWrite(output);	
+		rearLeft.pidWrite(output);*/
+	} 
 
 	@Override
 	protected void initDefaultCommand() {
