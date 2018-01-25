@@ -7,14 +7,13 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
-//import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep it up! I like the PID drive class =)
-	/*public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
 	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
 	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);*/
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 	
 	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 
@@ -43,6 +42,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 		getPIDController().setContinuous(true);			
 		
 		}
+	
 	//initializes the two modes; one to drive and one to use the sensors
 	public SensorMode sensorMode;
 	public DriveMode driveMode;
