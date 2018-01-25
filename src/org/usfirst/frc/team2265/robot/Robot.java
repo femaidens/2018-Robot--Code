@@ -8,7 +8,11 @@
 package org.usfirst.frc.team2265.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -70,6 +74,57 @@ public class Robot extends TimedRobot {
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+
+	public static I2C i2c;
+	public static byte[] toSend; 
+	public static boolean acquired, endgame;
+	public static double matchTime;
+	public static DigitalInput acquiredLimitSwitch = new DigitalInput(RobotMap.acLimSwitchport);
+
+	public static  void connectArduino() {
+		// constantly updates values
+	matchTime = DriverStation.getInstance().getMatchTime();
+	endgame = (matchTime <= 30 && !(DriverStation.getInstance().isAutonomous()));
+	acquired = acquiredLimitSwitch.get();
+
+	if (endgame) {
+			// endgame: chase (purple then green)
+		toSend[0] = 72;
+	}
+	else if (acquired) {
+		// acquired: green
+			toSend[0] = 76;
+		}
+		else {
+			// default: purple
+			toSend[0] = 80;
+		}
+		i2c.transaction(toSend, 1, null, 0);
+		Timer.delay(0.0005);
+	/*
+	acquired = acquiredLimitSwitch.get();
+		//if the chute is closed and its not auto aligning turns green and purple
+		if (acquired == true)
+			toSend[0] = 1;
+		//if the chute is closed and its currently auto aligning turns green and blinking purple
+		else if(chuteOpen == false && autoAligning == 1)
+			toSend[0] = 2;
+		//if the chute is closed and its done auto aligning then flashes white and turns green and white
+		else if(chuteOpen == false && autoAligning == 2)
+			toSend[0] = 3;
+		//if chute is open and it's not auto aligning or its done auto aligning then blinking green and purple
+		else if(chuteOpen == true && (autoAligning == 0 || autoAligning == 2))
+			toSend[0] = 4;
+		//if the chute is opening and its currently auto aligning then blinking green and purple
+		else if(chuteOpen == true && autoAligning == 1)
+			toSend[0] = 5;
+		//if it's climbing then "light saber" mode
+		else if(climbing)
+			toSend[0] = 6;
+		i2c.transaction(toSend, 1, null, 0);
+		Timer.delay(0.0005);
+	*/
+	}
 
 	/**
 	 * This function is run when the robot is first started up and should be
