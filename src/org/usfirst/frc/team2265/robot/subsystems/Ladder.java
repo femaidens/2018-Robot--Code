@@ -1,33 +1,43 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
-import org.usfirst.frc.team2265.robot.RobotMap;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.Encoder;
+
+import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.RobotMap;
+
+//makes public class ladder a subsystem
 public class Ladder extends Subsystem {
+    //ticks is thee variable that holds the number of ticks it takes to go down completely
+	double ticks = 5.0;
+	public static TalonSRX ladTalon = new TalonSRX(RobotMap.ladtalonPort);
+	public static Encoder ladEnc = new Encoder(RobotMap.ladencPort1, RobotMap.ladencPort2);
 	
-	public static DoubleSolenoid sol = new DoubleSolenoid(RobotMap.ladderPort1, RobotMap.ladderPort2);
-
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	//need to make a method for the created class
+	
 	public Ladder(){
-	}
-	
-	public void extend(){
-		sol.set(DoubleSolenoid.Value.kForward);
-	}
-	
-	public void retract(){
-		sol.set(DoubleSolenoid.Value.kReverse);
-	}
+		ladEnc.reset();
+		ladEnc.reset();
+    }
+   //while the encoder is less than the amount of ticks it takes to move the 
+//triangular device, it will continue to move the talon backwards
 
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+	public void extend(){
+		while (ladEnc.get() < ticks) {
+    		ladTalon.set(ControlMode.PercentOutput,0.75);
+    	}
+	}
+/*while the encoder is less than the amount of ticks it takes to move the triangular device, it will continue to move the talon forward*/
+	public void retract() {
+		while (ladEnc.get() < ticks){
+			ladTalon.set(ControlMode.PercentOutput, -0.75);
+		}
+	}
+	
+	public void initDefaultCommand() {
     }
 }
 
