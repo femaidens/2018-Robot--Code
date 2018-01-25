@@ -41,13 +41,13 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 
-	public static Button climberButton = new JoystickButton(driveJoystick, 6);
+	/*public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
 	public static Button dropGear = new JoystickButton(driveJoystick, 2);
 	public static Button reset = new JoystickButton(driveJoystick, 1);
 	public static Button align = new JoystickButton(driveJoystick, 8);
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
-	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
+	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);*/
 	
 	public static Button casDown = new JoystickButton(driveJoystick, 1);
 	public static Button casUp = new JoystickButton(driveJoystick, 2);
@@ -55,11 +55,13 @@ public class OI {
 
 	
 	public void bindButtons() {
-		climberButton.whileHeld(new Climb(1.0));
-		climberButton.whileHeld(new TurnDegrees(45));
+		//climberButton.whileHeld(new Climb(1.0));
+		//climberButton.whileHeld(new TurnDegrees(45));
+		
 		casDown.whileHeld(new MoveCascade(false));
 		casUp.whileHeld(new MoveCascade(true));
-		compressorButton.toggleWhenPressed(new ToggleCompressor());
+		
+		/*compressorButton.toggleWhenPressed(new ToggleCompressor());
 		dropGear.whenPressed(new ShiftChute(false));
 		reset.whenPressed(new ShiftChute(true));
 		align.toggleWhenPressed(new AutoAlign());
