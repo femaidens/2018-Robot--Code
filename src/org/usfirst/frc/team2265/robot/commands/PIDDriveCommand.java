@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 import org.usfirst.frc.team2265.robot.subsystems.PIDDrive.DriveMode;
 import org.usfirst.frc.team2265.robot.subsystems.PIDDrive.SensorMode;
 
@@ -38,8 +38,8 @@ public class PIDDriveCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     		// Puts the current value of the gyro onto the Smart Dashboard
-    		SmartDashboard.putNumber("EncoderL Value", Drivetrain.encoderLeft.getDistance());
-    		SmartDashboard.putNumber("EncoderR Value", Drivetrain.encoderRight.getDistance());
+    		SmartDashboard.putNumber("EncoderL Value", PIDDrive.encoderLeft.getDistance());
+    		SmartDashboard.putNumber("EncoderR Value", PIDDrive.encoderRight.getDistance());
     		// Rotates the robot; speed correlated with magnitude of joystick on the y axis
     		Robot.drive.setSpeed(-driveJoystick.getY());
     }

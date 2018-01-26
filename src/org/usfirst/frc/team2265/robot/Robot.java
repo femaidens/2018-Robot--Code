@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+//import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.Ladder;
 import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
 	public static OI m_oi;
-	public static Drivetrain drivetrain;
+	//public static Drivetrain drivetrain;
 	public static Ladder ladder;
 	public static Acquirer acquirer;
 	
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		drivetrain = new Drivetrain();
+		//drivetrain = new Drivetrain();
 		ladder = new Ladder();
 		acquirer = new Acquirer();
 		// chooser.addObject("My Auto", new MyAutoCommand());

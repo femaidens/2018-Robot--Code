@@ -1,12 +1,16 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
+import org.usfirst.frc.team2265.robot.OI;
 import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 //import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 //import edu.wpi.first.wpilibj.PWMTalonSRX;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+//import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -21,10 +25,15 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	//creates speed controller groups
 	public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft, rearLeft);
 	public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, rearRight);
+	
+	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2);
+	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4);
+	
+	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	
 	public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
 	
-	public AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
-	
+		
 	public final int WHEELRADIUS = 2;
 	
 	
@@ -46,8 +55,8 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 		driveMode = DriveMode.TURN;
 		
 		//reset drive encoders for PID
-		Drivetrain.encoderLeft.reset();
-		Drivetrain.encoderRight.reset();
+		encoderLeft.reset();
+		encoderRight.reset();
 		
 		// this is a 20% tolerable error
 		getPIDController().setAbsoluteTolerance(20.0);
@@ -59,6 +68,26 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	//initializes the two modes; one to drive and one to use the sensors
 	public SensorMode sensorMode;
 	public DriveMode driveMode;
+	
+	//teleop
+	public void drive() {
+		double leftVal = OI.driveJoystick.getRawAxis(5);
+		double rightVal = OI.driveJoystick.getRawAxis(1);
+		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
+		System.out.println("Gyro: "+ gyro.getAngle());
+		frontRight.set(ControlMode.PercentOutput,-rightVal);
+		rearRight.set(ControlMode.PercentOutput,-rightVal);
+		frontLeft.set(ControlMode.PercentOutput,leftVal);
+		rearLeft.set(ControlMode.PercentOutput,leftVal);
+	}
+	
+	//auton 
+	public void drive(double l, double r) {
+		frontRight.set(ControlMode.PercentOutput,-r);
+		rearRight.set(ControlMode.PercentOutput,-r);
+		frontLeft.set(ControlMode.PercentOutput,l);
+		rearLeft.set(ControlMode.PercentOutput,l);
+	}
 	
 	public void startAdjust(double currentpoint, double setpoint) {
 		//enables PIDController with given setpoint 
@@ -80,7 +109,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	protected double returnPIDInput() {
 		//returns the input to be used by the PIDController
 		if(sensorMode == SensorMode.ENCODER) {
-			return Drivetrain.encoderLeft.getDistance(); 
+			return encoderLeft.getDistance(); 
 		}
 		else {
 			return gyro.getAngle(); // might have to do some math for this --separate method
@@ -115,11 +144,11 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	}
 
 	public double getLEncDistance() {
-		return Drivetrain.encoderLeft.get();
+		return encoderLeft.get();
 	}
 	
 	public double getREncDistance() {
-		return Drivetrain.encoderRight.get();
+		return encoderRight.get();
 	}
 	@Override
 	protected void initDefaultCommand() {

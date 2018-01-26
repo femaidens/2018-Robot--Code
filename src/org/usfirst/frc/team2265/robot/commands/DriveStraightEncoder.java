@@ -2,26 +2,26 @@ package org.usfirst.frc.team2265.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 import org.usfirst.frc.team2265.robot.Robot;
 
 public class DriveStraightEncoder extends Command {
 	public DriveStraightEncoder() {
-		requires(Robot.drivetrain);
+		requires(Robot.drive);
 	}
 	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Drivetrain.encoderLeft.reset();
-		Drivetrain.encoderRight.reset();
+		PIDDrive.encoderLeft.reset();
+		PIDDrive.encoderRight.reset();
 	}
 	
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (Drivetrain.encoderLeft.get() > Drivetrain.encoderRight.get()) {
-			Robot.drivetrain.drive(Robot.drivetrain.frontLeft.getMotorOutputPercent() - 0.1, Drivetrain.frontRight.getMotorOutputPercent() + 0.1);
-		} else if (Drivetrain.encoderRight.get() > Drivetrain.encoderLeft.get()) {
-			Robot.drivetrain.drive(Drivetrain.drivefrontLeft.getMotorOutputPercent() + 0.1,Drivetrain.frontRight.getMotorOutputPercent() - 0.1);
+		if (PIDDrive.encoderLeft.get() > PIDDrive.encoderRight.get()) {
+			Robot.drive.drive(PIDDrive.frontLeft.getMotorOutputPercent() - 0.1, PIDDrive.frontRight.getMotorOutputPercent() + 0.1);
+		} else if (PIDDrive.encoderRight.get() > PIDDrive.encoderLeft.get()) {
+			Robot.drive.drive(PIDDrive.frontLeft.getMotorOutputPercent() + 0.1,PIDDrive.frontRight.getMotorOutputPercent() - 0.1);
 		}
 	}
 	
@@ -32,9 +32,9 @@ public class DriveStraightEncoder extends Command {
 	
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.drivetrain.drive(0, 0);
-		Drivetrain.encoderLeft.reset();
-		Drivetrain.encoderRight.reset();
+		Robot.drive.drive(0, 0);
+		PIDDrive.encoderLeft.reset();
+		PIDDrive.encoderRight.reset();
 	}
 	
 	// Called when another command which requires one or more of the same

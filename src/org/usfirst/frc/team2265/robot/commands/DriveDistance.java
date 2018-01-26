@@ -3,7 +3,8 @@ package org.usfirst.frc.team2265.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team2265.robot.Robot;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+
+import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 
 import edu.wpi.first.wpilibj.Timer;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -32,34 +33,34 @@ public class DriveDistance extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
-    	angle = Drivetrain.gyro.getAngle();
-		Drivetrain.encoderLeft.reset();
-		Drivetrain.encoderRight.reset();
+    	angle = PIDDrive.gyro.getAngle();
+		PIDDrive.encoderLeft.reset();
+		PIDDrive.encoderRight.reset();
 		timer.reset();
 		timer.start();
 		
-		Robot.drivetrain.drive(leftVel,rightVel);
+		Robot.drive.drive(leftVel,rightVel);
     }
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	if (Drivetrain.gyro.getAngle() < angle) {
-			Drivetrain.frontRight.set(ControlMode.PercentOutput,rightVel + 0.075);
-			Drivetrain.rearRight.set(ControlMode.PercentOutput,rightVel + 0.075);
-			Drivetrain.frontLeft.set(ControlMode.PercentOutput,leftVel - 0.075);
-			Drivetrain.rearLeft.set(ControlMode.PercentOutput,leftVel - 0.075);
-			System.out.println("Left:"  + Drivetrain.gyro.getAngle());
-		} else if (Drivetrain.gyro.getAngle() > angle) {
-			Drivetrain.frontLeft.set(ControlMode.PercentOutput,leftVel + 0.075);
-			Drivetrain.rearLeft.set(ControlMode.PercentOutput,leftVel+ 0.075);
-			Drivetrain.rearRight.set(ControlMode.PercentOutput,rightVel - 0.075);
-			Drivetrain.frontRight.set(ControlMode.PercentOutput,rightVel - 0.075);
-			System.out.println("Right: "+Drivetrain.gyro.getAngle());
+    	if (PIDDrive.gyro.getAngle() < angle) {
+			PIDDrive.frontRight.set(ControlMode.PercentOutput,rightVel + 0.075);
+			PIDDrive.rearRight.set(ControlMode.PercentOutput,rightVel + 0.075);
+			PIDDrive.frontLeft.set(ControlMode.PercentOutput,leftVel - 0.075);
+			PIDDrive.rearLeft.set(ControlMode.PercentOutput,leftVel - 0.075);
+			System.out.println("Left:"  + PIDDrive.gyro.getAngle());
+		} else if (PIDDrive.gyro.getAngle() > angle) {
+			PIDDrive.frontLeft.set(ControlMode.PercentOutput,leftVel + 0.075);
+			PIDDrive.rearLeft.set(ControlMode.PercentOutput,leftVel+ 0.075);
+			PIDDrive.rearRight.set(ControlMode.PercentOutput,rightVel - 0.075);
+			PIDDrive.frontRight.set(ControlMode.PercentOutput,rightVel - 0.075);
+			System.out.println("Right: "+ PIDDrive.gyro.getAngle());
 		}
     	
-    	distanceLeft = Drivetrain.encoderLeft.get();
-		distanceRight = Drivetrain.encoderRight.get();
+    	distanceLeft = PIDDrive.encoderLeft.get();
+		distanceRight = PIDDrive.encoderRight.get();
 		
     }
     
@@ -73,9 +74,9 @@ public class DriveDistance extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	//stops motors and resets encoders
-    	Robot.drivetrain.drive(0, 0);
-    	Drivetrain.encoderLeft.reset(); 
-    	Drivetrain.encoderRight.reset(); //remove if we want to see how far the encoder has moved AFTER stopping
+    	Robot.drive.drive(0, 0);
+    	PIDDrive.encoderLeft.reset(); 
+    	PIDDrive.encoderRight.reset(); //remove if we want to see how far the encoder has moved AFTER stopping
     	timer.reset();
     }
     
