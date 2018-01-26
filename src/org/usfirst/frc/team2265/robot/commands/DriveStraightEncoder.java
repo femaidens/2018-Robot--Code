@@ -21,7 +21,7 @@ public class DriveStraightEncoder extends Command {
 		if (Drivetrain.encoderLeft.get() > Drivetrain.encoderRight.get()) {
 			Robot.drivetrain.drive(Robot.drivetrain.frontLeft.getMotorOutputPercent() - 0.1, Drivetrain.frontRight.getMotorOutputPercent() + 0.1);
 		} else if (Drivetrain.encoderRight.get() > Drivetrain.encoderLeft.get()) {
-			Robot.drivetrain.drive(Drivetrain.frontLeft.getMotorOutputPercent() + 0.1,Drivetrain.frontRight.getMotorOutputPercent() - 0.1);
+			Robot.drivetrain.drive(Drivetrain.drivefrontLeft.getMotorOutputPercent() + 0.1,Drivetrain.frontRight.getMotorOutputPercent() - 0.1);
 		}
 	}
 	
