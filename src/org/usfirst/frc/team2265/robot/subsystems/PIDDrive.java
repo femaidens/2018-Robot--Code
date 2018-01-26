@@ -23,7 +23,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, rearRight);
 	public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
 	
-	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
+	public AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	
 	public final int WHEELRADIUS = 2;
 	
@@ -114,8 +114,12 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	    rearLeft.set(speed);
 	}
 
-	public double getEncDistance() {
+	public double getLEncDistance() {
 		return Drivetrain.encoderLeft.get();
+	}
+	
+	public double getREncDistance() {
+		return Drivetrain.encoderRight.get();
 	}
 	@Override
 	protected void initDefaultCommand() {
