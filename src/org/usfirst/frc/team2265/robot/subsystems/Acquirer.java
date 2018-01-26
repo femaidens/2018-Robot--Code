@@ -66,7 +66,7 @@ public class Acquirer extends Subsystem {
 		pivRight.set(ControlMode.PercentOutput, 0);
 	}
 	
-	
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
