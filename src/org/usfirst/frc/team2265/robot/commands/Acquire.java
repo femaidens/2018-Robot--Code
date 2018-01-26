@@ -45,6 +45,7 @@ public class Acquire extends Command {
     	Acquirer.acqLeft.set(ControlMode.PercentOutput,0);
     	Acquirer.acqRight.set(ControlMode.PercentOutput,0);
     }
+    
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

@@ -61,6 +61,9 @@ public class RobotMap {
 	//Gyro port
 	public static int gyroPort = 1;
 
+	//limit switch ports
+	public static int acqlimPort = 1; 
+	
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

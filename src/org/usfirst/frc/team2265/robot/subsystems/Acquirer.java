@@ -5,6 +5,7 @@ import org.usfirst.frc.team2265.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -25,6 +26,8 @@ public class Acquirer extends Subsystem {
 	
 	public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
 	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
+	
+	public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);
 	
 	public double length = 20;
 	public double circ = length*Math.PI/2;
@@ -66,6 +69,11 @@ public class Acquirer extends Subsystem {
 		pivRight.set(ControlMode.PercentOutput, 0);
 	}
 	
+	public void isAcquired() {
+		if(limitswitch.get() == true) {
+			System.out.println("BOX ACQURED");
+		}
+	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
