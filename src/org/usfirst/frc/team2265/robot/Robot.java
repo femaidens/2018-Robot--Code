@@ -18,6 +18,7 @@ import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.subsystems.Ladder;
+import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,7 +39,7 @@ public class Robot extends TimedRobot {
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+	public static final PIDDrive drive = new PIDDrive("Drive", 0.1, 0.0, 0.1);
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
