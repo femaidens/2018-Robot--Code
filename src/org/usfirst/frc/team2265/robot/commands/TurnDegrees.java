@@ -22,7 +22,7 @@ public class TurnDegrees extends Command {
 	}
 	
 	protected void execute() {
-		// System.out.println("Gyro: " + Drivetrain.gyro.getAngle());
+		System.out.println("Gyro: " + Drivetrain.gyro.getAngle());
 		System.out.println("Turning");
 		// if the angle the robot is currently in is less than the degree you want, then
 		// the robot would turn right.

@@ -36,18 +36,18 @@ public class RobotMap {
 
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;
-
 	
-	public static int ladderPort1 = 6;
-	public static int ladderPort2 = 7;
-	public static int basePort1 = 4; 
-	public static int basePort2 = 5; 
 	
-	//temp talon ports
 	public static int casLPort1 = 1;
 	public static int casLPort2 = 1;
 	public static int casRPort1 = 1;
 	public static int casRPort2 = 1;
+
+	// Solenoid Ports for gearChute
+	public static int ladderPort1 = 6;
+	public static int ladderPort2 = 7;
+	public static int basePort1 = 4; 
+	public static int basePort2 = 5; 
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;
@@ -64,19 +64,16 @@ public class RobotMap {
 	public static int encPivPort3 = 5;
 	public static int encPivPort4 = 5;
 	
-	public static int casencLPort1 = 1;
-	public static int casencLPort2 = 1;
-	public static int casencRPort1 = 1;
-	public static int casencRPort2 = 1;
+	public static int encLPort1 = 1;
+	public static int encLPort2 = 1;
+	public static int encRPort1 = 1;
+	public static int encRPort2 = 1;
 	
-	//limit switch ports
-	public static int caslimitswitchPort = 3;
 	//Gyro port
 	public static int gyroPort = 1;
-	
 
-
-
+   //limit switch port 
+	public static int limSwitchPort1 = 2; //placeholder 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

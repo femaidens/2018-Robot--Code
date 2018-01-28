@@ -3,7 +3,6 @@ package org.usfirst.frc.team2265.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2265.robot.OI;
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
@@ -37,6 +36,9 @@ public class Drivetrain extends Subsystem {
 			Encoder.EncodingType.k1X);
 
 	public static double constant = 8.6;
+	
+	double rightVal;
+	double leftVal;
 
 	public Drivetrain() {
 		encoderLeft.setMaxPeriod(2);
@@ -45,8 +47,8 @@ public class Drivetrain extends Subsystem {
 
 	// Teleop
 	public void drive() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		leftVal = OI.driveJoystick.getRawAxis(5);
+		rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal);
@@ -56,8 +58,8 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void driveSlow() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		leftVal = OI.driveJoystick.getRawAxis(5);
+		rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal*0.85);
@@ -78,7 +80,6 @@ public class Drivetrain extends Subsystem {
 
 		if (degrees > 0) {
 			while (gyro.getAngle() < degrees) {
-
 				frontRight.set(ControlMode.PercentOutput,-0.25);
 				rearRight.set(ControlMode.PercentOutput,-0.25);
 				frontLeft.set(ControlMode.PercentOutput,-0.25);
@@ -98,7 +99,13 @@ public class Drivetrain extends Subsystem {
 		}
 
 	}
-	
+
+	public void stop() {
+		frontRight.set(ControlMode.PercentOutput, 0.0);
+		rearRight.set(ControlMode.PercentOutput,0.0);
+		frontLeft.set(ControlMode.PercentOutput,0.0);
+		rearLeft.set(ControlMode.PercentOutput, 0.0);
+	}
 
 	/*public void autoAlign() { 
 		while ((!AutoAlign.done) &&(Robot.midX < 285 || Robot.midX > 315)) { 

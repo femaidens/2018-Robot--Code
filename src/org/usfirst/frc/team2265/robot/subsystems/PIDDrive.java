@@ -39,7 +39,6 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	@SuppressWarnings("deprecation")
 	public PIDDrive(String name, double kp, double ki, double kd) {
 		super("PIDDrive", 0.1, 0, 0.1);	//this is from the PIDSubsystem class these declare the PID values
-		// still need to figure out this LiveWindow BS
 		LiveWindow.addActuator("Drive", "PIDSubsystemController", getPIDController());
 		//we are using an encoder based PID control
 		sensorMode = SensorMode.ENCODER;
@@ -54,7 +53,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 		//sets value to singular setpoint
 		getPIDController().setContinuous(true);			
 		
-		}
+	}
 	
 	//initializes the two modes; one to drive and one to use the sensors
 	public SensorMode sensorMode;
