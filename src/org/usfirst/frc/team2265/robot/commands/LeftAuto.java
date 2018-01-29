@@ -30,20 +30,20 @@ public class LeftAuto extends CommandGroup {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData.charAt(0) == 'L'){
     			addSequential(new DriveDistance(16, 0.5));
-    			addSequential(new TurnDegrees(90));
+    			//addSequential(new TurnDegrees(90));
     			//addSequential(new Lift());
     			addSequential(new Acquire(false));
     	}
     	else {
     		addSequential(new DriveDistance(25,0.5)); //placeholder
-    		addSequential(new TurnDegrees(90)); //placeholder
+    		//addSequential(new TurnDegrees(90)); //placeholder
     		if(gameData.charAt(1) == 'L') {
     			addSequential(new DriveDistance(4,0.5));
     			//addSequential(new Lift());
     			addSequential(new Acquire(false));
     		} 
-    		else 
-    			addSequential(new TurnDegrees(90));
+    		//else 
+    			//addSequential(new TurnDegrees(90));
     	}
     	
     	/*SmartDashboard.putString(“OurSwitchColor”,gameData.charAt(0));
