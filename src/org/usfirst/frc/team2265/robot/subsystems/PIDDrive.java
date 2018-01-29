@@ -25,17 +25,16 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	//creates speed controller groups
 	public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft, rearLeft);
 	public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, rearRight);
-	
+	public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
+
 	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2);
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4);
 	
 	public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);
 	
-	public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
-	
-		
+	//public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
+			
 	public final int WHEELRADIUS = 2;
-	
 	
 	public enum SensorMode {
 		GYRO, ENCODER;
@@ -61,8 +60,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 		// this is a 20% tolerable error
 		getPIDController().setAbsoluteTolerance(20.0);
 		//sets value to singular setpoint
-		getPIDController().setContinuous(true);			
-		
+		getPIDController().setContinuous(true);				
 		}
 	
 	//initializes the two modes; one to drive and one to use the sensors

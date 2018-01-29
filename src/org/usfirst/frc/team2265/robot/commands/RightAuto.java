@@ -30,7 +30,7 @@ public class RightAuto extends CommandGroup {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData.charAt(0) == 'R'){
     		addSequential(new DriveDistance(16, 0.5)); // placeholder,16ft
-    		addSequential(new TurnDegrees(-90)); // placeholder
+    		//addSequential(new TurnDegrees(-90)); // placeholder
     		//addSequential(new Lift());
     		addSequential(new Acquire(false));
     	}
@@ -38,14 +38,14 @@ public class RightAuto extends CommandGroup {
     	else { //first one is Left
     		//not in if statement bc need to cross base line
     		addSequential(new DriveDistance(2,0.5));
-    		addSequential(new TurnDegrees(-90)); //placeholder
+    		//addSequential(new TurnDegrees(-90)); //placeholder
     		if(gameData.charAt(1) == 'R') { 
     			addSequential(new DriveDistance(4,0.5));
     			//addSequential(new Lift());
     			addSequential(new Acquire(false));
     		} 
-    		else
-    			addSequential(new TurnDegrees(-90));
+    		//else
+    			//addSequential(new TurnDegrees(-90));
     	}
     	
     	/*SmartDashboard.putString(“OurSwitchColor”,gameData.charAt(0));

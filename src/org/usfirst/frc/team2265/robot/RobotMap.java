@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2265.robot;
 
+import edu.wpi.first.wpilibj.I2C.Port;
+
 //RobotMap.java
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -48,7 +50,9 @@ public class RobotMap {
 	public static int casLPort2 = 1;
 	public static int casRPort1 = 1;
 	public static int casRPort2 = 1;
-
+	
+	public static int i2cPort = 8;
+	
 	// Encoder Ports
 	/*public static int encPort1 = 5;
 	public static int encPort2 = 6;
