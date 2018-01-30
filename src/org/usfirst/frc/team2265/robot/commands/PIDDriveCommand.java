@@ -32,12 +32,12 @@ public class PIDDriveCommand extends Command {
     	else {
     		Robot.drive.sensorMode = SensorMode.GYRO;
     		Robot.drive.driveMode = DriveMode.DRIVE;
-    	}
-    }
+    	}                     
+    }                                                                                                                                                                                                                                                                                                                                                                                                
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		// Puts the current value of the gyro onto the Smart Dashboard
+    		// Puts the current value of the encoder onto the Smart Dashboard
     		SmartDashboard.putNumber("EncoderL Value", PIDDrive.encoderLeft.getDistance());
     		SmartDashboard.putNumber("EncoderR Value", PIDDrive.encoderRight.getDistance());
     		// Rotates the robot; speed correlated with magnitude of joystick on the y axis

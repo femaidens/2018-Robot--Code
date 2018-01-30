@@ -39,7 +39,7 @@ public class DriveDistance extends Command {
 		timer.reset();
 		timer.start();
 		
-		Robot.drive.drive(leftVel,rightVel);
+		//Robot.drive.drive(leftVel,rightVel);
     }
     
     // Called repeatedly when this Command is scheduled to run
@@ -74,7 +74,7 @@ public class DriveDistance extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	//stops motors and resets encoders
-    	Robot.drive.drive(0, 0);
+    	//Robot.drive.drive(0, 0);
     	PIDDrive.encoderLeft.reset(); 
     	PIDDrive.encoderRight.reset(); //remove if we want to see how far the encoder has moved AFTER stopping
     	timer.reset();

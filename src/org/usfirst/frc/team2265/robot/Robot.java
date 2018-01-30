@@ -14,10 +14,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
+//import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 //import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2265.robot.subsystems.Ladder;
+//import org.usfirst.frc.team2265.robot.subsystems.Ladder;
 import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 
 /**
@@ -28,18 +28,18 @@ import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
+	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static OI m_oi;
 	//public static Drivetrain drivetrain;
-	public static Ladder ladder;
-	public static Acquirer acquirer;
+	//public static Ladder ladder;
+	//public static Acquirer acquirer;
 	
 	public static Compressor compressy;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	public static final PIDDrive drive = new PIDDrive("Drive", 0.1, 0.0, 0.1);
+	//makes an instance of PIDDrive to use statically
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -50,8 +50,8 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		//drivetrain = new Drivetrain();
-		ladder = new Ladder();
-		acquirer = new Acquirer();
+		//ladder = new Ladder();
+		//acquirer = new Acquirer();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		

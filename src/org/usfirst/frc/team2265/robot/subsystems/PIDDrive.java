@@ -69,31 +69,11 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	public SensorMode sensorMode;
 	public DriveMode driveMode;
 	
-	//teleop
-	public void drive() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
-		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
-		System.out.println("Gyro: "+ gyro.getAngle());
-		frontRight.set(ControlMode.PercentOutput,-rightVal);
-		rearRight.set(ControlMode.PercentOutput,-rightVal);
-		frontLeft.set(ControlMode.PercentOutput,leftVal);
-		rearLeft.set(ControlMode.PercentOutput,leftVal);
-	}
-	
-	//auton 
-	public void drive(double l, double r) {
-		frontRight.set(ControlMode.PercentOutput,-r);
-		rearRight.set(ControlMode.PercentOutput,-r);
-		frontLeft.set(ControlMode.PercentOutput,l);
-		rearLeft.set(ControlMode.PercentOutput,l);
-	}
-	
 	public void startAdjust(double currentpoint, double setpoint) {
 		//enables PIDController with given setpoint 
 		if(sensorMode == SensorMode.ENCODER) {
-			setpoint %= 200;//assumes that the ticks per revolution is 200, keeps changing the setpoint by using the remainder as it is divided into the number of ticks per revolution
-			setSetpoint((int) (((currentpoint - setpoint >= 0 ? 100 : -100) + currentpoint - setpoint) / 200) * 200 + setpoint); //sets the setpoint to 
+			setpoint = setpoint % 200;//assumes that the ticks per revolution is 200, keeps changing the setpoint by using the remainder as it is divided into the number of ticks per revolution
+			setSetpoint((int) ( ( (currentpoint - setpoint >= 0 ? 100 : -100) + currentpoint - setpoint ) / 200) * 200 + setpoint); //sets the setpoint to 
 		}
 		else {
 			setSetpoint(setpoint);
@@ -126,19 +106,10 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	} 
 	
 	public void setSpeed(double speed) {
-		// Sets wheels to given speed.
-		frontRight.set((driveMode == DriveMode.TURN) ? speed : -speed);
-		/*if (driveMode == DriveMode.TURN) {
-			frontRight.set(speed);
-		} 
-		  else {
-			frontRight.set(-speed);
-		}*/
-		frontLeft.set((driveMode == DriveMode.TURN) ? speed : -speed);
-		/*if(driveMode == DriveMode.TURN) 
-			frontLeft.set(speed);
-		else 
-			frontLeft.set(-speed);*/
+		// Sets wheels to given speed
+		double turnDrive = (driveMode == DriveMode.TURN) ? speed : -speed; //if we are in drive turn mode, then we have a positive speed. 
+		frontRight.set(turnDrive);
+		frontLeft.set(turnDrive);
 		rearRight.set(speed);
 	    rearLeft.set(speed);
 	}
@@ -150,6 +121,12 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	public double getREncDistance() {
 		return encoderRight.get();
 	}
+	
+	public void resetEncoders() {
+		encoderRight.reset();
+		encoderLeft.reset();
+	}
+	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub

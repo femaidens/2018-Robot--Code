@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.subsystems.PIDDrive;
 import org.usfirst.frc.team2265.robot.subsystems.PIDDrive.SensorMode;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,7 +24,7 @@ public class AdjustWithSensor extends Command{
 		}
 
 		else
-			Robot.drive.startAdjust(Robot.drive.gyro.getAngle(), SmartDashboard.getNumber("Turn", 0));
+			Robot.drive.startAdjust(PIDDrive.gyro.getAngle(), SmartDashboard.getNumber("Turn", 0));
 		    // Sets PID of the PID controller to the values given on the SmartDashboard
 			Robot.drive.getPIDController().setPID(SmartDashboard.getNumber("P", 0.1), SmartDashboard.getNumber("I", 0), SmartDashboard.getNumber("D", 0.1));
 	}
@@ -31,9 +32,9 @@ public class AdjustWithSensor extends Command{
 	@Override
 	protected void execute() {
 		// Inserts the current angle of the gyro onto the SmartDashboard
-		SmartDashboard.putNumber("GyroValue", Robot.drive.gyro.getAngle());
+		SmartDashboard.putNumber("GyroValue", PIDDrive.gyro.getAngle());
 		SmartDashboard.putNumber("EncoderValue Right", Robot.drive.getREncDistance());
-		SmartDashboard.putNumber(("EncoderValue Right"), Robot.drive.getLEncDistance());
+		SmartDashboard.putNumber("EncoderValue Right", Robot.drive.getLEncDistance());
 	}
 
 	@Override
