@@ -22,6 +22,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
 	public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
 	public static WPI_TalonSRX rearRight = new WPI_TalonSRX (RobotMap.rearRightPort);
+	
 	//creates speed controller groups
 	public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft, rearLeft);
 	public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, rearRight);
@@ -33,9 +34,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	
 	public static DifferentialDrive drive =  new DifferentialDrive(leftMotors, rightMotors);
 	
-		
 	public final int WHEELRADIUS = 2;
-	
 	
 	public enum SensorMode {
 		GYRO, ENCODER;
@@ -107,7 +106,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	
 	public void setSpeed(double speed) {
 		// Sets wheels to given speed
-		double turnDrive = (driveMode == DriveMode.TURN) ? speed : -speed; //if we are in drive turn mode, then we have a positive speed. 
+		double turnDrive = (driveMode == DriveMode.TURN) ? speed : -speed ; //if we are in drive turn mode, then we have a positive speed. 
 		frontRight.set(turnDrive);
 		frontLeft.set(turnDrive);
 		rearRight.set(speed);
@@ -129,7 +128,6 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 }
