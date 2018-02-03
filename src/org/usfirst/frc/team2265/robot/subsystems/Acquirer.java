@@ -23,7 +23,7 @@ public class Acquirer extends Subsystem {
 	public static TalonSRX pivLeft = new TalonSRX(RobotMap.pivLeftPort);
 	public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);
 	
-	public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
+	public static Encoder encPivL = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
 	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
 	
 	public double length = 20;
@@ -43,10 +43,10 @@ public class Acquirer extends Subsystem {
 	}
 	
 	public void pivotDown(){
-		encPivLeft.reset();
+		encPivL.reset();
 		encPivRight.reset();
 		
-		while(encPivLeft.get() > circ*236/12){
+		while(encPivL.get() > circ*236/12){
 			pivRight.set(ControlMode.PercentOutput, -0.75);
 			pivLeft.set(ControlMode.PercentOutput, -0.75);
 		}
@@ -55,10 +55,10 @@ public class Acquirer extends Subsystem {
 	}
 	
 	public void pivotUp(){
-		encPivLeft.reset();
+		encPivL.reset();
 		encPivRight.reset();
 		
-		while(encPivLeft.get() > circ*236/12){
+		while(encPivL.get() > circ*236/12){
 			pivRight.set(ControlMode.PercentOutput, 0.75);
 			pivLeft.set(ControlMode.PercentOutput, 0.75);
 		}

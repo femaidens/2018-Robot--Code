@@ -41,10 +41,7 @@ public class CenterAuto extends CommandGroup {
     		//cascade lift, addSequential(new Lift());
     		addSequential(new Acquire(false));
     	}
-    	
-    	/*SmartDashboard.putString("OurSwitchColor",gameData.charAt(0));
-    	SmartDashboard.putString("ScaleColor",gameData.charAt(1));
-    	SmartDashboard.putString("OtherSwitchColor",gameData.charAt(2));*/
+
     	
     }
     
