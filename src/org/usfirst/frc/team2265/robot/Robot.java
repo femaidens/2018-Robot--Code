@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		drivetrain = new Drivetrain();
-		piddrive = new PIDDrive("PIDDrive", 0.1, 0, 0); //sets the pid values for the subsystem
+		piddrive = new PIDDrive(); //sets the pid values for the subsystem
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		oi.bindButtons();
