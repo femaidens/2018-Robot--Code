@@ -5,7 +5,6 @@ import org.usfirst.frc.team2265.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -21,63 +20,51 @@ public class Acquirer extends Subsystem {
 	
 	public static TalonSRX acqLeft = new TalonSRX(RobotMap.acqLeftPort);
 	public static TalonSRX acqRight = new TalonSRX(RobotMap.acqRightPort);
-	public static TalonSRX pivLeft = new TalonSRX(RobotMap.pivLeftPort);
-	public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);
+	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
 	
-	public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
-	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
+	public static Encoder encPiv = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
 	
-	public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);
-	
-	public double length = 20;
-	public double circ = length*Math.PI/2;
+	public int ticksPerRev = 200; // 200 is a placeholder
+	public double length = ticksPerRev/4;
 	
 	public Acquirer(){
 	}
 	
 	public void acquire(){
-		acqLeft.set(ControlMode.PercentOutput, 0.75);
-		acqRight.set(ControlMode.PercentOutput, 0.75);
+		acqLeft.set(ControlMode.PercentOutput, 0.75);//positive velocity indicates the wheels turning right
+		acqRight.set(ControlMode.PercentOutput, -0.75); // negative velocity indicates the wheels turning left
+		//acquired
 	}
 	
 	public void release(){
 		acqLeft.set(ControlMode.PercentOutput, -0.75);
-		acqRight.set(ControlMode.PercentOutput, -0.75);
+		acqRight.set(ControlMode.PercentOutput, 0.75);
+		//released
 	}
 	
 	public void pivotDown(){
-		encPivLeft.reset();
-		encPivRight.reset();
+		encPiv.reset();
 		
-		while(encPivLeft.get() > circ*236/12){
-			pivRight.set(ControlMode.PercentOutput, -0.75);
-			pivLeft.set(ControlMode.PercentOutput, -0.75);
+		while(encPiv.get() < length){
+			piv.set(ControlMode.PercentOutput, -0.75);
 		}
-		pivLeft.set(ControlMode.PercentOutput, 0);
-		pivRight.set(ControlMode.PercentOutput, 0);
+		piv.set(ControlMode.PercentOutput, 0);
 	}
 	
 	public void pivotUp(){
-		encPivLeft.reset();
-		encPivRight.reset();
+		encPiv.reset();
 		
-		while(encPivLeft.get() > circ*236/12){
-			pivRight.set(ControlMode.PercentOutput, 0.75);
-			pivLeft.set(ControlMode.PercentOutput, 0.75);
+		while(encPiv.get() < length){
+			piv.set(ControlMode.PercentOutput, 0.75);
 		}
-		pivLeft.set(ControlMode.PercentOutput, 0);
-		pivRight.set(ControlMode.PercentOutput, 0);
+		piv.set(ControlMode.PercentOutput, 0);
 	}
 	
-	public void isAcquired() {
-		if(limitswitch.get() == true) {
-			System.out.println("BOX ACQURED");
-		}
-	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
 }
+
 

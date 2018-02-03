@@ -40,9 +40,7 @@ public class Pivot extends Command {
     }
 
     // Called once after isFinished returns true
-    protected void end() {
-    	Acquirer.pivLeft.set(ControlMode.PercentOutput, 0);
-    	Acquirer.pivRight.set(ControlMode.PercentOutput, 0);
+    protected void end() {	
     }
 
     // Called when another command which requires one or more of the same
@@ -50,3 +48,4 @@ public class Pivot extends Command {
     protected void interrupted() {
     }
 }
+

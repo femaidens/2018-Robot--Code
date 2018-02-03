@@ -31,8 +31,7 @@ public class RobotMap {
 	
 	public static int acqLeftPort = 5;
 	public static int acqRightPort = 5;
-	public static int pivLeftPort = 5;
-	public static int pivRightPort = 5;
+	public static int pivPort = 5;
 
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;
@@ -55,8 +54,6 @@ public class RobotMap {
 	
 	public static int encPivPort1 = 5;
 	public static int encPivPort2 = 5;
-	public static int encPivPort3 = 5;
-	public static int encPivPort4 = 5;
 	
 	//Gyro port
 	public static int gyroPort = 1;
