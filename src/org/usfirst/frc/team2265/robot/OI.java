@@ -1,10 +1,12 @@
 package org.usfirst.frc.team2265.robot;
 
+import org.usfirst.frc.team2265.robot.commands.TestTalon;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-/**
+/**0
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
@@ -41,12 +43,12 @@ public class OI {
 
 	public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
-	public static Button dropGear = new JoystickButton(driveJoystick, 2);
+	//public static Button dropGear = new JoystickButton(driveJoystick, 2);
 	public static Button reset = new JoystickButton(driveJoystick, 1);
 	public static Button align = new JoystickButton(driveJoystick, 8);
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
-	
+	public static Button talonturn = new JoystickButton(driveJoystick, 2);
 	
 
 	
@@ -60,7 +62,7 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
-
+		talonturn.whileHeld(new TestTalon());
 		
 	}
 }

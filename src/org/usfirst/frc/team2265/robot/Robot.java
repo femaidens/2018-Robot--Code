@@ -13,8 +13,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+//import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2265.robot.subsystems.Talon;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -30,8 +31,8 @@ public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
 	public static OI m_oi;
-	public static Drivetrain drivetrain;
-	public static TalonSRX testtalon;
+	//public static Drivetrain drivetrain;
+	public static Talon testtalon;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -43,16 +44,16 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		drivetrain = new Drivetrain();
+		//drivetrain = new Drivetrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData();
-		testtalon = new TalonSRX(RobotMap.talonport);
+		testtalon = new Talon();
 	}
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
+	 * the robot is disabled.	
 	 */
 	@Override
 	public void disabledInit() {
@@ -116,8 +117,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		testtalon.set(ControlMode.PercentOutput, 0.75);
-		System.out.println("Talon activated :)");
+		
 	}
 
 	/**
