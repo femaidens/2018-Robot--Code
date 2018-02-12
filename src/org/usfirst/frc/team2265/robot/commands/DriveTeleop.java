@@ -23,7 +23,7 @@ public class DriveTeleop extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		// Robot.drivetrain.drive();
-		Robot.drivetrain.drive();
+		Robot.drivetrain.driveSlow();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
