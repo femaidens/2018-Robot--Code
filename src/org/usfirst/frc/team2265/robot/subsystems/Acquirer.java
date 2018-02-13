@@ -21,13 +21,13 @@ public class Acquirer extends Subsystem {
 	
 	public static TalonSRX acqLeft = new TalonSRX(RobotMap.acqLeftPort);
 	public static TalonSRX acqRight = new TalonSRX(RobotMap.acqRightPort);
-	public static TalonSRX pivLeft = new TalonSRX(RobotMap.pivLeftPort);
-	public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);
+	/*public static TalonSRX pivLeft = new TalonSRX(RobotMap.pivLeftPort);
+	public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);*/
 	
-	public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
+	/*public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
 	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
 	
-	public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);
+	public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);*/
 	
 	public double length = 20;
 	public double circ = length*Math.PI/2;
@@ -45,7 +45,7 @@ public class Acquirer extends Subsystem {
 		acqRight.set(ControlMode.PercentOutput, -0.75);
 	}
 	
-	public void pivotDown(){
+	/*public void pivotDown(){
 		encPivLeft.reset();
 		encPivRight.reset();
 		
@@ -67,13 +67,13 @@ public class Acquirer extends Subsystem {
 		}
 		pivLeft.set(ControlMode.PercentOutput, 0);
 		pivRight.set(ControlMode.PercentOutput, 0);
-	}
+	}*/
 	
-	public void isAcquired() {
+	/*public void isAcquired() {
 		if(limitswitch.get() == true) {
 			System.out.println("BOX ACQURED");
 		}
-	}
+	}*/
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

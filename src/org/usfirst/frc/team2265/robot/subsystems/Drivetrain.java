@@ -31,16 +31,16 @@ public class Drivetrain extends Subsystem {
 
 	// Initializing encoder
 
-	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
+	/*public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
 			Encoder.EncodingType.k1X);
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
-			Encoder.EncodingType.k1X);
+			Encoder.EncodingType.k1X);*/
 
 	public static double constant = 8.6;
 
 	public Drivetrain() {
-		encoderLeft.setMaxPeriod(2);
-		encoderRight.setMaxPeriod(2);
+		//encoderLeft.setMaxPeriod(2);
+		//encoderRight.setMaxPeriod(2);
 	}
 
 	// Teleop
@@ -59,7 +59,7 @@ public class Drivetrain extends Subsystem {
 		double leftVal = OI.driveJoystick.getRawAxis(5);
 		double rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
-		//System.out.println("Gyro: "+ gyro.getAngle());
+		System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal*0.85);
 		rearRight.set(ControlMode.PercentOutput,-rightVal*0.85);
 		frontLeft.set(ControlMode.PercentOutput,leftVal*0.85);

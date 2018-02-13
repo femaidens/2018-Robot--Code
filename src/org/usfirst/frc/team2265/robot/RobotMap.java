@@ -34,21 +34,13 @@ public class RobotMap {
 	public static int pivLeftPort = 5;
 	public static int pivRightPort = 5;
 
-	public static int climberPort1 = 5;
-	public static int climberPort2 = 6;
-
-	// Solenoid Ports for gearChute
-	public static int ladderPort1 = 6;
-	public static int ladderPort2 = 7;
-	public static int basePort1 = 4; 
-	public static int basePort2 = 5; 
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;
 	public static int encPort2 = 6;
 	public static int encPort3 = 7;
 	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
+	/*public static int encPort1 = 4;
 	public static int encPort2 = 5;
 	public static int encPort3 = 6;
 	public static int encPort4 = 7;
@@ -56,13 +48,13 @@ public class RobotMap {
 	public static int encPivPort1 = 5;
 	public static int encPivPort2 = 5;
 	public static int encPivPort3 = 5;
-	public static int encPivPort4 = 5;
+	public static int encPivPort4 = 5;*/
 	
 	//Gyro port
 	public static int gyroPort = 1;
 
 	//limit switch ports
-	public static int acqlimPort = 1; 
+	//public static int acqlimPort = 1; 
 	
 
 	// If you are using multiple modules, make sure to define both the port

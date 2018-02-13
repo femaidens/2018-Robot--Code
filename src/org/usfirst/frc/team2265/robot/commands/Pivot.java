@@ -24,14 +24,14 @@ public class Pivot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!up){
+    	/*if(!up){
     		Robot.acquirer.pivotUp();
     		return;
     	}
     	if(up){
     		Robot.acquirer.pivotDown();
     		return;
-    	}
+    	}*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -41,8 +41,8 @@ public class Pivot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Acquirer.pivLeft.set(ControlMode.PercentOutput, 0);
-    	Acquirer.pivRight.set(ControlMode.PercentOutput, 0);
+    	//Acquirer.pivLeft.set(ControlMode.PercentOutput, 0);
+    	//Acquirer.pivRight.set(ControlMode.PercentOutput, 0);
     }
 
     // Called when another command which requires one or more of the same
