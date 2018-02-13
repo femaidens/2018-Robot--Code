@@ -24,36 +24,31 @@ public class RobotMap {
 	public static int rearRightPort = 3;
 	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 3; //3
-	public static int frontLeftPort = 4; //4
-	public static int rearRightPort = 1; //1
-	public static int frontRightPort = 2; //2
+	public static int rearLeftPort = 15; //3
+	public static int frontLeftPort = 14; //4
+	public static int rearRightPort = 0; //1
+	public static int frontRightPort = 1; //2
 	
-	public static int acqLeftPort = 5;
+	/*public static int acqLeftPort = 5;
 	public static int acqRightPort = 5;
 	public static int pivLeftPort = 5;
 	public static int pivRightPort = 5;
 
 	public static int climberPort1 = 5;
-	public static int climberPort2 = 6;
+	public static int climberPort2 = 6;*/
 	
-	public static int casLPort1 = 1;
-	public static int casLPort2 = 1;
-	public static int casRPort1 = 1;
-	public static int casRPort2 = 1;
-
-	// Solenoid Ports for gearChute
-	public static int ladderPort1 = 6;
-	public static int ladderPort2 = 7;
-	public static int basePort1 = 4; 
-	public static int basePort2 = 5; 
+	public static int casLPort1 = 11;
+	public static int casLPort2 = 10;
+	public static int casRPort1 = 5;
+	public static int casRPort2 = 6;
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;
 	public static int encPort2 = 6;
 	public static int encPort3 = 7;
 	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
+	
+	/*public static int encPort1 = 4;
 	public static int encPort2 = 5;
 	public static int encPort3 = 6;
 	public static int encPort4 = 7;
@@ -69,10 +64,10 @@ public class RobotMap {
 	public static int encRPort2 = 1;
 	
 	//Gyro port
-	public static int gyroPort = 1;
+	public static int gyroPort = 1;*/
 
    //limit switch port 
-	public static int limSwitchPort1 = 2; //placeholder 
+	//public static int limSwitchPort1 = 2; //placeholder 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
