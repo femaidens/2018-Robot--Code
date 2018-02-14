@@ -24,9 +24,9 @@ public class RobotMap {
 	public static int rearRightPort = 3;
 	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 15; //3
-	public static int frontLeftPort = 14; //4
-	public static int rearRightPort = 0; //1
+	public static int rearLeftPort = 7; //3
+	public static int frontLeftPort = 9; //4
+	public static int rearRightPort = 2; //1
 	public static int frontRightPort = 1; //2
 	
 	/*public static int acqLeftPort = 5;
@@ -37,10 +37,10 @@ public class RobotMap {
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;*/
 	
-	public static int casLPort1 = 11;
+	public static int casLPort1 = 12;//11?
 	public static int casLPort2 = 10;
-	public static int casRPort1 = 5;
-	public static int casRPort2 = 6;
+	public static int casRPort1 = 6;
+	public static int casRPort2 = 8;
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;
@@ -48,23 +48,23 @@ public class RobotMap {
 	public static int encPort3 = 7;
 	public static int encPort4 = 8;*/
 	
-	/*public static int encPort1 = 4;
-	public static int encPort2 = 5;
-	public static int encPort3 = 6;
-	public static int encPort4 = 7;
+	public static int encPort1 = 20;
+	public static int encPort2 = 20;
+	public static int encPort3 = 20;
+	public static int encPort4 = 20;
 	
-	public static int encPivPort1 = 5;
-	public static int encPivPort2 = 5;
-	public static int encPivPort3 = 5;
-	public static int encPivPort4 = 5;
+	public static int encPivPort1 = 20;
+	public static int encPivPort2 = 20;
+	public static int encPivPort3 = 20;
+	public static int encPivPort4 = 20;
 	
-	public static int encLPort1 = 1;
-	public static int encLPort2 = 1;
-	public static int encRPort1 = 1;
-	public static int encRPort2 = 1;
+	public static int encLPort1 = 21;
+	public static int encLPort2 = 21;
+	public static int encRPort1 = 21;
+	public static int encRPort2 = 21;
 	
 	//Gyro port
-	public static int gyroPort = 1;*/
+	public static int gyroPort = 1;
 
    //limit switch port 
 	//public static int limSwitchPort1 = 2; //placeholder 

@@ -33,8 +33,8 @@ public class DriveDistance extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	angle = Drivetrain.gyro.getAngle();
-		Drivetrain.encoderLeft.reset();
-		Drivetrain.encoderRight.reset();
+		//Drivetrain.encoderLeft.reset();
+		//Drivetrain.encoderRight.reset();
 		timer.reset();
 		timer.start();
 		
@@ -58,8 +58,8 @@ public class DriveDistance extends Command {
 			System.out.println("Right: "+Drivetrain.gyro.getAngle());
 		}
     	
-    	distanceLeft = Drivetrain.encoderLeft.get();
-	distanceRight = Drivetrain.encoderRight.get();
+    	//distanceLeft = Drivetrain.encoderLeft.get();
+	//distanceRight = Drivetrain.encoderRight.get();
 		
     }
     
@@ -74,8 +74,8 @@ public class DriveDistance extends Command {
     protected void end() {
     	//stops motors and resets encoders
     	Robot.drivetrain.drive(0, 0);
-    	Drivetrain.encoderLeft.reset(); 
-    	Drivetrain.encoderRight.reset(); //remove if we want to see how far the encoder has moved AFTER stopping
+    	//Drivetrain.encoderLeft.reset(); 
+    	//Drivetrain.encoderRight.reset(); //remove if we want to see how far the encoder has moved AFTER stopping
     	timer.reset();
     }
     

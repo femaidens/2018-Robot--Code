@@ -4,17 +4,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;
 
 public class CascadeLift extends Subsystem {
 
 	// this variable is a placeholder
-	static double circ = 10;
-	public static double distance = circ * 236 / 12;
-	static double constant = -85/170;
-
+	private static double circ = 10;
+	private static double distance = circ * 236 / 12;
+	private double constant = -85/170; 
 	// casLeft1 is the rear left motor near the ladder and casRight1 is the rear
 	// right motor near the ladder.
 	public static TalonSRX casLeft1 = new TalonSRX(RobotMap.casLPort1);
@@ -23,21 +21,23 @@ public class CascadeLift extends Subsystem {
 	public static TalonSRX casRight2 = new TalonSRX(RobotMap.casRPort2);
 	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
 	
-
 	// one encoder for two talon/motor.
-	/*public static Encoder encLeft = new Encoder(RobotMap.encLPort1, RobotMap.encLPort2);
-	public static Encoder encRight = new Encoder(RobotMap.encRPort1, RobotMap.encRPort2);
+	//write encoder ports in RobotMap later
+	//public static Encoder encLeft = new Encoder(RobotMap.encLPort1, RobotMap.encLPort2);
+	//public static Encoder encRight = new Encoder(RobotMap.encRPort1, RobotMap.encRPort2);
+	
 	
 	public CascadeLift() {
-		encLeft.reset();
-		encRight.reset();
-	}*/
+		//encLeft.reset();
+		//encRight.reset();
+	}
 	// method to make the cascade go up
 	public static void cascadeUp(){
-		casLeft1.set(ControlMode.PercentOutput, 0.25);
-		casLeft2.set(ControlMode.PercentOutput, 0.25);
-		casRight1.set(ControlMode.PercentOutput, 0.25);
-		casRight2.set(ControlMode.PercentOutput, 0.25);
+		//casL2 is wired reversely
+			casLeft1.set(ControlMode.PercentOutput, -0.50);
+			casLeft2.set(ControlMode.PercentOutput, 0.50);
+			casRight1.set(ControlMode.PercentOutput, -0.50);
+			casRight2.set(ControlMode.PercentOutput, -0.50);
 		 //didn't use encLeft for reason; just to get enc value on one side       
 		/*while (encLeft.get() < distance) {
 			// 0.75 is the placeholder.
@@ -66,12 +66,19 @@ public class CascadeLift extends Subsystem {
 	
 		}*/
 	}
-//
+	
+	public static void cascadeStop(){
+		casLeft1.set(ControlMode.PercentOutput, 0);
+		casLeft2.set(ControlMode.PercentOutput, 0);
+		casRight1.set(ControlMode.PercentOutput, 0);
+		casRight2.set(ControlMode.PercentOutput, 0);
+	}
+	
 	public static void cascadeDown() {
-		casLeft1.set(ControlMode.PercentOutput, -0.25);
-		casLeft2.set(ControlMode.PercentOutput, -0.25);
-		casRight1.set(ControlMode.PercentOutput, -0.25);
-		casRight2.set(ControlMode.PercentOutput, -0.25);
+		casLeft1.set(ControlMode.PercentOutput, 0.50);
+		casLeft2.set(ControlMode.PercentOutput, -0.50);
+		casRight1.set(ControlMode.PercentOutput, 0.50);
+		casRight2.set(ControlMode.PercentOutput, 0.50);
 		/*while (encLeft.get() < (2*distance)) {
 			casLeft1.set(ControlMode.PercentOutput, -0.75);
 			casLeft2.set(ControlMode.PercentOutput, -0.75); 

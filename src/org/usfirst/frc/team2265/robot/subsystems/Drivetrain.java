@@ -9,6 +9,7 @@ import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -27,22 +28,24 @@ public class Drivetrain extends Subsystem {
 	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	
+	public static PowerDistributionPanel PDP = new PowerDistributionPanel();
 
 	// Initializing encoder
 
-	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
+	/*public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
 			Encoder.EncodingType.k1X);
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
 			Encoder.EncodingType.k1X);
-
+*/
 	public static double constant = 8.6;
 	
 	double rightVal;
 	double leftVal;
 
 	public Drivetrain() {
-		encoderLeft.setMaxPeriod(2);
-		encoderRight.setMaxPeriod(2);
+		//encoderLeft.setMaxPeriod(2);
+		//encoderRight.setMaxPeriod(2);
 	}
 
 	// Teleop

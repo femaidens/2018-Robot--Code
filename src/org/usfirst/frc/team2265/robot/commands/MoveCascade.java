@@ -16,13 +16,13 @@ public class MoveCascade extends Command {
 	// Called repeatedly when this Command is scheduled to run
 
 	protected void execute() {
-		if (CascadeLift.encLeft.get() < CascadeLift.distance) {
+		/*if (CascadeLift.encLeft.get() < CascadeLift.distance) {
 			CascadeLift.cascadeUp();
 	}
 	
 		if (CascadeLift.encLeft.get() > CascadeLift.distance) {
 			CascadeLift.cascadeDown();
-	} 
+	}*/ 
 }
 
 	// Make this return true when this Command no longer needs to run
@@ -34,8 +34,8 @@ public class MoveCascade extends Command {
 	// Called once after isFinished returns true
 
 	protected void end() {
-		CascadeLift.encLeft.reset();
-		CascadeLift.encRight.reset();
+		/*CascadeLift.encLeft.reset();
+		CascadeLift.encRight.reset();*/
 	}
 
 	// Called when another command which requires one or more of the same
