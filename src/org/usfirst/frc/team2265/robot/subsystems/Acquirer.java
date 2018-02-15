@@ -60,6 +60,10 @@ public class Acquirer extends Subsystem {
 		piv.set(ControlMode.PercentOutput, 0);
 	}
 	
+	public void pivotStop() {
+		acqRight.set(ControlMode.PercentOutput, 0.0);
+		acqLeft.set(ControlMode.PercentOutput, 0.0);
+	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
