@@ -66,6 +66,10 @@ public class RobotMap {
 	//Gyro port
 	public static int gyroPort = 1;
 
+	
+	//Servo ports
+	public static int leftServoPort = 10000; //placeholder
+	public static int rightServoPort = 20000; //placeholder
    //limit switch port 
 	//public static int limSwitchPort1 = 2; //placeholder 
 	// If you are using multiple modules, make sure to define both the port
