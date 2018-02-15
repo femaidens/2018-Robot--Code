@@ -20,8 +20,7 @@ public class CascadeLift extends Subsystem {
 	public static TalonSRX casLeft2 = new TalonSRX(RobotMap.casLPort2);
 	public static TalonSRX casRight1 = new TalonSRX(RobotMap.casRPort1);
 	public static TalonSRX casRight2 = new TalonSRX(RobotMap.casRPort2);
-	public static Servo leftServo = new Servo(RobotMap.leftServoPort);
-	public static Servo rightServo = new Servo(RobotMap.rightServoPort);
+	public static Servo serv = new Servo(RobotMap.servPort);
 
 	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
 	

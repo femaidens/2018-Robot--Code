@@ -20,8 +20,7 @@ public class UnhookServo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadeLift.leftServo.setAngle(0.0); 
-    	CascadeLift.rightServo.setAngle(0.0);
+    	CascadeLift.serv.setAngle(0.0); 
 
     }
 
