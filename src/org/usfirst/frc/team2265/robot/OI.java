@@ -1,7 +1,12 @@
 package org.usfirst.frc.team2265.robot;
 
+import org.usfirst.frc.team2265.robot.commands.CascadeDown;
+import org.usfirst.frc.team2265.robot.commands.CascadeUp;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2265.robot.commands.HookServo;
 import org.usfirst.frc.team2265.robot.commands.Pivot;
+import org.usfirst.frc.team2265.robot.commands.SwitchSpeed;
+import org.usfirst.frc.team2265.robot.commands.UnhookServo;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -72,12 +77,12 @@ public class OI {
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
 
-		cascadeUpButton.whileHeld(new ExampleCommand()); // to replace with CascadeUp()
-		cascadeDownButton.whileHeld(new ExampleCommand()); // to replace with CascadeDown()
+		cascadeUpButton.whileHeld(new CascadeUp()); // to replace with CascadeUp()
+		cascadeDownButton.whileHeld(new CascadeDown()); // to replace with CascadeDown()
 		pivotUpButton.whileHeld(new Pivot(false));
 		pivotDownButton.whileHeld(new Pivot(true));
-		servoUpButton.whileHeld(new ExampleCommand()); // to replace with servoUp()
-		servoDownButton.whileHeld(new ExampleCommand()); // to replace with servoDown()
-		switchSpeedButton.toggleWhenPressed(new ExampleCommand()); // to replace with switchSpeed()
+		servoUpButton.whileHeld(new HookServo()); // to replace with servoUp()
+		servoDownButton.whileHeld(new UnhookServo()); // to replace with servoDown()
+		switchSpeedButton.toggleWhenPressed(new SwitchSpeed()); // to replace with switchSpeed()
 	}
 }

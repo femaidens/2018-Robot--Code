@@ -35,6 +35,18 @@ public class RobotMap {
 	public static int pivLeftPort = 5;
 	public static int pivRightPort = 5;
 
+	public static int casLPort1 = 12;//11?
+	public static int casLPort2 = 10;
+	public static int casRPort1 = 6;
+	public static int casRPort2 = 8;
+	
+	public static int encLPort1 = 21;
+	public static int encLPort2 = 21;
+	public static int encRPort1 = 21;
+	public static int encRPort2 = 21;
+	
+	public static int servPort = 10000;  //placeholder
+	
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;
 

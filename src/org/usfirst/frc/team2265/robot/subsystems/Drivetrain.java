@@ -36,6 +36,7 @@ public class Drivetrain extends Subsystem {
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
 			Encoder.EncodingType.k1X);
 
+	public static final double speedLimit = 0.75; // placeholder 
 	public static double constant = 8.6;
 
 	public Drivetrain() {
@@ -126,6 +127,19 @@ public class Drivetrain extends Subsystem {
 	  return; 
 	  
 	}*/
+	//slows down when robot gets to climber
+	
+	public void switchSpeed() {
+		if (frontRight.getMotorOutputPercent() <= speedLimit && frontLeft.getMotorOutputPercent() <= speedLimit && rearRight.getMotorOutputPercent() <= speedLimit && rearLeft.getMotorOutputPercent() <= speedLimit){
+			drive();
+	}
+	else {
+		frontRight.set(ControlMode.PercentOutput, frontRight.getMotorOutputPercent()*0.75);
+			frontLeft.set(ControlMode.PercentOutput,frontLeft.getMotorOutputPercent()*0.75);
+			rearRight.set(ControlMode.PercentOutput,rearRight.getMotorOutputPercent()*0.75);
+			rearLeft.set(ControlMode.PercentOutput,rearLeft.getMotorOutputPercent()*0.75);
+	}
+	}
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
