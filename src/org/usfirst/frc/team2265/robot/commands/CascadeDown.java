@@ -2,7 +2,6 @@ package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
 import org.usfirst.frc.team2265.robot.subsystems.CascadePID;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -22,7 +21,7 @@ public class CascadeDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadePID.cascadeDown();
+    	CascadeLift.cascadeDown();
     	System.out.println("Cascade Down");
     }
 
@@ -33,12 +32,12 @@ public class CascadeDown extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	CascadePID.cascadeStop();
+    	CascadeLift.cascadeStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	CascadePID.cascadeStop();
+    	CascadeLift.cascadeStop();
     }
 }

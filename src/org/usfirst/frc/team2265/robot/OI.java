@@ -3,7 +3,6 @@ package org.usfirst.frc.team2265.robot;
 import org.usfirst.frc.team2265.robot.commands.CascadeDown;
 import org.usfirst.frc.team2265.robot.commands.CascadeStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeUp;
-import org.usfirst.frc.team2265.robot.commands.MoveCascade;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -72,8 +71,8 @@ public class OI {
 		//climberButton.whileHeld(new Climb(1.0));
 		//climberButton.whileHeld(new TurnDegrees(45));
 		
-		casDown.whileHeld(new MoveCascade(false));
-		casUp.whileHeld(new MoveCascade(true));
+		//casDown.whileHeld(new MoveCascade(false));
+		//casUp.whileHeld(new MoveCascade(true));
 		
 		/*compressorButton.toggleWhenPressed(new ToggleCompressor());
 		dropGear.whenPressed(new ShiftChute(false));
@@ -81,8 +80,9 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
-		CasUp.whenPressed(new CascadeUp());
-		CasDown.whenPressed(new CascadeDown());
-		CasStop.whenPressed(new CascadeStop());
+		CasUp.whileHeld(new CascadeUp());
+		CasUp.whenReleased(new CascadeStop());
+		CasDown.whileHeld(new CascadeDown());
+		CasDown.whenReleased(new CascadeStop());
 	}
 }

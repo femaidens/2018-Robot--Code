@@ -18,8 +18,8 @@ public class CascadePID extends Subsystem {
 	public static TalonSRX casRight1 = new TalonSRX(RobotMap.casRPort1);
 	public static TalonSRX casRight2 = new TalonSRX(RobotMap.casRPort2);
 	
-	public static Encoder encLeft = new Encoder(RobotMap.encLPort1, RobotMap.encLPort2);
-	public static Encoder encRight = new Encoder(RobotMap.encRPort1, RobotMap.encRPort2);
+	//public static Encoder encLeft = new Encoder(RobotMap.encLPort1, RobotMap.encLPort2);
+	//public static Encoder encRight = new Encoder(RobotMap.encRPort1, RobotMap.encRPort2);
 	
 	private double setpoint;
 	private static double actualDiff;
@@ -34,11 +34,11 @@ public class CascadePID extends Subsystem {
 		kP = 0.0006;
     	kD = 0.008;
     	lastError = 0.0;
-    	actualDiff = encRight.getDistance() - encLeft.getDistance();
+    	//actualDiff = encRight.getDistance() - encLeft.getDistance();
     	error = actualDiff - setpoint;
     	cascadeValue = (error * kP) + (error-lastError) * kD ;
-		encLeft.reset();
-		encRight.reset();
+		//encLeft.reset();
+		//encRight.reset();
 	}
 
     // Put methods for controlling this subsystem

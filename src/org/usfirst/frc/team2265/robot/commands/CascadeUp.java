@@ -21,8 +21,9 @@ public class CascadeUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadePID.cascadeUp();
-    	System.out.println("Cascade Up");
+    	CascadeLift.cascadeUp();
+    	System.out.println("Encoder Left " + CascadeLift.encLeft.getDistance());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,12 +33,12 @@ public class CascadeUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	CascadePID.cascadeStop();
+    	CascadeLift.cascadeStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	CascadePID.cascadeStop(); 
+    	CascadeLift.cascadeStop(); 
     }
 }

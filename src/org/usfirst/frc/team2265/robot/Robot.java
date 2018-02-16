@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -27,7 +26,6 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
 	public static OI m_oi;
-	public static Drivetrain drivetrain;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -40,7 +38,6 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		drivetrain = new Drivetrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_oi.bindButtons();
