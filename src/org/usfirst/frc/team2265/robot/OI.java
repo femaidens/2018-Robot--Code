@@ -1,5 +1,8 @@
 package org.usfirst.frc.team2265.robot;
 
+import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2265.robot.commands.Pivot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -10,6 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	public static Joystick launchpad = new Joystick(RobotMap.launchPort);
 
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
@@ -38,7 +42,7 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-
+	/*
 	public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
 	public static Button dropGear = new JoystickButton(driveJoystick, 2);
@@ -46,7 +50,14 @@ public class OI {
 	public static Button align = new JoystickButton(driveJoystick, 8);
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
-	
+	*/
+	public static Button cascadeUpButton = new JoystickButton(launchpad,15);
+	public static Button cascadeDownButton = new JoystickButton(launchpad,5);
+	public static Button pivotUpButton = new JoystickButton(launchpad,14);
+	public static Button pivotDownButton = new JoystickButton(launchpad,4);
+	public static Button servoUpButton = new JoystickButton(launchpad,12);
+	public static Button servoDownButton = new JoystickButton(launchpad,2);
+	public static Button switchSpeedButton = new JoystickButton(launchpad,13);
 	
 
 	
@@ -61,6 +72,12 @@ public class OI {
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
 
-		
+		cascadeUpButton.whileHeld(new ExampleCommand()); // to replace with CascadeUp()
+		cascadeDownButton.whileHeld(new ExampleCommand()); // to replace with CascadeDown()
+		pivotUpButton.whileHeld(new Pivot(false));
+		pivotDownButton.whileHeld(new Pivot(true));
+		servoUpButton.whileHeld(new ExampleCommand()); // to replace with servoUp()
+		servoDownButton.whileHeld(new ExampleCommand()); // to replace with servoDown()
+		switchSpeedButton.toggleWhenPressed(new ExampleCommand()); // to replace with switchSpeed()
 	}
 }
