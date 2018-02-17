@@ -18,45 +18,41 @@ public class RobotMap {
 	// public static int atkJoyPort = 1;
 
 	// Talon Ports
-	/*public static int rearLeftPort = 1;
-	public static int frontLeftPort = 2;
+	/*
+	 * public static int rearLeftPort = 1; public static int frontLeftPort = 2;
+	 * 
+	 * public static int rearRightPort = 3; public static int frontRightPort =
+	 * 4;
+	 */
 
-	public static int rearRightPort = 3;
-	public static int frontRightPort = 4; */
-	
-	public static int rearLeftPort = 7; //3
-	public static int frontLeftPort = 9; //4
-	public static int rearRightPort = 2; //1
-	public static int frontRightPort = 1; //2
-	
-	//U-squish talon ports
+	public static int rearLeftPort = 7; // 3
+	public static int frontLeftPort = 9; // 4
+	public static int rearRightPort = 2; // 1
+	public static int frontRightPort = 1; // 2
+
 	public static int acqLeftPort = 11;
 	public static int acqRightPort = 3;
 	public static int pivPort = 4;
-	
-
 
 	// Encoder Ports
-	/*public static int encPort1 = 5;
-	public static int encPort2 = 6;
-	public static int encPort3 = 7;
-	public static int encPort4 = 8;*/
-	/*public static int encPort1 = 4;
-	public static int encPort2 = 5;
-	public static int encPort3 = 6;
-	public static int encPort4 = 7;
-	
-	public static int encPivPort1 = 5;
-	public static int encPivPort2 = 5;
-	public static int encPivPort3 = 5;
-	public static int encPivPort4 = 5;*/
-	
-	//Gyro port
+	/*
+	 * public static int encPort1 = 5; public static int encPort2 = 6; public
+	 * static int encPort3 = 7; public static int encPort4 = 8;
+	 */
+	/*
+	 * public static int encPort1 = 4; public static int encPort2 = 5; public
+	 * static int encPort3 = 6; public static int encPort4 = 7;
+	 * 
+	 * public static int encPivPort1 = 5; public static int encPivPort2 = 5;
+	 * <<<<<<< HEAD public static int encPivPort3 = 5; public static int
+	 * encPivPort4 = 5;
+	 */
+
+	// Gyro port
 	public static int gyroPort = 10;
 
-	//limit switch ports
-	//public static int acqlimPort = 1; 
-	
+	// limit switch ports
+	// public static int acqlimPort = 1;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
