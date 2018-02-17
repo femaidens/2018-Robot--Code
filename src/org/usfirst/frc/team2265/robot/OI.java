@@ -1,6 +1,11 @@
 package org.usfirst.frc.team2265.robot;
 
 import org.usfirst.frc.team2265.robot.commands.Acquire;
+import org.usfirst.frc.team2265.robot.commands.AcquirerStop;
+import org.usfirst.frc.team2265.robot.commands.PivotDown;
+import org.usfirst.frc.team2265.robot.commands.PivotStop;
+import org.usfirst.frc.team2265.robot.commands.PivotUp;
+import org.usfirst.frc.team2265.robot.commands.Release;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -50,8 +55,8 @@ public class OI {
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);*/
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
-	
-	
+	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 1);
 	
 
 	
@@ -65,8 +70,14 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
-		acquire.whileHeld(new Acquire(true));
-		release.whileHeld(new Acquire(false));
+		acquire.whileHeld(new Acquire());
+		acquire.whenReleased(new AcquirerStop());
+		release.whileHeld(new Release());
+		release.whenReleased(new AcquirerStop());
+		pivotUp.whileHeld(new PivotUp());
+		pivotUp.whenReleased(new PivotStop());
+		pivotDown.whileHeld(new PivotDown());
+		pivotDown.whenReleased(new PivotStop());
 		
 	}
 }

@@ -21,8 +21,8 @@ public class Acquirer extends Subsystem {
 	
 	public static TalonSRX acqLeft = new TalonSRX(RobotMap.acqLeftPort);
 	public static TalonSRX acqRight = new TalonSRX(RobotMap.acqRightPort);
-	/*public static TalonSRX pivLeft = new TalonSRX(RobotMap.pivLeftPort);
-	public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);*/
+	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
+	//public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);*/
 	
 	/*public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
 	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
@@ -40,40 +40,47 @@ public class Acquirer extends Subsystem {
 		acqRight.set(ControlMode.PercentOutput, 0.75);
 	}
 	
-	public void release(){
+	public static void release(){
 		acqLeft.set(ControlMode.PercentOutput, -0.75);
 		acqRight.set(ControlMode.PercentOutput, -0.75);
 	}
 	
-	/*public void pivotDown(){
-		encPivLeft.reset();
+	public void pivotDown(){
+		/*encPivLeft.reset();
 		encPivRight.reset();
 		
 		while(encPivLeft.get() > circ*236/12){
 			pivRight.set(ControlMode.PercentOutput, -0.75);
 			pivLeft.set(ControlMode.PercentOutput, -0.75);
-		}
-		pivLeft.set(ControlMode.PercentOutput, 0);
-		pivRight.set(ControlMode.PercentOutput, 0);
+		}*/
+		piv.set(ControlMode.PercentOutput, -1.0);
 	}
 	
 	public void pivotUp(){
-		encPivLeft.reset();
-		encPivRight.reset();
+		//encPivLeft.reset();
+		//encPivRight.reset();
 		
-		while(encPivLeft.get() > circ*236/12){
+		/*while(encPivLeft.get() > circ*236/12){
 			pivRight.set(ControlMode.PercentOutput, 0.75);
 			pivLeft.set(ControlMode.PercentOutput, 0.75);
-		}
-		pivLeft.set(ControlMode.PercentOutput, 0);
-		pivRight.set(ControlMode.PercentOutput, 0);
-	}*/
+		}*/
+		piv.set(ControlMode.PercentOutput, 1.0);
+	}
 	
 	/*public void isAcquired() {
 		if(limitswitch.get() == true) {
 			System.out.println("BOX ACQURED");
 		}
 	}*/
+	
+	public static void acquirerStop() {
+		acqLeft.set(ControlMode.PercentOutput, 0);
+		acqRight.set(ControlMode.PercentOutput, 0);
+	}
+	
+	public static void pivotStop() {
+		piv.set(ControlMode.PercentOutput, 0);
+	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

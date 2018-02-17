@@ -24,15 +24,16 @@ public class RobotMap {
 	public static int rearRightPort = 3;
 	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 3; //3
-	public static int frontLeftPort = 4; //4
-	public static int rearRightPort = 1; //1
-	public static int frontRightPort = 2; //2
+	public static int rearLeftPort = 7; //3
+	public static int frontLeftPort = 9; //4
+	public static int rearRightPort = 2; //1
+	public static int frontRightPort = 1; //2
 	
-	public static int acqLeftPort = 5;
-	public static int acqRightPort = 5;
-	public static int pivLeftPort = 5;
-	public static int pivRightPort = 5;
+	//U-squish talon ports
+	public static int acqLeftPort = 11;
+	public static int acqRightPort = 3;
+	public static int pivPort = 4;
+	
 
 
 	// Encoder Ports
@@ -51,7 +52,7 @@ public class RobotMap {
 	public static int encPivPort4 = 5;*/
 	
 	//Gyro port
-	public static int gyroPort = 1;
+	public static int gyroPort = 10;
 
 	//limit switch ports
 	//public static int acqlimPort = 1; 
