@@ -1,10 +1,9 @@
 package org.usfirst.frc.team2265.robot;
 
-import org.usfirst.frc.team2265.robot.commands.CascadeDown;
-import org.usfirst.frc.team2265.robot.commands.CascadeUp;
+
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.commands.HookServo;
-import org.usfirst.frc.team2265.robot.commands.Pivot;
+
 import org.usfirst.frc.team2265.robot.commands.SwitchSpeed;
 import org.usfirst.frc.team2265.robot.commands.UnhookServo;
 
@@ -77,10 +76,7 @@ public class OI {
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
 
-		cascadeUpButton.whileHeld(new CascadeUp()); // to replace with CascadeUp()
-		cascadeDownButton.whileHeld(new CascadeDown()); // to replace with CascadeDown()
-		pivotUpButton.whileHeld(new Pivot(false));
-		pivotDownButton.whileHeld(new Pivot(true));
+		
 		servoUpButton.whileHeld(new HookServo()); // to replace with servoUp()
 		servoDownButton.whileHeld(new UnhookServo()); // to replace with servoDown()
 		switchSpeedButton.toggleWhenPressed(new SwitchSpeed()); // to replace with switchSpeed()

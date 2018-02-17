@@ -1,8 +1,11 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
 
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc.team2265.robot.subsystems.ServoCascade;
+
+//import edu.wpi.first.wpilibj.Servo;
 
 /**
  *
@@ -20,7 +23,7 @@ public class HookServo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadeLift.serv.setAngle(90.0); 
+    	ServoCascade.serv.setAngle(90.0); 
     }
 
     // Make this return true when this Command no longer needs to run execute()

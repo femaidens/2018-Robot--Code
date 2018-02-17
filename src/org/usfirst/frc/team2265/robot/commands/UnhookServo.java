@@ -1,6 +1,8 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
+import org.usfirst.frc.team2265.robot.subsystems.ServoCascade;
+
+//import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,7 +22,7 @@ public class UnhookServo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadeLift.serv.setAngle(0.0); 
+    	ServoCascade.serv.setAngle(0.0); 
 
     }
 

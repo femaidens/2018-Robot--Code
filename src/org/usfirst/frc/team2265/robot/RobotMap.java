@@ -14,7 +14,8 @@ public class RobotMap {
 	// public static int rightMotor = 2;
 
 	// Joystick Ports
-	public static int driveJoyPort = 0;
+	
+	public static int driveJoyPort = 10;
 	public static int launchPort = 1;
 	// public static int atkJoyPort = 1;
 
@@ -29,7 +30,7 @@ public class RobotMap {
 	public static int frontLeftPort = 4; //4
 	public static int rearRightPort = 1; //1
 	public static int frontRightPort = 2; //2
-	
+	/*
 	public static int acqLeftPort = 5;
 	public static int acqRightPort = 5;
 	public static int pivLeftPort = 5;
@@ -39,8 +40,9 @@ public class RobotMap {
 	public static int casLPort2 = 10;
 	public static int casRPort1 = 6;
 	public static int casRPort2 = 8;
+	*/
 	
-	public static int encLPort1 = 21;
+	/*public static int encLPort1 = 21;
 	public static int encLPort2 = 21;
 	public static int encRPort1 = 21;
 	public static int encRPort2 = 21;
@@ -50,18 +52,22 @@ public class RobotMap {
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;
 
-	// Solenoid Ports for gearChute
+	Solenoid Ports for gearChute
 	public static int ladderPort1 = 6;
 	public static int ladderPort2 = 7;
 	public static int basePort1 = 4; 
 	public static int basePort2 = 5; 
-
+*/
 	// Encoder Ports
-	/*public static int encPort1 = 5;
+	public static int encPort1 = 5;
 	public static int encPort2 = 6;
 	public static int encPort3 = 7;
-	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
+	public static int encPort4 = 8;
+	
+	//servo port
+	public static int servoPort = 0;
+	
+	/*public static int encPort1 = 4;
 	public static int encPort2 = 5;
 	public static int encPort3 = 6;
 	public static int encPort4 = 7;
@@ -70,10 +76,9 @@ public class RobotMap {
 	public static int encPivPort2 = 5;
 	public static int encPivPort3 = 5;
 	public static int encPivPort4 = 5;
-	
+	*/
 	//Gyro port
 	public static int gyroPort = 1;
-
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

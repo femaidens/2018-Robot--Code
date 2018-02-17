@@ -3,7 +3,6 @@ package org.usfirst.frc.team2265.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2265.robot.OI;
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
@@ -27,7 +26,7 @@ public class Drivetrain extends Subsystem {
 	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
 	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
-	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+//	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 
 	// Initializing encoder
 
@@ -46,7 +45,7 @@ public class Drivetrain extends Subsystem {
 
 	// Teleop
 	public void drive() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
+	double leftVal = OI.driveJoystick.getRawAxis(5);
 		double rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
