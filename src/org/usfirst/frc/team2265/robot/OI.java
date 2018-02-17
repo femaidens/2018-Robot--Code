@@ -52,7 +52,7 @@ public class OI {
 //	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
 	public static Button CasDown = new JoystickButton(driveJoystick, 1);
 	public static Button CasUp = new JoystickButton(driveJoystick, 3);
-	public static Button CasStop = new JoystickButton(driveJoystick, 2);
+	//public static Button CasStop = new JoystickButton(driveJoystick, 2);
 
 	/*public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
@@ -62,8 +62,8 @@ public class OI {
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);*/
 	
-	public static Button casDown = new JoystickButton(driveJoystick, 1);
-	public static Button casUp = new JoystickButton(driveJoystick, 2);
+	//public static Button casDown = new JoystickButton(driveJoystick, 2);
+	//public static Button casUp = new JoystickButton(driveJoystick, 3);
 	
 
 	
