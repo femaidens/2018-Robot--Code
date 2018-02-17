@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Servo;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;
 
@@ -19,6 +20,8 @@ public class CascadeLift extends Subsystem {
 	public static TalonSRX casLeft2 = new TalonSRX(RobotMap.casLPort2);
 	public static TalonSRX casRight1 = new TalonSRX(RobotMap.casRPort1);
 	public static TalonSRX casRight2 = new TalonSRX(RobotMap.casRPort2);
+	//public static Servo serv = new Servo(RobotMap.servPort);
+
 	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
 	
 	// one encoder for two talon/motor.
@@ -103,6 +106,7 @@ public class CascadeLift extends Subsystem {
 			}
 		}*/
 	}
+	
 //resets encoder if cascade hits limit switch on bottom 
 	/*public static void limitDown() {
 		if (limitSwitch.get() == true) {

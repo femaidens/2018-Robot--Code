@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.

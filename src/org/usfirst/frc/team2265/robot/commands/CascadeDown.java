@@ -1,8 +1,6 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
-import org.usfirst.frc.team2265.robot.subsystems.CascadePID;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

@@ -16,7 +16,6 @@ public class RobotMap {
 	// Joystick Ports
 	public static int driveJoyPort = 1;
 	// public static int atkJoyPort = 1;
-	public static int gyroPort = 2;
 
 	// Talon Ports
 	/*public static int rearLeftPort = 1;
@@ -67,6 +66,11 @@ public class RobotMap {
 	//Gyro port
 	//public static int gyroPort = 1;
 	
+	public static int gyroPort = 1;
+
+	
+	//Servo ports
+	//public static int servPort = 10000;  //placeholder
    //limit switch port 
 	//public static int limSwitchPort1 = 2; //placeholder 
 	// If you are using multiple modules, make sure to define both the port

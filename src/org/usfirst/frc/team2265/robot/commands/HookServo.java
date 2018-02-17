@@ -1,15 +1,12 @@
-package org.usfirst.frc.team2265.robot.commands;
+/*package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class CascadeUp extends Command {
+public class HookServo extends Command {
 
-    public CascadeUp() {
+    public HookServo() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -20,9 +17,7 @@ public class CascadeUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	CascadeLift.cascadeUp();
-    	System.out.println("Cascade Up");
-    	//System.out.println("Encoder Left " + CascadeLift.encLeft.getDistance());	
+    	CascadeLift.serv.setAngle(90.0); 
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,12 +27,10 @@ public class CascadeUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	CascadeLift.cascadeStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	CascadeLift.cascadeStop(); 
     }
-}
+}*/
