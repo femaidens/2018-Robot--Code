@@ -29,10 +29,15 @@ public class RobotMap {
 	public static int frontLeftPort = 9; // 4
 	public static int rearRightPort = 2; // 1
 	public static int frontRightPort = 1; // 2
-
-	public static int acqLeftPort = 11;
-	public static int acqRightPort = 3;
-	public static int pivPort = 4;
+	//REAL
+	//public static int acqLeftPort = 11;
+	//public static int acqRightPort = 3;
+	//public static int pivPort = 4;
+	
+	//TEST
+	public static int acqLeftPort = 3;
+	public static int acqRightPort = 4;
+	public static int pivPort = 1;
 
 	// Encoder Ports
 	/*
