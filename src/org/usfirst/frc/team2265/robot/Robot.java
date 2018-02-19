@@ -30,7 +30,6 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 	public static Drivetrain drivetrain;
 	public static Acquirer acquirer;
-
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -46,6 +45,7 @@ public class Robot extends TimedRobot {
 		acquirer = new Acquirer();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		m_oi.bindButtons();
 	}
 
 	/**
