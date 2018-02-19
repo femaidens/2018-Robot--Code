@@ -28,13 +28,17 @@ public class RobotMap {
 	public static int casR1 = 6;
 	public static int casR2 = 8;
 	//acquirer
+	//REAL
 	public static int acqLeftPort = 11;
 	public static int acqRightPort = 3;
-	public static int pivPort = 4;
+	public static int pivPort = 4; 
+	
+	
 	
 
 	// Encoder Ports
 	//drivetrain
+	
 	public static int encRL = 7;
 	public static int encFL = 9;
 	public static int encRR = 2;
@@ -47,8 +51,7 @@ public class RobotMap {
 	
 	//Gyro port
 	public static int gyroPort = 1;
-
-
+	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
