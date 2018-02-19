@@ -55,19 +55,6 @@ public class CascadeLift extends Subsystem {
 			}
 		}*/
 		
-		/*while (encRight.get() < distance) {
-			casRight1.set(ControlMode.PercentOutput, 0.75);
-			casRight2.set(ControlMode.PercentOutput, 0.75);
-			
-			if (encRight.get() <= 30) { 
-				Robot.drivetrain.drive();
-			}
-			else {
-				Robot.drivetrain.drive((constant*(encRight.get() -30)/100) * Robot.drivetrain.rightVal, (constant *(encLeft.get() -30)/100) * Robot.drivetrain.leftVal); //sets a limit to the drive
-			}
-		}
-	
-		}*/
 	}
 	
 	public static void cascadeStop(){
@@ -94,17 +81,6 @@ public class CascadeLift extends Subsystem {
 			}		
 		}*/
 
-		/*while ((2 * distance)-encRight.get() < (2*distance)){
-			casRight1.set(ControlMode.PercentOutput, -0.75);
-			casRight2.set(ControlMode.PercentOutput, -0.75);
-			
-			if (encRight.get() <= 30 ) { 
-				Robot.drivetrain.drive();
-			}
-			else {
-				Robot.drivetrain.drive((constant*(encRight.get() -30)/100) * Robot.drivetrain.rightVal, (constant *(encLeft.get() -30)/100) * Robot.drivetrain.leftVal); //sets a limit to the drive
-			}
-		}*/
 	}
 	
 //resets encoder if cascade hits limit switch on bottom 

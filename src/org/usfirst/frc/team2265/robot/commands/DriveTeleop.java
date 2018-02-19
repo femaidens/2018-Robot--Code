@@ -25,9 +25,11 @@ public class DriveTeleop extends Command {
 	protected void execute() {
 		// Robot.drivetrain.drive();
 		Robot.drivetrain.driveSlow();
-		//System.out.println("Front Right: " + Drivetrain.PDP.getCurrent(1));
-		//System.out.println("Rear Right: " + Drivetrain.PDP.getCurrent(2));
-		//System.out.println("Front Left: " + Drivetrain.PDP.getCurrent(9));
+		System.out.println("Front Right: " + Drivetrain.PDP.getCurrent(1));
+		System.out.println("Rear Right: " + Drivetrain.PDP.getCurrent(2));
+		System.out.println("Front Left: " + Drivetrain.PDP.getCurrent(9));
+		System.out.println("Rear Left: " + Drivetrain.PDP.getCurrent(7));
+		System.out.println("PDP Voltage: " + Drivetrain.PDP.getVoltage());
 		
 	}
 

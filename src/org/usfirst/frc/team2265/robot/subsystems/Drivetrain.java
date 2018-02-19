@@ -23,18 +23,19 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	  public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
-	  public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
-	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
-
-	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	
+	//Initialize Joystick
+	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
-	 
-	public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
+	//Initialize PDP 
+	public static PowerDistributionPanel PDP = new PowerDistributionPanel(0);
 	
 
-	// Initializing encoder
+	// Initialize encoder
 
 	//public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
 			//Encoder.EncodingType.k1X);
@@ -72,7 +73,7 @@ public class Drivetrain extends Subsystem {
 	public void driveSlow() {
 		double leftVal = OI.driveJoystick.getRawAxis(1);
 		double rightVal = OI.driveJoystick.getRawAxis(5);
-		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
+		//System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,rightVal*0.75);
 		rearRight.set(ControlMode.PercentOutput,rightVal*0.75);
