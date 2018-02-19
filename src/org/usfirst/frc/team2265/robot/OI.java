@@ -72,10 +72,13 @@ public class OI {
 		switchSpeed.whenPressed(new SwitchSpeed());*/
 		acquire.whileHeld(new Acquire());
 		acquire.whenReleased(new AcquirerStop());
+		
 		release.whileHeld(new Release());
 		release.whenReleased(new AcquirerStop());
+		
 		pivotUp.whileHeld(new PivotUp());
 		pivotUp.whenReleased(new PivotStop());
+		
 		pivotDown.whileHeld(new PivotDown());
 		pivotDown.whenReleased(new PivotStop());
 		
