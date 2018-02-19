@@ -44,10 +44,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_oi.bindButtons();
 		drivetrain = new Drivetrain();
-		Drivetrain.frontRight.enableCurrentLimit(true);
+		/*Drivetrain.frontRight.enableCurrentLimit(true);
 		Drivetrain.rearRight.enableCurrentLimit(true);
 		Drivetrain.frontLeft.enableCurrentLimit(true);
-		Drivetrain.rearLeft.enableCurrentLimit(true);
+		Drivetrain.rearLeft.enableCurrentLimit(true);*/
 	}
 
 	/**

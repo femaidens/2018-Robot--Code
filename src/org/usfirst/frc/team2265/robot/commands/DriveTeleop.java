@@ -28,7 +28,7 @@ public class DriveTeleop extends Command {
 		//System.out.println("Front Right: " + Drivetrain.PDP.getCurrent(1));
 		//System.out.println("Rear Right: " + Drivetrain.PDP.getCurrent(2));
 		//System.out.println("Front Left: " + Drivetrain.PDP.getCurrent(9));
-		//System.out.println("Rear Left: " + Drivetrain.PDP.getCurrent(7));
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -38,11 +38,13 @@ public class DriveTeleop extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
+		Robot.drivetrain.drive(0,0);
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
+		Robot.drivetrain.drive(0,0);
 	}
 
 }
