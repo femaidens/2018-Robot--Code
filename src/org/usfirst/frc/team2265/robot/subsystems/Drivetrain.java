@@ -28,7 +28,7 @@ public class Drivetrain extends Subsystem {
 	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
 	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
-	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	//public static PowerDistributionPanel PDP = new PowerDistributionPanel();
 	
 
@@ -98,7 +98,8 @@ public class Drivetrain extends Subsystem {
 				/*rightMotors.set(-0.25);
 				leftMotors.set(0.25);*/
 			}
-		} else {
+		} 
+		else {
 			while (gyro.getAngle() > degrees) {
 				frontRight.set(ControlMode.PercentOutput,0.25);
 				rearRight.set(ControlMode.PercentOutput,0.25);
