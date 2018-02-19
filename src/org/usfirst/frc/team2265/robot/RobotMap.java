@@ -28,6 +28,11 @@ public class RobotMap {
 	public static int casL2 = 10;
 	public static int casR1 = 6;
 	public static int casR2 = 8;
+	
+	public static int acqLeftPort = 11;
+	public static int acqRightPort = 3;
+	public static int pivPort = 4;
+	
 
 	// Encoder Ports
 	public static int encRL = 7;

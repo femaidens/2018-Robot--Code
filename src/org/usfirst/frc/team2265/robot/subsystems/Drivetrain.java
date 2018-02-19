@@ -72,10 +72,10 @@ public class Drivetrain extends Subsystem {
 		double rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
-		frontRight.set(ControlMode.PercentOutput,-rightVal*0.75);
-		rearRight.set(ControlMode.PercentOutput,-rightVal*0.75);
-		frontLeft.set(ControlMode.PercentOutput,leftVal*0.75);
-		rearLeft.set(ControlMode.PercentOutput,leftVal*0.75);
+		//frontRight.set(ControlMode.PercentOutput,rightVal*0.75);
+		rearRight.set(ControlMode.PercentOutput,rightVal*0.75);
+		//frontLeft.set(ControlMode.PercentOutput,leftVal*0.75);
+		//rearLeft.set(ControlMode.PercentOutput,leftVal*0.75);
 	}
 	// auton
 	public void drive(double l, double r) {
