@@ -1,8 +1,14 @@
 package org.usfirst.frc.team2265.robot;
 
+import org.usfirst.frc.team2265.robot.commands.Acquire;
+import org.usfirst.frc.team2265.robot.commands.AcquireStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeDown;
 import org.usfirst.frc.team2265.robot.commands.CascadeStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeUp;
+import org.usfirst.frc.team2265.robot.commands.PivotDown;
+import org.usfirst.frc.team2265.robot.commands.PivotStop;
+import org.usfirst.frc.team2265.robot.commands.PivotUp;
+import org.usfirst.frc.team2265.robot.commands.Release;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -45,6 +51,10 @@ public class OI {
 	
 	public static Button CasDown = new JoystickButton(driveJoystick, 1);
 	public static Button CasUp = new JoystickButton(driveJoystick, 3);
+	public static Button acquire = new JoystickButton(driveJoystick, 5);
+	public static Button release = new JoystickButton(driveJoystick, 6);
+	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 1);
 	
 
 	
@@ -53,5 +63,15 @@ public class OI {
 		CasUp.whenReleased(new CascadeStop());
 		CasDown.whileHeld(new CascadeDown());
 		CasDown.whenReleased(new CascadeStop());
+		
+		acquire.whileHeld(new Acquire());
+		acquire.whenReleased(new AcquireStop());
+		release.whileHeld(new Release());
+		release.whenReleased(new AcquireStop());
+		
+		pivotUp.whileHeld(new PivotUp());
+		pivotUp.whenReleased(new PivotStop());
+		pivotDown.whileHeld(new PivotDown());
+		pivotDown.whenReleased(new PivotStop());
 	}
 }

@@ -7,15 +7,23 @@
 
 package org.usfirst.frc.team2265.robot;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,11 +36,18 @@ public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
 	public static OI m_oi;
-	public static Drivetrain drivetrain;
 	public static Acquirer acquirer;
 	Command m_autonomousCommand;
+	public static Drivetrain drivetrain;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+	  public static WPI_TalonSRX frontLeft; 
+	  public static WPI_TalonSRX rearLeft;  
+	  public static WPI_TalonSRX frontRight; 	  
+	  public static WPI_TalonSRX rearRight;
+	 
+	  public static AnalogGyro gyro;
+	  public static Joystick js = new Joystick(1);
+	  public static DifferentialDrive dDrive;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -41,11 +56,32 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		drivetrain = new Drivetrain();
 		acquirer = new Acquirer();
+		drivetrain = new Drivetrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_oi.bindButtons();
+		frontLeft = new WPI_TalonSRX(RobotMap.frontLeftPort);
+		rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
+		frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
+		rearRight = new WPI_TalonSRX(RobotMap.rearRightPort);
+		
+		frontLeft.configContinuousCurrentLimit(20, 0);
+		frontRight.configContinuousCurrentLimit(20, 0);
+		rearLeft.configContinuousCurrentLimit(20, 0);
+		rearRight.configContinuousCurrentLimit(20, 0);
+		frontLeft.enableCurrentLimit(true);
+		frontRight.enableCurrentLimit(true);
+		rearRight.enableCurrentLimit(true);
+		rearLeft.enableCurrentLimit(true);
+		
+		gyro = new AnalogGyro(RobotMap.gyroPort);
+		SpeedControllerGroup scLeft = new SpeedControllerGroup(frontLeft, rearLeft);
+		SpeedControllerGroup scRight = new SpeedControllerGroup(frontRight, rearRight);
+		
+		dDrive = new DifferentialDrive(scLeft, scRight);
+		
+
 	}
 
 	/**
@@ -116,6 +152,13 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		double leftVal = OI.driveJoystick.getRawAxis(5);
+		double rightVal = OI.driveJoystick.getRawAxis(1);;
+		//System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
+		System.out.println("Gyro: "+ gyro.getAngle());
+
+		dDrive.tankDrive(-js.getRawAxis(5), -js.getRawAxis(1));
+		
 	}
 
 	/**

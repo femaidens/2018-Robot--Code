@@ -40,7 +40,7 @@ public class Acquirer extends Subsystem {
 		acqRight.set(ControlMode.PercentOutput, 0.75);
 	}
 	
-	public static void release(){
+	public void release(){
 		acqLeft.set(ControlMode.PercentOutput, -0.75);
 		acqRight.set(ControlMode.PercentOutput, -0.75);
 	}
@@ -73,12 +73,12 @@ public class Acquirer extends Subsystem {
 		}
 	}*/
 	
-	public static void acquirerStop() {
+	public void acquirerStop() {
 		acqLeft.set(ControlMode.PercentOutput, 0);
 		acqRight.set(ControlMode.PercentOutput, 0);
 	}
 	
-	public static void pivotStop() {
+	public void pivotStop() {
 		piv.set(ControlMode.PercentOutput, 0);
 	}
 	

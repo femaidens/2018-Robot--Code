@@ -13,7 +13,7 @@ public class DriveTeleop extends Command {
 	public DriveTeleop() {
 		// Use requires() here to declare subsystem dependencies
 		// requires(Robot.exampleSubsystem);
-		requires(Robot.drivetrain);
+		//requires(Robot.drivetrain);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,7 +22,6 @@ public class DriveTeleop extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		// Robot.drivetrain.drive();
 		Robot.drivetrain.driveSlow();
 	}
 

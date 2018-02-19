@@ -29,22 +29,24 @@ public class Drivetrain extends Subsystem {
 	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
 	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-	//public static PowerDistributionPanel PDP = new PowerDistributionPanel();
+	  
+	 
+	public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
 	
 
 	// Initializing encoder
 
-	/*public static Encoder encoderLeft = new Encoder(RobotMap.encRL, RobotMap.encFL, true,
-			Encoder.EncodingType.k1X);
-	public static Encoder encoderRight = new Encoder(RobotMap.encRR, RobotMap.encFR, false,
-			Encoder.EncodingType.k1X);*/
+	//public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
+			//Encoder.EncodingType.k1X);
+	//public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
+			//Encoder.EncodingType.k1X);
 
 	public static double constant = 8.6;
 
 	public Drivetrain() {
 		//encoderLeft.setMaxPeriod(2);
 		//encoderRight.setMaxPeriod(2);
-		frontRight.enableCurrentLimit(true);
+		/*frontRight.enableCurrentLimit(true);
 		rearRight.enableCurrentLimit(true);
 		frontLeft.enableCurrentLimit(true);
 		rearLeft.enableCurrentLimit(true);
@@ -52,31 +54,33 @@ public class Drivetrain extends Subsystem {
 		frontRight.configContinuousCurrentLimit(35,0); //90 is a placeholder for time in milliseconds
 		rearRight.configContinuousCurrentLimit(35,0); 
 		frontLeft.configContinuousCurrentLimit(35,0);
-		rearLeft.configContinuousCurrentLimit(35,0);
+		rearLeft.configContinuousCurrentLimit(35,0);*/ 
 	}
 
 	// Teleop
 	public void drive() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		double leftVal = -OI.driveJoystick.getRawAxis(1);
+		double rightVal = -OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
-		frontRight.set(ControlMode.PercentOutput,-rightVal);
-		rearRight.set(ControlMode.PercentOutput,-rightVal);
-		frontLeft.set(ControlMode.PercentOutput,leftVal);
-		rearLeft.set(ControlMode.PercentOutput,leftVal);	
+		frontRight.set(ControlMode.PercentOutput,rightVal);
+		rearRight.set(ControlMode.PercentOutput,rightVal);
+		frontLeft.set(ControlMode.PercentOutput,-leftVal);
+		rearLeft.set(ControlMode.PercentOutput,-leftVal);	
 	}
 	
 	public void driveSlow() {
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);
+		double leftVal = -OI.driveJoystick.getRawAxis(1);
+		double rightVal = -OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
-		//frontRight.set(ControlMode.PercentOutput,rightVal*0.75);
+		frontRight.set(ControlMode.PercentOutput,rightVal*0.75);
 		rearRight.set(ControlMode.PercentOutput,rightVal*0.75);
-		//frontLeft.set(ControlMode.PercentOutput,leftVal*0.75);
-		//rearLeft.set(ControlMode.PercentOutput,leftVal*0.75);
+		frontLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
+		rearLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
+		System.out.println("PDP current" + PDP.getCurrent(35));
 	}
+	
 	// auton
 	public void drive(double l, double r) {
 		frontRight.set(ControlMode.PercentOutput,-r);
@@ -139,6 +143,8 @@ public class Drivetrain extends Subsystem {
 	  return; 
 	  
 	}*/
+	
+	
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
