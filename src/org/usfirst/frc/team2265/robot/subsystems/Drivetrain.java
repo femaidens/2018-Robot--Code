@@ -23,27 +23,36 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
-	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
-	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	  public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	  public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
-	public static PowerDistributionPanel PDB = new PowerDistributionPanel();
+	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	//public static PowerDistributionPanel PDP = new PowerDistributionPanel();
 	
-	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 
 	// Initializing encoder
 
-	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
+	/*public static Encoder encoderLeft = new Encoder(RobotMap.encRL, RobotMap.encFL, true,
 			Encoder.EncodingType.k1X);
-	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
-			Encoder.EncodingType.k1X);
+	public static Encoder encoderRight = new Encoder(RobotMap.encRR, RobotMap.encFR, false,
+			Encoder.EncodingType.k1X);*/
 
 	public static double constant = 8.6;
 
 	public Drivetrain() {
-		encoderLeft.setMaxPeriod(2);
-		encoderRight.setMaxPeriod(2);
+		//encoderLeft.setMaxPeriod(2);
+		//encoderRight.setMaxPeriod(2);
+		frontRight.enableCurrentLimit(true);
+		rearRight.enableCurrentLimit(true);
+		frontLeft.enableCurrentLimit(true);
+		rearLeft.enableCurrentLimit(true);
+		
+		frontRight.configContinuousCurrentLimit(35,0); //90 is a placeholder for time in milliseconds
+		rearRight.configContinuousCurrentLimit(35,0); 
+		frontLeft.configContinuousCurrentLimit(35,0);
+		rearLeft.configContinuousCurrentLimit(35,0);
 	}
 
 	// Teleop
@@ -55,12 +64,7 @@ public class Drivetrain extends Subsystem {
 		frontRight.set(ControlMode.PercentOutput,-rightVal);
 		rearRight.set(ControlMode.PercentOutput,-rightVal);
 		frontLeft.set(ControlMode.PercentOutput,leftVal);
-		rearLeft.set(ControlMode.PercentOutput,leftVal);
-		System.out.println("frontRight: " + PDB.getCurrent(RobotMap.frontRightPort));
-		System.out.println("frontLeft: " + PDB.getCurrent(RobotMap.frontLeftPort));
-		System.out.println("rearRight: " + PDB.getCurrent(RobotMap.rearRightPort));
-		System.out.println("rearLeft: " + PDB.getCurrent(RobotMap.rearLeftPort));
-		System.out.println("Total3: " + PDB.getTotalCurrent());
+		rearLeft.set(ControlMode.PercentOutput,leftVal);	
 	}
 	
 	public void driveSlow() {
@@ -68,10 +72,10 @@ public class Drivetrain extends Subsystem {
 		double rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
-		frontRight.set(ControlMode.PercentOutput,-rightVal*0.85);
-		rearRight.set(ControlMode.PercentOutput,-rightVal*0.85);
-		frontLeft.set(ControlMode.PercentOutput,leftVal*0.85);
-		rearLeft.set(ControlMode.PercentOutput,leftVal*0.85);
+		frontRight.set(ControlMode.PercentOutput,-rightVal*0.75);
+		rearRight.set(ControlMode.PercentOutput,-rightVal*0.75);
+		frontLeft.set(ControlMode.PercentOutput,leftVal*0.75);
+		rearLeft.set(ControlMode.PercentOutput,leftVal*0.75);
 	}
 	// auton
 	public void drive(double l, double r) {
@@ -94,7 +98,8 @@ public class Drivetrain extends Subsystem {
 				/*rightMotors.set(-0.25);
 				leftMotors.set(0.25);*/
 			}
-		} else {
+		} 
+		else {
 			while (gyro.getAngle() > degrees) {
 				frontRight.set(ControlMode.PercentOutput,0.25);
 				rearRight.set(ControlMode.PercentOutput,0.25);

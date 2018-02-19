@@ -1,5 +1,9 @@
 package org.usfirst.frc.team2265.robot;
 
+import org.usfirst.frc.team2265.robot.commands.CascadeDown;
+import org.usfirst.frc.team2265.robot.commands.CascadeStop;
+import org.usfirst.frc.team2265.robot.commands.CascadeUp;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -38,29 +42,16 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-
-	public static Button climberButton = new JoystickButton(driveJoystick, 6);
-	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
-	public static Button dropGear = new JoystickButton(driveJoystick, 2);
-	public static Button reset = new JoystickButton(driveJoystick, 1);
-	public static Button align = new JoystickButton(driveJoystick, 8);
-	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
-	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
 	
+	public static Button CasDown = new JoystickButton(driveJoystick, 1);
+	public static Button CasUp = new JoystickButton(driveJoystick, 3);
 	
 
 	
 	public void bindButtons() {
-		/*climberButton.whileHeld(new Climb(1.0));
-		//climberButton.whileHeld(new TurnDegrees(45));
-		
-		compressorButton.toggleWhenPressed(new ToggleCompressor());
-		dropGear.whenPressed(new ShiftChute(false));
-		reset.whenPressed(new ShiftChute(true));
-		align.toggleWhenPressed(new AutoAlign());
-		gyroStraight.whileHeld(new GyroStraight(0.4));
-		switchSpeed.whenPressed(new SwitchSpeed());*/
-
-		
+		CasUp.whileHeld(new CascadeUp());
+		CasUp.whenReleased(new CascadeStop());
+		CasDown.whileHeld(new CascadeDown());
+		CasDown.whenReleased(new CascadeStop());
 	}
 }

@@ -18,36 +18,27 @@ public class RobotMap {
 	// public static int atkJoyPort = 1;
 
 	// Talon Ports
-	/*public static int rearLeftPort = 1;
-	public static int frontLeftPort = 2;
-
-	public static int rearRightPort = 3;
-	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 3; //3
-	public static int frontLeftPort = 4; //4
-
-	public static int rearRightPort = 1; //1
-	public static int frontRightPort = 2; //2
-
-	public static int climberPort1 = 5;
-	public static int climberPort2 = 6;
-
-	// Solenoid Ports for gearChute
-	public static int gearPort1 = 6;
-	public static int gearPort2 = 7;
-	public static int basePort1 = 4; 
-	public static int basePort2 = 5; 
+	public static int rearLeftPort = 7;
+	public static int frontLeftPort = 9; 
+	public static int rearRightPort = 2; 
+	public static int frontRightPort = 1;
+	
+	public static int casL1 = 12;
+	public static int casL2 = 10;
+	public static int casR1 = 6;
+	public static int casR2 = 8;
 
 	// Encoder Ports
-	/*public static int encPort1 = 5;
-	public static int encPort2 = 6;
-	public static int encPort3 = 7;
-	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
-	public static int encPort2 = 5;
-	public static int encPort3 = 6;
-	public static int encPort4 = 7;
+	public static int encRL = 7;
+	public static int encFL = 9;
+	public static int encRR = 2;
+	public static int encFR = 1;
+	
+	public static int casEncL1 = 12;
+	public static int casEncL2 = 10;
+	public static int casEncR1 = 6;
+	public static int casEncR2 = 8;
 	
 	//Gyro port
 	public static int gyroPort = 1;
