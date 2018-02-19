@@ -50,7 +50,7 @@ public class Drivetrain extends Subsystem {
 		rearLeft.enableCurrentLimit(true);
 		
 		frontRight.configContinuousCurrentLimit(35,0); //90 is a placeholder for time in milliseconds
-		rearRight.configContinuousCurrentLimit(35,0);
+		rearRight.configContinuousCurrentLimit(35,0); 
 		frontLeft.configContinuousCurrentLimit(35,0);
 		rearLeft.configContinuousCurrentLimit(35,0);
 	}
