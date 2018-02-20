@@ -32,6 +32,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  * creating this project, you must also update the build.properties file in the
  * project.
  */
+
+//iterative drive
 public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
@@ -45,7 +47,6 @@ public class Robot extends TimedRobot {
 	  public static WPI_TalonSRX frontRight; 	  
 	  public static WPI_TalonSRX rearRight;
 	 
-	  public static AnalogGyro gyro;
 	  public static Joystick js = new Joystick(1);
 	  public static DifferentialDrive dDrive;
 	/**
@@ -75,7 +76,6 @@ public class Robot extends TimedRobot {
 		rearRight.enableCurrentLimit(true);
 		rearLeft.enableCurrentLimit(true);
 		
-		gyro = new AnalogGyro(RobotMap.gyroPort);
 		SpeedControllerGroup scLeft = new SpeedControllerGroup(frontLeft, rearLeft);
 		SpeedControllerGroup scRight = new SpeedControllerGroup(frontRight, rearRight);
 		
@@ -155,7 +155,6 @@ public class Robot extends TimedRobot {
 		double leftVal = OI.driveJoystick.getRawAxis(5);
 		double rightVal = OI.driveJoystick.getRawAxis(1);;
 		//System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
-		System.out.println("Gyro: "+ gyro.getAngle());
 
 		dDrive.tankDrive(-js.getRawAxis(5), -js.getRawAxis(1));
 		

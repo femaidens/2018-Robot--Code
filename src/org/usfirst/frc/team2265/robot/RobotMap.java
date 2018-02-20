@@ -39,10 +39,10 @@ public class RobotMap {
 	// Encoder Ports
 	//drivetrain
 	
-	public static int encRL = 7;
+	/*public static int encRL = 7;
 	public static int encFL = 9;
 	public static int encRR = 2;
-	public static int encFR = 1;
+	public static int encFR = 1;*/
 	//cascade
 	public static int casEncL1 = 12;
 	public static int casEncL2 = 10;
