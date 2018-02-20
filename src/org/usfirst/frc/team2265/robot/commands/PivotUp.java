@@ -1,19 +1,15 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
-import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Acquire extends Command {
-	
-	
-    public Acquire() {
+public class PivotUp extends Command {
+
+    public PivotUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,7 +20,8 @@ public class Acquire extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.acquirer.acquire();
+    	Robot.acquirer.pivotUp();
+    	System.out.println("pivots upppppppp");
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,12 +31,13 @@ public class Acquire extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.acquirer.acquireStop();
+    	Robot.acquirer.pivotStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.acquirer.acquireStop();
+    	Robot.acquirer.pivotStop();
+
     }
 }

@@ -49,8 +49,6 @@ public class OI {
 	public static Button release = new JoystickButton(driveJoystick, 1);
 	public static Button pivotUp = new JoystickButton(driveJoystick, 6);
 	public static Button pivotDown = new JoystickButton(driveJoystick, 5);
-	public static Button ladderUp = new JoystickButton(driveJoystick, 9);
-	public static Button ladderDown= new JoystickButton(driveJoystick, 8);
 	//public static Button dropGear = new JoystickButton(driveJoystick, 2);
 	//public static Button reset = new JoystickButton(driveJoystick, 1);
 	
