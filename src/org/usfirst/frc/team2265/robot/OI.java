@@ -1,8 +1,7 @@
 package org.usfirst.frc.team2265.robot;
 
 import org.usfirst.frc.team2265.robot.commands.Acquire;
-import org.usfirst.frc.team2265.robot.commands.Pivot;
-import org.usfirst.frc.team2265.robot.commands.ToggleCommpressor;
+
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -44,7 +43,7 @@ public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	//public static Button climberButton = new JoystickButton(driveJoystick, 6);
 	
-	public static Button compressorButton = new JoystickButton(driveJoystick, 3);
+	
 	public static Button acquire = new JoystickButton(driveJoystick, 2);
 	public static Button release = new JoystickButton(driveJoystick, 1);
 	public static Button pivotUp = new JoystickButton(driveJoystick, 6);
@@ -69,13 +68,13 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
-		compressorButton.toggleWhenPressed(new ToggleCommpressor());
-		acquire.whenPressed(new Acquire(true));
-		release.whenPressed(new Acquire(false));
-		pivotUp.whenPressed(new Pivot(true));
-		pivotDown.whenPressed(new Pivot(false));
-		ladderUp.whenPressed(new Pivot(false));
-		ladderDown.whenPressed(new Pivot(true));
+		//compressorButton.toggleWhenPressed(new ToggleCommpressor());
+		//acquire.whenPressed(new Acquire(true));
+		//release.whenPressed(new Acquire(false));
+		//pivotUp.whenPressed(new Pivot(true));
+		//pivotDown.whenPressed(new Pivot(false));
+		//ladderUp.whenPressed(new Pivot(false));
+		//ladderDown.whenPressed(new Pivot(true));
 		//create align
 	
 		

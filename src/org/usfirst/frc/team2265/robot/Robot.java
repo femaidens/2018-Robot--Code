@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
+import org.usfirst.frc.team2265.robot.subsystems.CascadeLift;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2265.robot.subsystems.Ladder;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,15 +27,11 @@ import org.usfirst.frc.team2265.robot.subsystems.Ladder;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
+	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static OI m_oi;
 	public static Drivetrain drivetrain;
-	public static Ladder ladder;
 	public static Acquirer acquirer;
-	
-	public static Compressor compressy;
-
+	public static CascadeLift cascade;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -48,12 +44,11 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		drivetrain = new Drivetrain();
-		ladder = new Ladder();
 		acquirer = new Acquirer();
+		cascade = new CascadeLift();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
-		
-		compressy = new Compressor();
+
 	}
 
 	/**
@@ -78,7 +73,8 @@ public class Robot extends TimedRobot {
 	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
 	 * getString code to get the auto name from the text box below the Gyro
 	 *
-	 * <p>You can add additional auto modes by adding additional commands to the
+	 * <p>
+	 * You can add additional auto modes by adding additional commands to the
 	 * chooser code above (like the commented example) or additional comparisons
 	 * to the switch structure below with additional strings & commands.
 	 */

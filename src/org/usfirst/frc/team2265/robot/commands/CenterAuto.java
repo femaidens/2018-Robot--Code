@@ -28,18 +28,26 @@ public class CenterAuto extends CommandGroup {
     	
     	String gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData.charAt(0) == 'L'){
-    		addSequential(new TurnDegrees(19)); // placeholder
-    		addSequential(new DriveDistance(14/Math.cos(45), 0.5)); // placeholder
-    		addSequential(new TurnDegrees(-19)); // placeholder
+    		addSequential(new PivotDown());
+    		addSequential(new Acquire());
+    		addSequential(new TurnDegrees(-45)); // placeholder
+    		addSequential(new DriveDistance(14/Math.cos(45), 0.75)); // placeholder
+    		addSequential(new TurnDegrees(-15)); // placeholder
+    		addSequential(new CascadeUp());
+    		addSequential(new Release());
+    		addSequential(new DriveDistance(-20, 0.5)); //may need to make drive distance back
     		//Cascade lift, addSequential(new Lift());
-    		addSequential(new Acquire(false));
+    		
     	}
     	else{
-    		addSequential(new TurnDegrees(-19)); // placeholder
-    		addSequential(new DriveDistance(14/Math.cos(45), 0.5)); // placeholder
-    		addSequential(new TurnDegrees(19)); // placeholder
-    		//cascade lift, addSequential(new Lift());
-    		addSequential(new Acquire(false));
+    		addSequential(new PivotDown());
+    		addSequential(new Acquire());
+    		addSequential(new TurnDegrees(45)); // placeholder
+    		addSequential(new DriveDistance(14/Math.cos(45), 0.75)); // placeholder
+    		addSequential(new TurnDegrees(15)); // placeholder
+    		addSequential(new CascadeUp());
+    		addSequential(new Release());
+    		addSequential(new DriveDistance(-20, 0.5));
     	}
 
     	

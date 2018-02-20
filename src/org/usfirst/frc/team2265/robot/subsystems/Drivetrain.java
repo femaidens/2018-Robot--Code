@@ -38,12 +38,12 @@ public class Drivetrain extends Subsystem {
 			Encoder.EncodingType.k1X);
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
 			Encoder.EncodingType.k1X);
-
+	
 	public static double constant = 8.6;
 
 	public Drivetrain() {
-		encoderLeft.setMaxPeriod(2);
-		encoderRight.setMaxPeriod(2);
+		//encoderLeft.setMaxPeriod(2);
+		//encoderRight.setMaxPeriod(2);
 	}
 
 	// Teleop

@@ -20,7 +20,7 @@ public class Acquirer extends Subsystem {
 	
 	public static TalonSRX acqLeft = new TalonSRX(RobotMap.acqLeftPort);
 	public static TalonSRX acqRight = new TalonSRX(RobotMap.acqRightPort);
-	public static TalonSRX piv = new TalonSRX(RobotMap.pivLeftPort);
+	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
 	
 	
 	public double length = 20;
@@ -45,7 +45,7 @@ public class Acquirer extends Subsystem {
 	}
 	
 	public void pivotDown(){
-		piv.set(ControlMode.PercentOutput, 0.75);
+		piv.set(ControlMode.PercentOutput, -0.75);
 	}
 	
 	public void pivotUp(){  
