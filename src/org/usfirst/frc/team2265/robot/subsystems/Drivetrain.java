@@ -91,10 +91,8 @@ public class Drivetrain extends Subsystem {
 
 	public void turnDegrees(double degrees) {
 		gyro.reset();
-
 		if (degrees > 0) {
 			while (gyro.getAngle() < degrees) {
-
 				frontRight.set(ControlMode.PercentOutput,-0.25);
 				rearRight.set(ControlMode.PercentOutput,-0.25);
 				frontLeft.set(ControlMode.PercentOutput,-0.25);

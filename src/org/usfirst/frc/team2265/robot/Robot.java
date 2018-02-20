@@ -35,20 +35,14 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 //iterative drive
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
+	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static OI m_oi;
 	public static Acquirer acquirer;
 	Command m_autonomousCommand;
 	public static Drivetrain drivetrain;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-	  public static WPI_TalonSRX frontLeft; 
-	  public static WPI_TalonSRX rearLeft;  
-	  public static WPI_TalonSRX frontRight; 	  
-	  public static WPI_TalonSRX rearRight;
-	 
-	  public static Joystick js = new Joystick(1);
-	  public static DifferentialDrive dDrive;
+
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -62,26 +56,6 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_oi.bindButtons();
-		frontLeft = new WPI_TalonSRX(RobotMap.frontLeftPort);
-		rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
-		frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
-		rearRight = new WPI_TalonSRX(RobotMap.rearRightPort);
-		
-		frontLeft.configContinuousCurrentLimit(20, 0);
-		frontRight.configContinuousCurrentLimit(20, 0);
-		rearLeft.configContinuousCurrentLimit(20, 0);
-		rearRight.configContinuousCurrentLimit(20, 0);
-		frontLeft.enableCurrentLimit(true);
-		frontRight.enableCurrentLimit(true);
-		rearRight.enableCurrentLimit(true);
-		rearLeft.enableCurrentLimit(true);
-		
-		SpeedControllerGroup scLeft = new SpeedControllerGroup(frontLeft, rearLeft);
-		SpeedControllerGroup scRight = new SpeedControllerGroup(frontRight, rearRight);
-		
-		dDrive = new DifferentialDrive(scLeft, scRight);
-		
-
 	}
 
 	/**
@@ -152,12 +126,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		double leftVal = OI.driveJoystick.getRawAxis(5);
-		double rightVal = OI.driveJoystick.getRawAxis(1);;
 		//System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
-
-		dDrive.tankDrive(-js.getRawAxis(5), -js.getRawAxis(1));
-		
 	}
 
 	/**
