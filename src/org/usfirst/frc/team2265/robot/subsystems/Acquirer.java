@@ -53,7 +53,7 @@ public class Acquirer extends Subsystem {
 			pivRight.set(ControlMode.PercentOutput, -0.75);
 			pivLeft.set(ControlMode.PercentOutput, -0.75);
 		}*/
-		piv.set(ControlMode.PercentOutput, -1.0);
+		piv.set(ControlMode.PercentOutput, -0.75);
 	}
 	
 	public void pivotUp(){
@@ -64,7 +64,7 @@ public class Acquirer extends Subsystem {
 			pivRight.set(ControlMode.PercentOutput, 0.75);
 			pivLeft.set(ControlMode.PercentOutput, 0.75);
 		}*/
-		piv.set(ControlMode.PercentOutput, 1.0);
+		piv.set(ControlMode.PercentOutput, 0.75);
 	}
 	
 	/*public void isAcquired() {

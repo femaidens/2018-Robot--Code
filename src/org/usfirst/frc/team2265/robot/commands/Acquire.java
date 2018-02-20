@@ -28,7 +28,7 @@ public class Acquire extends Command {
     protected void execute() {
     		Robot.acquirer.acquire();
     		System.out.println("acquired");    	
-    	}
+    }
    
 
     // Make this return true when this Command no longer needs to run execute()

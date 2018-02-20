@@ -30,7 +30,6 @@ public class Robot extends IterativeRobot {
 			= new ExampleSubsystem();
 	public static OI m_oi;
 	public static Acquirer acquirer;
-	public static Compressor compressy;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 

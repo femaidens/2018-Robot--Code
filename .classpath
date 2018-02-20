@@ -10,5 +10,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/talon ctre"/>
 	<classpathentry kind="lib" path="C:/Users/FeMaidens/wpilib/java/current/lib/CTRE_Phoenix.jar"/>
 	<classpathentry kind="lib" path="C:/Users/FeMaidens/wpilib/java/current/lib/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
