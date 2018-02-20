@@ -49,12 +49,12 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	public static Button CasDown = new JoystickButton(driveJoystick, 4);
+	public static Button CasDown = new JoystickButton(driveJoystick, 1);
 	public static Button CasUp = new JoystickButton(driveJoystick, 3);
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
 	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
-	public static Button pivotDown = new JoystickButton(driveJoystick, 1);
+	//public static Button pivotDown = new JoystickButton(driveJoystick, 1);
 	
 
 	
@@ -71,7 +71,7 @@ public class OI {
 		
 		pivotUp.whileHeld(new PivotUp());
 		pivotUp.whenReleased(new PivotStop());
-		pivotDown.whileHeld(new PivotDown());
-		pivotDown.whenReleased(new PivotStop());
+		//pivotDown.whileHeld(new PivotDown());
+		//pivotDown.whenReleased(new PivotStop());
 	}
 }
