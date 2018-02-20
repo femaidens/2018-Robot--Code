@@ -32,7 +32,7 @@ public class Drivetrain extends Subsystem {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
 	//Initialize PDP 
-	public static PowerDistributionPanel PDP = new PowerDistributionPanel(0);
+	//public static PowerDistributionPanel PDP = new PowerDistributionPanel(0);
 	
 
 	// Initialize encoder
@@ -79,7 +79,7 @@ public class Drivetrain extends Subsystem {
 		rearRight.set(ControlMode.PercentOutput,rightVal*0.75);
 		frontLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
 		rearLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
-		System.out.println("PDP current" + PDP.getCurrent(35));
+		//System.out.println("PDP current" + PDP.getCurrent(35));
 	}
 	// auton
 	public void drive(double l, double r) {
