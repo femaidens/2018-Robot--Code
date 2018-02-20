@@ -24,10 +24,10 @@ public class Acquirer extends Subsystem {
 	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
 	//public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);*/
 	
-	/*public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
-	public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
+	public static Encoder encPiv = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
+	//public static Encoder encPivRight = new Encoder(RobotMap.encPivPort3, RobotMap.encPivPort4);
 	
-	public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);*/
+	//public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);
 	
 	public double length = 20;
 	public double circ = length*Math.PI/2;

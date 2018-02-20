@@ -30,16 +30,18 @@ public class RobotMap {
 	public static int rearRightPort = 2; // 1
 	public static int frontRightPort = 1; // 2
 	//REAL
-	//public static int acqLeftPort = 11;
-	//public static int acqRightPort = 3;
-	//public static int pivPort = 4;
+	public static int acqLeftPort = 11;
+	public static int acqRightPort = 3;
+	public static int pivPort = 4;
 	
 	//TEST
-	public static int acqLeftPort = 3;
-	public static int acqRightPort = 4;
-	public static int pivPort = 1;
+	//public static int acqLeftPort = 3;
+	//public static int acqRightPort = 4;
+	//public static int pivPort = 1;
 
-	// Encoder Ports
+	// Encoder Ports - not real
+	public static int encPivPort1 = 33; 
+	public static int encPivPort2 = 33;
 	/*
 	 * public static int encPort1 = 5; public static int encPort2 = 6; public
 	 * static int encPort3 = 7; public static int encPort4 = 8;

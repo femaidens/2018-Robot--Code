@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2265.robot.commands;
 
 import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -21,6 +22,7 @@ public class PivotUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.acquirer.pivotUp();
+    	System.out.println("Encoder ticks pivot:" + Acquirer.encPiv.getDistance());
 		System.out.println("pivot up");
     }
 

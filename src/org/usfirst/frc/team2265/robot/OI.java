@@ -81,6 +81,5 @@ public class OI {
 		
 		pivotDown.whileHeld(new PivotDown());
 		pivotDown.whenReleased(new PivotStop());
-		
 	}
 }
