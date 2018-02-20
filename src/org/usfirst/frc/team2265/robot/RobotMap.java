@@ -15,7 +15,7 @@ public class RobotMap {
 
 	// Joystick Ports
 	
-	public static int driveJoyPort = 10;
+	public static int driveJoyPort = 0;
 	public static int launchPort = 1;
 	// public static int atkJoyPort = 1;
 
@@ -79,6 +79,9 @@ public class RobotMap {
 	*/
 	//Gyro port
 	public static int gyroPort = 1;
+	
+	//Servo
+	public static int ServoCascade = 2;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

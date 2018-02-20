@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2265.robot;
 
 
-import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.commands.HookServo;
 
 import org.usfirst.frc.team2265.robot.commands.SwitchSpeed;
@@ -55,13 +54,17 @@ public class OI {
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 5);
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
 	*/
-	public static Button cascadeUpButton = new JoystickButton(launchpad,15);
-	public static Button cascadeDownButton = new JoystickButton(launchpad,5);
-	public static Button pivotUpButton = new JoystickButton(launchpad,14);
-	public static Button pivotDownButton = new JoystickButton(launchpad,4);
-	public static Button servoUpButton = new JoystickButton(launchpad,12);
-	public static Button servoDownButton = new JoystickButton(launchpad,2);
-	public static Button switchSpeedButton = new JoystickButton(launchpad,13);
+	public static Button cascadeUpButton = new JoystickButton(launchpad,15);//15
+	public static Button cascadeDownButton = new JoystickButton(launchpad,5);//5
+	public static Button pivotUpButton = new JoystickButton(launchpad,14);//14
+	public static Button pivotDownButton = new JoystickButton(launchpad,4);//4
+	public static Button servoUpButton = new JoystickButton(launchpad,12);//12
+	public static Button servoDownButton = new JoystickButton(launchpad,2);//2
+	public static Button switchSpeedButton = new JoystickButton(launchpad,13);//13
+	
+	public OI() {
+		bindButtons();
+	}
 	
 
 	
@@ -76,9 +79,18 @@ public class OI {
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
 
-		
 		servoUpButton.whileHeld(new HookServo()); // to replace with servoUp()
 		servoDownButton.whileHeld(new UnhookServo()); // to replace with servoDown()
-		switchSpeedButton.toggleWhenPressed(new SwitchSpeed()); // to replace with switchSpeed()
+		//switchSpeedButton.whileHeld(new SwitchSpeed()); // to replace with switchSpeed()
+		
+		/*
+		cascadeUpButton.whileHeld(new SwitchSpeed());
+		cascadeDownButton.whileHeld(new SwitchSpeed());
+		pivotUpButton.whileHeld(new SwitchSpeed());
+		pivotDownButton.whileHeld(new SwitchSpeed());
+		servoUpButton.whileHeld(new SwitchSpeed());
+		servoDownButton.whileHeld(new SwitchSpeed());
+		switchSpeedButton.whileHeld(new SwitchSpeed());
+		*/
 	}
 }

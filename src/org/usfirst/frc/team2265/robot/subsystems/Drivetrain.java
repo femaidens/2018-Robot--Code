@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 
+
 /**
  *
  */
@@ -21,12 +22,12 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	  public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
-	  public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	  public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
-	  public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 
-//	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
+	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 
 	// Initializing encoder
 
@@ -35,7 +36,7 @@ public class Drivetrain extends Subsystem {
 	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
 			Encoder.EncodingType.k1X);
 
-	public static final double speedLimit = 0.75; // placeholder 
+	public static final double speedLimit = 0.5; // placeholder 
 	public static double constant = 8.6;
 
 	public Drivetrain() {
@@ -44,11 +45,12 @@ public class Drivetrain extends Subsystem {
 	}
 
 	// Teleop
+	
 	public void drive() {
 	double leftVal = OI.driveJoystick.getRawAxis(5);
 		double rightVal = OI.driveJoystick.getRawAxis(1);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
-		System.out.println("Gyro: "+ gyro.getAngle());
+		//System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,-rightVal);
 		rearRight.set(ControlMode.PercentOutput,-rightVal);
 		frontLeft.set(ControlMode.PercentOutput,leftVal);
@@ -83,8 +85,8 @@ public class Drivetrain extends Subsystem {
 				rearRight.set(ControlMode.PercentOutput,-0.25);
 				frontLeft.set(ControlMode.PercentOutput,-0.25);
 				rearLeft.set(ControlMode.PercentOutput,-0.25);
-				/*rightMotors.set(-0.25);
-				leftMotors.set(0.25);*/
+				//rightMotors.set(-0.25);
+				//leftMotors.set(0.25);
 			}
 		} else {
 			while (gyro.getAngle() > degrees) {
@@ -92,8 +94,8 @@ public class Drivetrain extends Subsystem {
 				rearRight.set(ControlMode.PercentOutput,0.25);
 				frontLeft.set(ControlMode.PercentOutput,0.25);
 				rearLeft.set(ControlMode.PercentOutput,0.25);
-				/*rightMotors.set(0.25);
-				leftMotors.set(0.25);*/
+				//rightMotors.set(0.25);
+				//leftMotors.set(0.25);
 			}
 		}
 
@@ -131,13 +133,13 @@ public class Drivetrain extends Subsystem {
 	public void switchSpeed() {
 		if (frontRight.getMotorOutputPercent() <= speedLimit && frontLeft.getMotorOutputPercent() <= speedLimit && rearRight.getMotorOutputPercent() <= speedLimit && rearLeft.getMotorOutputPercent() <= speedLimit){
 			drive();
-	}
-	else {
-		frontRight.set(ControlMode.PercentOutput, frontRight.getMotorOutputPercent()*0.75);
+		}
+		else {
+			frontRight.set(ControlMode.PercentOutput, frontRight.getMotorOutputPercent()*0.75);
 			frontLeft.set(ControlMode.PercentOutput,frontLeft.getMotorOutputPercent()*0.75);
 			rearRight.set(ControlMode.PercentOutput,rearRight.getMotorOutputPercent()*0.75);
 			rearLeft.set(ControlMode.PercentOutput,rearLeft.getMotorOutputPercent()*0.75);
-	}
+		}
 	}
 
 	public void initDefaultCommand() {

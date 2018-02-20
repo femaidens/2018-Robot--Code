@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2265.robot.subsystems.ServoCascade;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -109,6 +110,7 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+    	ServoCascade.serv.setPosition(0.0); 
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
