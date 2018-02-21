@@ -22,7 +22,7 @@ public class UnhookServo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(ServoCascade.serv.getAngle());
+    	//System.out.println(ServoCascade.serv.getAngle());
     	//ServoCascade.serv.setPosition(0.0);
     	ServoCascade.serv.setAngle(0.0);
     }

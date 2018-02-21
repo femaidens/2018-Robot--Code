@@ -65,7 +65,7 @@ public class RobotMap {
 	public static int encPort4 = 8;
 	
 	//servo port
-	public static int servoPort = 0;
+	public static int servoPort = 2;
 	
 	/*public static int encPort1 = 4;
 	public static int encPort2 = 5;
@@ -80,8 +80,6 @@ public class RobotMap {
 	//Gyro port
 	public static int gyroPort = 1;
 	
-	//Servo
-	public static int ServoCascade = 2;
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

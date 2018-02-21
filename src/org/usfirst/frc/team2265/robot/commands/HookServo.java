@@ -23,7 +23,7 @@ public class HookServo extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(ServoCascade.serv.getAngle());
+    	//System.out.println(ServoCascade.serv.getAngle());
     	ServoCascade.serv.setAngle(90.0); 
     	//ServoCascade.serv.setPosition(1.0);
     }
