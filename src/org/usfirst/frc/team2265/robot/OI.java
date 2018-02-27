@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2265.robot;
 
 import org.usfirst.frc.team2265.robot.commands.Acquire;
-import org.usfirst.frc.team2265.robot.commands.AcquireStop;
+import org.usfirst.frc.team2265.robot.commands.AcquirerStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeDown;
 import org.usfirst.frc.team2265.robot.commands.CascadeStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeUp;
@@ -65,9 +65,9 @@ public class OI {
 		CasDown.whenReleased(new CascadeStop());
 		
 		acquire.whileHeld(new Acquire());
-		acquire.whenReleased(new AcquireStop());
+		acquire.whenReleased(new AcquirerStop());
 		release.whileHeld(new Release());
-		release.whenReleased(new AcquireStop());
+		release.whenReleased(new AcquirerStop());
 		
 		pivotUp.whileHeld(new PivotUp());
 		pivotUp.whenReleased(new PivotStop());

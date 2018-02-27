@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AcquireStop extends Command {
+public class AcquirerStop extends Command {
 
-    public AcquireStop() {
+    public AcquirerStop() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	
