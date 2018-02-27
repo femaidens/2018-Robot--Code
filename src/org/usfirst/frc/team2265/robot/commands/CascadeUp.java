@@ -22,7 +22,7 @@ public class CascadeUp extends Command {
     protected void execute() {
     	CascadeLift.cascadeUp();
     	System.out.println("Cascade Up");
-    	//System.out.println("Encoder Left " + CascadeLift.encLeft.getDistance());	
+    	System.out.println("Encoder Left " + CascadeLift.encLeft.getDistance());	
     }
 
     // Make this return true when this Command no longer needs to run execute()

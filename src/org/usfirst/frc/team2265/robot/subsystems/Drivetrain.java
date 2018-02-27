@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2265.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import org.usfirst.frc.team2265.robot.OI;
 import org.usfirst.frc.team2265.robot.Robot;
@@ -9,8 +10,11 @@ import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 
@@ -23,11 +27,15 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
-	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
-	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
-	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
+	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(RobotMap.frontLeftPort);
+	public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
+	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
+	public static WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.rearRightPort);
 	
+	public static SpeedControllerGroup group_Left = new SpeedControllerGroup(frontLeft, rearLeft);
+	public static SpeedControllerGroup group_Right = new SpeedControllerGroup(frontRight, rearRight);
+	
+	public static DifferentialDrive dDrive = new DifferentialDrive(group_Left, group_Right);
 	//Initialize Joystick
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
@@ -64,10 +72,11 @@ public class Drivetrain extends Subsystem {
 		double rightVal = -OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
-		frontRight.set(ControlMode.PercentOutput,rightVal);
+		/*frontRight.set(ControlMode.PercentOutput,rightVal);
 		rearRight.set(ControlMode.PercentOutput,rightVal);
 		frontLeft.set(ControlMode.PercentOutput,-leftVal);
-		rearLeft.set(ControlMode.PercentOutput,-leftVal);	
+		rearLeft.set(ControlMode.PercentOutput,-leftVal);*/
+		dDrive.tankDrive(leftVal, rightVal);
 	}
 	
 	public void driveSlow() {
@@ -94,7 +103,6 @@ public class Drivetrain extends Subsystem {
 
 		if (degrees > 0) {
 			while (gyro.getAngle() < degrees) {
-
 				frontRight.set(ControlMode.PercentOutput,-0.25);
 				rearRight.set(ControlMode.PercentOutput,-0.25);
 				frontLeft.set(ControlMode.PercentOutput,-0.25);
