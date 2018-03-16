@@ -14,7 +14,7 @@ public class RobotMap {
 	// public static int rightMotor = 2;
 
 	// Joystick Ports
-	public static int driveJoyPort = 1;
+	public static int driveJoyPort = 0;
 	// public static int atkJoyPort = 1;
 
 	// Talon Ports
@@ -24,10 +24,10 @@ public class RobotMap {
 	public static int rearRightPort = 3;
 	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 7; //3
-	public static int frontLeftPort = 9; //4
-	public static int rearRightPort = 2; //1
-	public static int frontRightPort = 1; //2
+	public static int rearLeftPort = 7; 
+	public static int frontLeftPort = 9; 
+	public static int rearRightPort = 2; 
+	public static int frontRightPort = 1; 
 	
 	/*public static int acqLeftPort = 5;
 	public static int acqRightPort = 5;
@@ -37,10 +37,10 @@ public class RobotMap {
 	public static int climberPort1 = 5;
 	public static int climberPort2 = 6;*/
 	
-	public static int casLPort1 = 12;//11?
-	public static int casLPort2 = 10;
+	public static int casLPort1 = 1;//12;
+	public static int casLPort2 = 0;//10;
 	public static int casRPort1 = 6;
-	public static int casRPort2 = 8;
+	public static int casRPort2 = 5;//8;
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;

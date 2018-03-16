@@ -27,15 +27,16 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(RobotMap.frontLeftPort);
-	public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
-	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
-	public static WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.rearRightPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 	
-	public static SpeedControllerGroup group_Left = new SpeedControllerGroup(frontLeft, rearLeft);
-	public static SpeedControllerGroup group_Right = new SpeedControllerGroup(frontRight, rearRight);
+	//public static SpeedControllerGroup group_Left = new SpeedControllerGroup(frontLeft, rearLeft);
+	//public static SpeedControllerGroup group_Right = new SpeedControllerGroup(frontRight, rearRight);
 	
-	public static DifferentialDrive dDrive = new DifferentialDrive(group_Left, group_Right);
+	//public static DifferentialDrive dDrive = new DifferentialDrive(group_Left, group_Right);
+	
 	//Initialize Joystick
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
@@ -72,11 +73,11 @@ public class Drivetrain extends Subsystem {
 		double rightVal = -OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
-		/*frontRight.set(ControlMode.PercentOutput,rightVal);
+		frontRight.set(ControlMode.PercentOutput,rightVal);
 		rearRight.set(ControlMode.PercentOutput,rightVal);
 		frontLeft.set(ControlMode.PercentOutput,-leftVal);
-		rearLeft.set(ControlMode.PercentOutput,-leftVal);*/
-		dDrive.tankDrive(leftVal, rightVal);
+		rearLeft.set(ControlMode.PercentOutput,-leftVal);
+		//dDrive.tankDrive(leftVal, rightVal);
 	}
 	
 	public void driveSlow() {

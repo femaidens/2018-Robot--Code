@@ -24,7 +24,7 @@ public class DriveTeleop extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		// Robot.drivetrain.drive();
-		Robot.drivetrain.drive();
+		Robot.drivetrain.driveSlow();
 		//System.out.println("Front Right: " + Drivetrain.PDP.getCurrent(1));
 		//System.out.println("Rear Right: " + Drivetrain.PDP.getCurrent(2));
 		//System.out.println("Front Left: " + Drivetrain.PDP.getCurrent(9));

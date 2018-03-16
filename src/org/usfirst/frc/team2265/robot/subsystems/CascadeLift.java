@@ -37,10 +37,10 @@ public class CascadeLift extends Subsystem {
 	// method to make the cascade go up
 	public static void cascadeUp(){
 		//casL2 is wired reversely
-			casLeft1.set(ControlMode.PercentOutput, -1.0);
-			casLeft2.set(ControlMode.PercentOutput, 1.0);
-			casRight1.set(ControlMode.PercentOutput, 1.0);
-			casRight2.set(ControlMode.PercentOutput, 1.0);			
+			casLeft1.set(ControlMode.PercentOutput, -0.5);
+			casLeft2.set(ControlMode.PercentOutput, 0.5);
+			casRight1.set(ControlMode.PercentOutput, 0.5);
+			casRight2.set(ControlMode.PercentOutput, 0.5);			
 		 //didn't use encLeft for reason; just to get enc value on one side       
 		/*while (encLeft.get() < distance) {
 			// 0.75 is the placeholder.
@@ -57,6 +57,15 @@ public class CascadeLift extends Subsystem {
 		
 	}
 	
+	public static void cascadeRUp(){
+		casRight1.set(ControlMode.PercentOutput, 0.1);
+		casRight2.set(ControlMode.PercentOutput, 0.1);
+	}
+	public static void cascadeRDown(){
+		casRight1.set(ControlMode.PercentOutput, -0.1);
+		casRight2.set(ControlMode.PercentOutput, -0.1);
+	}
+	
 	public static void cascadeStop(){
 		casLeft1.set(ControlMode.PercentOutput, 0);
 		casLeft2.set(ControlMode.PercentOutput, 0);
@@ -65,10 +74,10 @@ public class CascadeLift extends Subsystem {
 	}
 	
 	public static void cascadeDown() {
-		casLeft1.set(ControlMode.PercentOutput, 1.0);
-		casLeft2.set(ControlMode.PercentOutput, -1.0);
-		casRight1.set(ControlMode.PercentOutput, -1.0);
-		casRight2.set(ControlMode.PercentOutput, -1.0);
+		casLeft1.set(ControlMode.PercentOutput, 0.5); //
+		casLeft2.set(ControlMode.PercentOutput, -0.5);
+		casRight1.set(ControlMode.PercentOutput, -0.5);
+		casRight2.set(ControlMode.PercentOutput, -0.5);
 		/*while (encLeft.get() < (2*distance)) {
 			casLeft1.set(ControlMode.PercentOutput, -0.75);
 			casLeft2.set(ControlMode.PercentOutput, -0.75); 
