@@ -55,15 +55,14 @@ public class OI {
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);*/
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
-	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
-	public static Button pivotDown = new JoystickButton(driveJoystick, 1);
+	public static Button pivotUp = new JoystickButton(driveJoystick, 4);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 2);
 	
 
 	
 	public void bindButtons() {
 		/*climberButton.whileHeld(new Climb(1.0));
 		//climberButton.whileHeld(new TurnDegrees(45));
-		
 		compressorButton.toggleWhenPressed(new ToggleCompressor());
 		dropGear.whenPressed(new ShiftChute(false));
 		reset.whenPressed(new ShiftChute(true));

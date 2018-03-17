@@ -22,7 +22,7 @@ public class PivotUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.acquirer.pivotUp();
-    	System.out.println("Encoder ticks pivot:" + Acquirer.encPiv.getDistance());
+    	//System.out.println("Encoder ticks pivot:" + Acquirer.encPiv.getDistance());
 		System.out.println("pivot up");
     }
 
