@@ -36,19 +36,25 @@ public class GyroDriveStraight extends Command {
     	double error = setpoint - Drivetrain.gyro.getAngle();
     	double lastError = 0.0;
     	turningValue = error * kP + (error-lastError)*kD;
-    	Drivetrain.frontRight.setSafetyEnabled(false);
-    	Drivetrain.frontLeft.setSafetyEnabled(false);
-    	Drivetrain.rearLeft.setSafetyEnabled(false);
-    	Drivetrain.rearRight.setSafetyEnabled(false);
-    	Drivetrain.encoderLeft.reset();
-    	Drivetrain.encoderRight.reset();
+    	//Drivetrain.frontRight.setSafetyEnabled(false);
+    	//Drivetrain.frontLeft.setSafetyEnabled(false);
+    	//Drivetrain.rearLeft.setSafetyEnabled(false);
+    	//Drivetrain.rearRight.setSafetyEnabled(false);
+    	//Drivetrain..reset();
+    	//Drivetrain.encoderRight.reset();
     	Drivetrain.gyro.reset();
+    	
+    	/*System.out.print("pulseWidPos:" + pulseWidthWithoutOverflows + "   =>    " + "selSenPos:" + selSenPos);
+		System.out.print("      ");
+		System.out.print(
+				"pulseWidDeg:" + ToDeg(pulseWidthWithoutOverflows) + "   =>    " + "selSenDeg:" + ToDeg(selSenPos));
+		System.out.println(); */
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Encoder Left Before" + Drivetrain.encoderLeft.getDistance());
+    	/*System.out.println("Encoder Left Before" + Drivetrain.encoderLeft.getDistance());
     	System.out.println("Encoder Right Before" + Drivetrain.encoderRight.getDistance());
     	while(Drivetrain.encoderLeft.getDistance() < distance && Drivetrain.encoderRight.getDistance() < distance ) {
 	    	if (Drivetrain.gyro.getAngle() < turningValue) {
@@ -64,7 +70,7 @@ public class GyroDriveStraight extends Command {
 				Drivetrain.frontRight.set(ControlMode.PercentOutput,rightVel);
 				System.out.println("Right: "+ Drivetrain.gyro.getAngle());
 			}
-    	}
+    	}*/
     }
 
     // Make this return true when this Command no longer needs to run execute()

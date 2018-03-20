@@ -24,34 +24,50 @@ public class RobotMap {
 	public static int rearRightPort = 3;
 	public static int frontRightPort = 4; */
 	
-	public static int rearLeftPort = 3; //3
-	public static int frontLeftPort = 4; //4
+	//public static int rearLeftPort = 3; //3
+	//public static int frontLeftPort = 4; //4
 
-	public static int rearRightPort = 1; //1
-	public static int frontRightPort = 2; //2
+	//public static int rearRightPort = 1; //1
+	//public static int frontRightPort = 2; //2
 
-	public static int climberPort1 = 5;
-	public static int climberPort2 = 6;
+	//public static int climberPort1 = 5;
+	//public static int climberPort2 = 6;
 
 	// Solenoid Ports for gearChute
-	public static int gearPort1 = 6;
-	public static int gearPort2 = 7;
-	public static int basePort1 = 4; 
-	public static int basePort2 = 5; 
+	//public static int gearPort1 = 6;
+	//public static int gearPort2 = 7;
+	//public static int basePort1 = 4; 
+	//public static int basePort2 = 5; 
 
 	// Encoder Ports
 	/*public static int encPort1 = 5;
 	public static int encPort2 = 6;
 	public static int encPort3 = 7;
 	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
-	public static int encPort2 = 5;
-	public static int encPort3 = 6;
-	public static int encPort4 = 7;
+	//public static int encPort1 = 4;
+	//public static int encPort2 = 5;
+	//public static int encPort3 = 6;
+	//public static int encPort4 = 7;
 	
 	//Gyro port
+	//public static int gyroPort = 1;
+	//second robot
+	public static int rearLeftPort = 3; //7
+	public static int frontLeftPort = 4; //9
+	public static int rearRightPort = 10; //2
+	public static int frontRightPort = 11;//1
+	//cascade
+	public static int casL1 = 1;//12
+	public static int casL2 = 0;//10
+	public static int casR1 = 6;//6
+	public static int casR2 = 5;//8
+	//acquirer
+	//REAL second
+	public static int acqLeftPort = 2;//11
+	public static int acqRightPort = 8;//3
+	public static int pivPort = 9; //4
+	
 	public static int gyroPort = 1;
-
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

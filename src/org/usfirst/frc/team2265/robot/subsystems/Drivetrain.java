@@ -9,6 +9,8 @@ import org.usfirst.frc.team2265.robot.RobotMap;
 import org.usfirst.frc.team2265.robot.commands.DriveTeleop;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -25,32 +27,37 @@ public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands
 	// Initialize CANTalons
-	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(RobotMap.frontLeftPort);
-	public static WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.rearLeftPort);
-	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.frontRightPort);
-	public static WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.rearRightPort);
+	public static TalonSRX frontLeft = new TalonSRX(RobotMap.frontLeftPort);
+	public static TalonSRX rearLeft = new TalonSRX(RobotMap.rearLeftPort);
+	public static TalonSRX frontRight = new TalonSRX(RobotMap.frontRightPort);
+	public static TalonSRX rearRight = new TalonSRX(RobotMap.rearRightPort);
 	
 	//public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft , rearLeft);
 	//public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, rearRight);
 
 	//public static DifferentialDrive robotdrive = new DifferentialDrive(leftMotors, rightMotors);
 
+	
+	
+	
 	public static PowerDistributionPanel PDB = new PowerDistributionPanel();
 	
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 
 	// Initializing encoder
+	int LselSenPos = frontLeft.getSelectedSensorPosition(0);
+	int RselSenPos = frontRight.getSelectedSensorPosition(0);
 
-	public static Encoder encoderLeft = new Encoder(RobotMap.encPort1, RobotMap.encPort2, true,
-			Encoder.EncodingType.k1X);
-	public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
-			Encoder.EncodingType.k1X);
 
 	public static double constant = 8.6;
 	public static double setpoint;
+	
 	public Drivetrain() {
-		encoderLeft.setMaxPeriod(2);
-		encoderRight.setMaxPeriod(2);
+		//instantiate quad encoders need to know what parameters
+		frontLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 1, 0);
+		frontRight.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 1, 0);
+		rearLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 1, 0);
+		rearRight.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 1, 0);	
 	}
 
 	// Teleop

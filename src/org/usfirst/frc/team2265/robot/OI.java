@@ -47,6 +47,7 @@ public class OI {
 	public static Button reset = new JoystickButton(driveJoystick, 1);
 	public static Button align = new JoystickButton(driveJoystick, 8);
 	public static Button gyroStraight = new JoystickButton(driveJoystick, 2);
+	
 	public static Button switchSpeed = new JoystickButton(driveJoystick, 7);
 	
 	
@@ -62,7 +63,7 @@ public class OI {
 		align.toggleWhenPressed(new AutoAlign());
 		gyroStraight.whileHeld(new GyroStraight(0.4));
 		switchSpeed.whenPressed(new SwitchSpeed());*/
-		gyroStraight.whenPressed(new GyroDriveStraight(400*(236/12), 0.5*0.75));
+		gyroStraight.whenPressed(new GyroDriveStraight(150*(236/12), 0.5*0.75));
 		
 	}
 }
