@@ -31,7 +31,7 @@ public class Drivetrain extends Subsystem {
 	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
 	 
-	public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
+	//public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
 	
 
 	// Initializing encoder
@@ -58,8 +58,8 @@ public class Drivetrain extends Subsystem {
 
 	// Teleop
 	public void drive() {
-		double leftVal = -OI.driveJoystick.getRawAxis(1);
-		double rightVal = -OI.driveJoystick.getRawAxis(5);
+		double leftVal = OI.driveJoystick.getRawAxis(1);
+		double rightVal = OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,rightVal);
@@ -69,15 +69,15 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void driveSlow() {
-		double leftVal = -OI.driveJoystick.getRawAxis(1);
-		double rightVal = -OI.driveJoystick.getRawAxis(5);
+		double leftVal = OI.driveJoystick.getRawAxis(1);
+		double rightVal = OI.driveJoystick.getRawAxis(5);
 		 //System.out.println("leftVal: " + encoderLeft.get() + " rightVal: " + encoderRight.get());
 		//System.out.println("Gyro: "+ gyro.getAngle());
 		frontRight.set(ControlMode.PercentOutput,rightVal*0.75);
 		rearRight.set(ControlMode.PercentOutput,rightVal*0.75);
 		frontLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
 		rearLeft.set(ControlMode.PercentOutput,-leftVal*0.75);
-		System.out.println("PDP current" + PDP.getCurrent(35));
+		//System.out.println("PDP current" + PDP.getCurrent(35));
 	}
 	
 	// auton

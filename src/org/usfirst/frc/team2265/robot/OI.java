@@ -51,27 +51,32 @@ public class OI {
 	
 	public static Button CasDown = new JoystickButton(driveJoystick, 1);
 	public static Button CasUp = new JoystickButton(driveJoystick, 3);
+	
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
-	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
-	//public static Button pivotDown = new JoystickButton(driveJoystick, 1);
+	
+	public static Button pivotUp = new JoystickButton(driveJoystick, 4);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 2);
 	
 
 	
 	public void bindButtons() {
 		CasUp.whileHeld(new CascadeUp());
 		CasUp.whenReleased(new CascadeStop());
+		
 		CasDown.whileHeld(new CascadeDown());
 		CasDown.whenReleased(new CascadeStop());
 		
 		acquire.whileHeld(new Acquire());
 		acquire.whenReleased(new AcquirerStop());
+		
 		release.whileHeld(new Release());
 		release.whenReleased(new AcquirerStop());
 		
 		pivotUp.whileHeld(new PivotUp());
 		pivotUp.whenReleased(new PivotStop());
-		//pivotDown.whileHeld(new PivotDown());
-		//pivotDown.whenReleased(new PivotStop());
+		
+		pivotDown.whileHeld(new PivotDown());
+		pivotDown.whenReleased(new PivotStop());
 	}
 }

@@ -6,7 +6,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Encoder;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -24,7 +26,9 @@ public class Acquirer extends Subsystem {
 	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
 	//public static TalonSRX pivRight = new TalonSRX(RobotMap.pivRightPort);*/
 	
-	//public static Encoder encPivLeft = new Encoder(RobotMap.encPivPort1, RobotMap.encPivPort2);
+	
+	 
+	
 	
 	//public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);*/
 	
@@ -32,16 +36,18 @@ public class Acquirer extends Subsystem {
 	public double circ = length*Math.PI/2;
 	
 	public Acquirer(){
+		piv.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		piv.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 1, 10);
 	}
 	
 	public void acquire(){
-		acqLeft.set(ControlMode.PercentOutput, 0.75);
-		acqRight.set(ControlMode.PercentOutput, 0.75);
+		acqLeft.set(ControlMode.PercentOutput, 1.0);
+		acqRight.set(ControlMode.PercentOutput, 1.0);
 	}
 	
 	public void release(){
-		acqLeft.set(ControlMode.PercentOutput, -0.75);
-		acqRight.set(ControlMode.PercentOutput, -0.75);
+		acqLeft.set(ControlMode.PercentOutput, -1.0);
+		acqRight.set(ControlMode.PercentOutput, -1.0);
 	}
 	
 	public void pivotDown(){
@@ -66,12 +72,6 @@ public class Acquirer extends Subsystem {
 		piv.set(ControlMode.PercentOutput, 0.4);
 	}
 	
-	/*public void isAcquired() {
-		if(limitswitch.get() == true) {
-			System.out.println("BOX ACQURED");
-		}
-	}*/
-	
 	public void acquirerStop() {
 		acqLeft.set(ControlMode.PercentOutput, 0);
 		acqRight.set(ControlMode.PercentOutput, 0);
@@ -79,6 +79,10 @@ public class Acquirer extends Subsystem {
 	
 	public void pivotStop() {
 		piv.set(ControlMode.PercentOutput, 0);
+	}
+	
+	public void pivot90(int ticks){
+		
 	}
 	
     public void initDefaultCommand() {

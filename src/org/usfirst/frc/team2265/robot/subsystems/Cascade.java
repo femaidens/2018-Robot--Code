@@ -26,7 +26,7 @@ public class Cascade extends Subsystem {
 	
 	// one encoder for two talon/motor.
 	//write encoder ports in RobotMap later
-	public static Encoder encLeft = new Encoder(RobotMap.casEncL1, RobotMap.casEncL2);
+	//public static Encoder encLeft = new Encoder(RobotMap.casEncL1, RobotMap.casEncL2);
 	//public static Encoder encRight = new Encoder(RobotMap.encRPort1, RobotMap.encRPort2);
 	
 	
@@ -37,10 +37,10 @@ public class Cascade extends Subsystem {
 	// method to make the cascade go up
 	public static void cascadeUp(){
 		//casL2 is wired reversely
-			casLeft1.set(ControlMode.PercentOutput, -0.4);
-			casLeft2.set(ControlMode.PercentOutput, 0.4);
-			casRight1.set(ControlMode.PercentOutput, 0.4);
-			casRight2.set(ControlMode.PercentOutput, 0.4);			
+			casLeft1.set(ControlMode.PercentOutput, -1.0);
+			casLeft2.set(ControlMode.PercentOutput, 1.0);
+			casRight1.set(ControlMode.PercentOutput, 1.0);
+			casRight2.set(ControlMode.PercentOutput, 1.0);			
 		 //didn't use encLeft for reason; just to get enc value on one side       
 		/*while (encLeft.get() < distance) {
 			// 0.75 is the placeholder.
@@ -78,10 +78,10 @@ public class Cascade extends Subsystem {
 	}
 	
 	public static void cascadeDown() {
-		casLeft1.set(ControlMode.PercentOutput, 0.4);
-		casLeft2.set(ControlMode.PercentOutput, -0.4);
-		casRight1.set(ControlMode.PercentOutput, -0.4);
-		casRight2.set(ControlMode.PercentOutput, -0.4);
+		casLeft1.set(ControlMode.PercentOutput, 1.0);
+		casLeft2.set(ControlMode.PercentOutput, -1.0);
+		casRight1.set(ControlMode.PercentOutput, -1.0);
+		casRight2.set(ControlMode.PercentOutput, -1.0);
 		/*while (encLeft.get() < (2*distance)) {
 			casLeft1.set(ControlMode.PercentOutput, -0.75);
 			casLeft2.set(ControlMode.PercentOutput, -0.75); 

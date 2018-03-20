@@ -21,6 +21,7 @@ public class PivotUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.acquirer.pivotUp();
+    	System.out.println();
     }
 
     // Make this return true when this Command no longer needs to run execute()
