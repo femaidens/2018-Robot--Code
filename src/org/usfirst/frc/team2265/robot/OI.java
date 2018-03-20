@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-
+	public static Joystick launchpad = new Joystick(RobotMap.launchpadPort);
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -58,7 +58,11 @@ public class OI {
 	public static Button pivotUp = new JoystickButton(driveJoystick, 4);
 	public static Button pivotDown = new JoystickButton(driveJoystick, 2);
 	
-
+	public static Button casup = new JoystickButton(launchpad, 2);
+	public static Button casdown = new JoystickButton(launchpad, 5);
+	
+	
+	
 	
 	public void bindButtons() {
 		CasUp.whileHeld(new CascadeUp());

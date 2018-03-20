@@ -15,6 +15,7 @@ public class RobotMap {
 
 	// Joystick Ports
 	public static int driveJoyPort = 1;
+	public static int launchpadPort = 0;
 
 	// Talon Ports
 	//drivetrain
