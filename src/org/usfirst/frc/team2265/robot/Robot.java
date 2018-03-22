@@ -7,7 +7,11 @@
 
 package org.usfirst.frc.team2265.robot;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -41,6 +45,7 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	public static Drivetrain drivetrain;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	
 
 
 	/**
@@ -56,6 +61,12 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_oi.bindButtons();
+		
+		 UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		    camera.setResolution(640, 480);
+		    camera.setBrightness(0);
+		    CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+		    CvSink cvSink = CameraServer.getInstance().getVideo();
 	}
 
 	/**
