@@ -12,6 +12,8 @@ public class CascadeUp extends Command {
     public CascadeUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	Cascade.encLeft.reset();
+    	Cascade.encRight.reset();
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,8 @@ public class CascadeUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Cascade.cascadeUp();
-    	System.out.println("Cascade Up");
+    	System.out.println("Encoder Left " + Cascade.encLeft.get());
+    	System.out.println("Encoder Right " + Cascade.encRight.get());
     	//System.out.println("Encoder Left " + CascadeLift.encLeft.getDistance());	
     }
 

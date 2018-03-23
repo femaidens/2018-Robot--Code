@@ -14,44 +14,50 @@ public class RobotMap {
 	// public static int rightMotor = 2;
 
 	// Joystick Ports
-	public static int driveJoyPort = 1;
+	public static int driveJoyPort = 2;
 	public static int launchpadPort = 0;
 
 	// Talon Ports
 	//drivetrain
-	public static int rearLeftPort = 3; //7
-	public static int frontLeftPort = 4; //9
-	public static int rearRightPort = 10; //2
-	public static int frontRightPort = 11;//1
+	//REAL
+	public static int rearLeftPort = 7; //3
+	public static int frontLeftPort = 9; //4
+	public static int rearRightPort = 2; //10
+	public static int frontRightPort = 1;//11
+	
 	//cascade
-	public static int casL1 = 1;//12
-	public static int casL2 = 0;//10
+	//REAL
+	public static int casL1 = 12;//1
+	public static int casL2 = 10;//0
 	public static int casR1 = 6;//6
-	public static int casR2 = 5;//8
+	public static int casR2 = 8;//5
+	
 	//acquirer
-	//REAL second
-	public static int acqLeftPort = 2;//11
-	public static int acqRightPort = 8;//3
-	public static int pivPort = 9; //4
+	//REAL
+	public static int acqLeftPort = 11;//2
+	public static int acqRightPort = 3;//8
+	public static int pivPort = 4; //9
 	
-	
-	
-
 	// Encoder Ports
-	//drivetrain
-	
+	//drivetrain REAL
 	/*public static int encRL = 7;
 	public static int encFL = 9;
 	public static int encRR = 2;
 	public static int encFR = 1;*/
-	//cascade second
+	
+	//cascade REAL
 	public static int casEncL1 = 1; //12
 	public static int casEncL2 = 0;//10
 	public static int casEncR1 = 6;//6
 	public static int casEncR2 = 5;//8
 	
+	//pivot placeholder idk
+	public static int encpivPort = 000;
+	
 	//Gyro port
 	public static int gyroPort = 1;
+	
+	
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

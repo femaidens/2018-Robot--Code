@@ -31,7 +31,7 @@ public class Drivetrain extends Subsystem {
 	  public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
 	  
 	 
-	//public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
+	  //public static PowerDistributionPanel PDP = new PowerDistributionPanel(35);
 	
 
 	// Initializing encoder
@@ -40,6 +40,7 @@ public class Drivetrain extends Subsystem {
 			//Encoder.EncodingType.k1X);
 	//public static Encoder encoderRight = new Encoder(RobotMap.encPort3, RobotMap.encPort4, false,
 			//Encoder.EncodingType.k1X);
+	
 	public static double constant = 8.6;
 
 	public Drivetrain() {

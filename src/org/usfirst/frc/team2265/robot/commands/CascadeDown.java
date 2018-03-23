@@ -11,6 +11,8 @@ public class CascadeDown extends Command {
     public CascadeDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	Cascade.encLeft.reset();
+    	Cascade.encRight.reset();
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +22,15 @@ public class CascadeDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Cascade.cascadeDown();
-    	System.out.println("Cascade Down");
+    	System.out.println("Encoder Left " + Cascade.encLeft.get());
+    	System.out.println("Encoder Right " + Cascade.encRight.get());
+    	
+    	/*if(Cascade.encLeft.get() < 100 && Cascade.encRight.get() < 100)
+    		Cascade.cascadeStop();
+    	else {
+    		Cascade.cascadeDown();
+    	}
+    	System.out.println("Cascade Down");*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
