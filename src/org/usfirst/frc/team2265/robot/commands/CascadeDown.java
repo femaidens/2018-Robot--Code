@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class CascadeDown extends Command {
-
-    public CascadeDown() {
+	//private static double lowerLimit = 100;
+   
+	public CascadeDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	Cascade.encLeft.reset();
-    	Cascade.encRight.reset();
+    	//Cascade.encLeft.reset();
+    	//Cascade.encRight.reset();
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +22,13 @@ public class CascadeDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Cascade.cascadeDown();
-    	System.out.println("Encoder Left " + Cascade.encLeft.get());
-    	System.out.println("Encoder Right " + Cascade.encRight.get());
-    	
+    	//while(Cascade.encLeft.get() > lowerLimit && Cascade.encRight.get() > lowerLimit) {
+	    	Cascade.cascadeDown();
+	    	//System.out.println("Encoder Left " + Cascade.encLeft.get());
+	    	//System.out.println("Encoder Right " + Cascade.encRight.get()); 
+    	//}
     	/*if(Cascade.encLeft.get() < 100 && Cascade.encRight.get() < 100)
-    		Cascade.cascadeStop();
+    		Cascade.cascadeStop(); 
     	else {
     		Cascade.cascadeDown();
     	}

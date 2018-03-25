@@ -25,23 +25,24 @@ public class Cascade extends Subsystem {
 	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
 	
 	//one encoder for two talon/motor.
-	public static Encoder encLeft = new Encoder(RobotMap.casEncL1, RobotMap.casEncL2) true,
-			ncoder.EncodingType.k1X);
-	public static Encoder encRight = new Encoder(RobotMap.casEncR1, RobotMap.casEncR2);
+	public static Encoder encLeft = new Encoder(RobotMap.casEncL1, RobotMap.casEncL2, true,
+			Encoder.EncodingType.k1X);
+	public static Encoder encRight = new Encoder(RobotMap.casEncR1, RobotMap.casEncR2, true, 
+			Encoder.EncodingType.k1X);
 	
 	
 	public Cascade() {
-		//encLeft.reset();
-		//encRight.reset();
+		encLeft.reset();
+		encRight.reset();
 	}
 	// method to make the cascade go up
 	public static void cascadeUp(){
 		//casL2 is wired reversely
-			casLeft1.set(ControlMode.PercentOutput, -0.45);
-			casLeft2.set(ControlMode.PercentOutput, 0.45);
-			casRight1.set(ControlMode.PercentOutput, 0.45);
-			casRight2.set(ControlMode.PercentOutput, 0.45);	
-			
+			casLeft1.set(ControlMode.PercentOutput, -0.65);
+			casLeft2.set(ControlMode.PercentOutput, 0.65);
+			casRight1.set(ControlMode.PercentOutput, 0.65);
+			casRight2.set(ControlMode.PercentOutput, 0.65);	
+		}
 		 //didn't use encLeft for reason; just to get enc value on one side       
 		/*while (encLeft.get() < distance) {
 			// 0.75 is the placeholder.
@@ -69,7 +70,7 @@ public class Cascade extends Subsystem {
 		}
 	
 		}*/
-	}
+	
 	
 	public static void cascadeStop(){
 		casLeft1.set(ControlMode.PercentOutput, 0);
@@ -79,10 +80,12 @@ public class Cascade extends Subsystem {
 	}
 	
 	public static void cascadeDown() {
-		casLeft1.set(ControlMode.PercentOutput, 0.45);
-		casLeft2.set(ControlMode.PercentOutput, -0.45);
-		casRight1.set(ControlMode.PercentOutput, -0.45);
-		casRight2.set(ControlMode.PercentOutput, -0.45);
+		casLeft1.set(ControlMode.PercentOutput, 0.65);
+		casLeft2.set(ControlMode.PercentOutput, -0.65);
+		casRight1.set(ControlMode.PercentOutput, -0.65);
+		casRight2.set(ControlMode.PercentOutput, -0.65);
+	}
+	
 		/*while (encLeft.get() < (2*distance)) {
 			casLeft1.set(ControlMode.PercentOutput, -0.75);
 			casLeft2.set(ControlMode.PercentOutput, -0.75); 
@@ -106,7 +109,7 @@ public class Cascade extends Subsystem {
 				Robot.drivetrain.drive((constant*(encRight.get() -30)/100) * Robot.drivetrain.rightVal, (constant *(encLeft.get() -30)/100) * Robot.drivetrain.leftVal); //sets a limit to the drive
 			}
 		}*/
-	}
+	
 	
 //resets encoder if cascade hits limit switch on bottom 
 	/*public static void limitDown() {

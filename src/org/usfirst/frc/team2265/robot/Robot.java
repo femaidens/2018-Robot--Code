@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team2265.robot;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 
 import edu.wpi.first.wpilibj.CameraServer;
@@ -63,12 +61,12 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		timer = new Timer();
+		timer.reset();
 		m_oi.bindButtons();
-		
 		 UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 		    camera.setResolution(640, 480);
 		    camera.setBrightness(0);
-		    autonomousCommand =  new AutonomousDrive();
+		 autonomousCommand =  new AutonomousDrive();
 	}
 
 	/**
@@ -98,7 +96,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = m_chooser.getSelected();
+		//autonomousCommand = m_chooser.getSelected();
+		timer.start();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

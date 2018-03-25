@@ -3,6 +3,7 @@ package org.usfirst.frc.team2265.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team2265.robot.Robot;
+import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 
 /**
  *
@@ -22,7 +23,8 @@ public class DriveTeleop extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.drivetrain.driveSlow();
+		Robot.drivetrain.drive();
+		System.out.println("Gyro Value: " + Robot.drivetrain.gyro.getAngle());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -55,8 +55,8 @@ public class OI {
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
 	
-	public static Button pivotUp = new JoystickButton(driveJoystick, 4);
-	public static Button pivotDown = new JoystickButton(driveJoystick, 2);
+	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
+	public static Button pivotDown = new JoystickButton(driveJoystick, 4);
 	
 	public static Button casup = new JoystickButton(launchpad, 2);
 	public static Button casdown = new JoystickButton(launchpad, 5);
