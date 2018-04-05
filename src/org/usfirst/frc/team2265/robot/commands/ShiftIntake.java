@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,11 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PivotDown extends Command {
-
-    public PivotDown() {
+public class ShiftIntake extends Command {
+	private boolean take;
+	
+    public ShiftIntake(boolean t) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	take = t;
     }
 
     // Called just before this Command runs the first time
@@ -21,22 +22,25 @@ public class PivotDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Acquirer.pivotDown();
+    	if (take) {
+			Acquirer.extend();
+		}
+    	else {
+			Acquirer.retract();
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.acquirer.pivotStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.acquirer.pivotStop();
     }
 }

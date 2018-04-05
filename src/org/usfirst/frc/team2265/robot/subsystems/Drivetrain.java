@@ -82,14 +82,14 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	// auton
-	public void drive(double l, double r) {
+	public static void drive(double l, double r) {
 		frontRight.set(ControlMode.PercentOutput,-r);
 		rearRight.set(ControlMode.PercentOutput,-r);
 		frontLeft.set(ControlMode.PercentOutput,l);
 		rearLeft.set(ControlMode.PercentOutput,l);
 	}
 
-	public void turnDegrees(double degrees) {
+	public static void turnDegrees(double degrees) {
 		gyro.reset();
 		if (degrees > 0) {
 			while (gyro.getAngle() < degrees) {
@@ -113,7 +113,6 @@ public class Drivetrain extends Subsystem {
 		}
 
 	}
-	
 	
 
 	/*public void autoAlign() { 
@@ -151,3 +150,4 @@ public class Drivetrain extends Subsystem {
 
 	}
 }
+

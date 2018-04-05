@@ -22,11 +22,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2265.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
+//import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.commands.AutonomousDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.Compressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,31 +40,31 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 //iterative drive
 public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
-	public static OI m_oi;
+	public static OI oi;
 	public static Acquirer acquirer;
+	public static Compressor compressy; 
 	Command autonomousCommand;
 	public static Drivetrain drivetrain;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	public static Timer timer;
 	
-
-
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		m_oi = new OI();
+		oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		acquirer = new Acquirer();
+		compressy = new Compressor();
 		drivetrain = new Drivetrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		timer = new Timer();
 		timer.reset();
-		m_oi.bindButtons();
-		 UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		oi.bindButtons();
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 		    camera.setResolution(640, 480);
 		    camera.setBrightness(0);
 		 autonomousCommand =  new AutonomousDrive();
@@ -98,7 +99,6 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		//autonomousCommand = m_chooser.getSelected();
 		timer.start();
-
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

@@ -52,12 +52,20 @@ public class RobotMap {
 	public static int casEncR2 = 5;//8
 	
 	//pivot placeholder idk
-	public static int encpivPort = 000;
+	//public static int encpivPort = 000;
 	
 	//Gyro port
 	public static int gyroPort = 1;
 	
+	//solenoid ports
+	public static int intakeRPort1 = 0;
+	public static int intakeRPort2 = 1; //might conflict with gyro port 
 	
+	//public static int intakeLPort1 = 0000;
+	//public static int intakeLPort2 = 0000;
+	
+	//public static int climbPort1 = 0000;
+	//public static int climbPort2 = 0000;
 	
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

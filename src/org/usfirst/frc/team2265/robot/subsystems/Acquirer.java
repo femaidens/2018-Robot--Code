@@ -6,6 +6,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
+
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 
@@ -24,7 +27,12 @@ public class Acquirer extends Subsystem {
 	public static TalonSRX acqLeft = new TalonSRX(RobotMap.acqLeftPort);
 	public static TalonSRX acqRight = new TalonSRX(RobotMap.acqRightPort);
 	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
+
+	//public static Encoder pivEnc = new Encoder(RobotMap.encPiv1, RobotMap.encPiv2, false,
+			//Encoder.EncodingType.k1X);
 	
+	public static DoubleSolenoid intakePiston1 = new DoubleSolenoid(RobotMap.intakeRPort1, RobotMap.intakeRPort2);
+	//public static DoubleSolenoid intakePiston2 = new DoubleSolenoid(RobotMap.intakeLPort1, RobotMap.intakeLPort2);
 	
 	//public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);*/
 	
@@ -32,21 +40,31 @@ public class Acquirer extends Subsystem {
 	public double circ = length*Math.PI/2;
 	
 	public Acquirer(){
-		//piv.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-		//piv.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 1, 10);
+		piv.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 10);
+		piv.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 1, 10);
+	}
+	
+	public static void extend() {
+		intakePiston1.set(DoubleSolenoid.Value.kForward);
+		//intakePiston2.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public static void retract() {
+		intakePiston1.set(DoubleSolenoid.Value.kReverse);
+		//intakePiston2.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void acquire(){
-		acqLeft.set(ControlMode.PercentOutput, 0.75);
-		acqRight.set(ControlMode.PercentOutput, 0.75);
+		acqLeft.set(ControlMode.PercentOutput, 0.8);
+		acqRight.set(ControlMode.PercentOutput, 1.0);
 	}
 	
 	public void release(){
-		acqLeft.set(ControlMode.PercentOutput, -0.75);
-		acqRight.set(ControlMode.PercentOutput, -0.75);
+		acqLeft.set(ControlMode.PercentOutput, -0.8);
+		acqRight.set(ControlMode.PercentOutput, -1.0);
 	}
 	
-	public void pivotDown(){
+	public static void pivotDown(){
 		/*encPivLeft.reset();
 		encPivRight.reset();
 		
@@ -57,7 +75,7 @@ public class Acquirer extends Subsystem {
 		piv.set(ControlMode.PercentOutput, -0.55);
 	}
 	
-	public void pivotUp(){
+	public static void pivotUp(){
 		//encPivLeft.reset();
 		//encPivRight.reset();
 		
@@ -76,11 +94,7 @@ public class Acquirer extends Subsystem {
 	public void pivotStop(){
 		piv.set(ControlMode.PercentOutput, 0);
 	}
-	
-	public void pivot90(int ticks){
-		
-	}
-	
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
