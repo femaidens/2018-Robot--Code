@@ -54,6 +54,10 @@ public class RobotMap {
 	//pivot placeholder idk
 	public static int encpivPort = 000;
 	
+	//solenoid ports
+	public static int intakeRPort1 = 0;
+	public static int intakeRPort2 = 1;
+	
 	//Gyro port
 	public static int gyroPort = 1;
 	

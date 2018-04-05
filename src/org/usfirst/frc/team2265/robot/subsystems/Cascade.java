@@ -42,7 +42,16 @@ public class Cascade extends Subsystem {
 			casLeft2.set(ControlMode.PercentOutput, 0.65);
 			casRight1.set(ControlMode.PercentOutput, 0.65);
 			casRight2.set(ControlMode.PercentOutput, 0.65);	
-		}
+	}
+	
+	public static void cascadeUp(double velocity) {
+		casLeft1.set(ControlMode.PercentOutput, -velocity);
+		casLeft2.set(ControlMode.PercentOutput, velocity);
+		casRight1.set(ControlMode.PercentOutput, velocity);
+		casRight2.set(ControlMode.PercentOutput, velocity);
+	}
+	
+
 		 //didn't use encLeft for reason; just to get enc value on one side       
 		/*while (encLeft.get() < distance) {
 			// 0.75 is the placeholder.

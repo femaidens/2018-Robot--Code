@@ -82,7 +82,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	// auton
-	public void drive(double l, double r) {
+	public static void drive(double l, double r) {
 		frontRight.set(ControlMode.PercentOutput,-r);
 		rearRight.set(ControlMode.PercentOutput,-r);
 		frontLeft.set(ControlMode.PercentOutput,l);

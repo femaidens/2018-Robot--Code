@@ -27,6 +27,7 @@ import org.usfirst.frc.team2265.robot.commands.AutonomousDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.Compressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -40,6 +41,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static OI m_oi;
+	public static Compressor compressy; 
 	public static Acquirer acquirer;
 	Command autonomousCommand;
 	public static Drivetrain drivetrain;
@@ -56,6 +58,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		compressy = new Compressor();
 		acquirer = new Acquirer();
 		drivetrain = new Drivetrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
