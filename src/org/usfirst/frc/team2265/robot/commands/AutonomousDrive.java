@@ -33,12 +33,12 @@ public class AutonomousDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(timer.get() <=  3.0) {
+    	while(timer.get() <=  2.5) {
     		if (Drivetrain.gyro.getAngle() < angle) {
     			Drivetrain.frontRight.set(ControlMode.PercentOutput, -0.65);
     			Drivetrain.rearRight.set(ControlMode.PercentOutput, -0.65);
     			Drivetrain.frontLeft.set(ControlMode.PercentOutput, 0.65);
-    			Drivetrain.rearLeft.set(ControlMode.PercentOutput,0.65);
+    			Drivetrain.rearLeft.set(ControlMode.PercentOutput, 0.65);
     			System.out.println("Left:"  + Drivetrain.gyro.getAngle());
     		} else if (Drivetrain.gyro.getAngle() > angle) {
     			Drivetrain.frontLeft.set(ControlMode.PercentOutput,0.65);
@@ -46,10 +46,10 @@ public class AutonomousDrive extends Command {
     			Drivetrain.rearRight.set(ControlMode.PercentOutput,-0.65);
     			Drivetrain.frontRight.set(ControlMode.PercentOutput, -0.65);
     			System.out.println("Right: "+ Drivetrain.gyro.getAngle());
-    		}
+    		}                                                                                                                                                                                                                                                                                                                                                                                                    
     		System.out.println("autonomous COMMAND!");
     	}
-    }
+    } 
     
     /*if (Drivetrain.gyro.getAngle() < angle) {
 		Drivetrain.frontRight.set(ControlMode.PercentOutput, rightVel + 0.1);

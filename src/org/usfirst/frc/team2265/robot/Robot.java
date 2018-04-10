@@ -24,6 +24,8 @@ import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.commands.AutonomousDrive;
+import org.usfirst.frc.team2265.robot.commands.CenterAuton;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -48,8 +50,6 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	public static Timer timer;
 	
-
-
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -66,10 +66,13 @@ public class Robot extends TimedRobot {
 		timer = new Timer();
 		timer.reset();
 		m_oi.bindButtons();
-		 UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 		    camera.setResolution(640, 480);
 		    camera.setBrightness(0);
-		 autonomousCommand =  new AutonomousDrive();
+		    
+		    autonomousCommand = new AutonomousDrive();
+					  //new CenterAuton();
+		
 	}
 
 	/**
@@ -113,7 +116,9 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
+		
 	}
+	
 
 	/**
 	 * This function is called periodically during autonomous.

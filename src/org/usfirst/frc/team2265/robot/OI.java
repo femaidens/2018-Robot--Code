@@ -5,6 +5,7 @@ import org.usfirst.frc.team2265.robot.commands.AcquirerStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeDown;
 import org.usfirst.frc.team2265.robot.commands.CascadeStop;
 import org.usfirst.frc.team2265.robot.commands.CascadeUp;
+import org.usfirst.frc.team2265.robot.commands.Lock;
 import org.usfirst.frc.team2265.robot.commands.PivotDown;
 import org.usfirst.frc.team2265.robot.commands.PivotStop;
 import org.usfirst.frc.team2265.robot.commands.PivotUp;
@@ -56,28 +57,26 @@ public class OI {
 	
 	public static Button acquire = new JoystickButton(driveJoystick, 5);
 	public static Button release = new JoystickButton(driveJoystick, 6);
-	
-	public static Button intake = new JoystickButton(driveJoystick, 5);
-	public static Button outtake = new JoystickButton(driveJoystick, 6);
+
+	public static Button intakePist = new JoystickButton(driveJoystick, 7);
 	
 	public static Button pivotUp = new JoystickButton(driveJoystick, 2);
 	public static Button pivotDown = new JoystickButton(driveJoystick, 4);
 	
-	public static Button compressorButton = new JoystickButton(driveJoystick, 8);
+	//public static Button compressorButton = new JoystickButton(driveJoystick, 1);
 
+	public static Button lockCascade = new JoystickButton(driveJoystick, 8);
+	
 	public static Button casup = new JoystickButton(launchpad, 2);
 	public static Button casdown = new JoystickButton(launchpad, 5);
 	
 	public static Button pivUp = new JoystickButton(launchpad, 14);
 	public static Button pivDown = new JoystickButton(launchpad, 4);
 	
-
-	
-	
 	
 	public void bindButtons() {
-		compressorButton.toggleWhenPressed(new ToggleCompressor());
-		
+		//compressorButton.toggleWhenPressed(new ToggleCompressor());
+			
 		//joystick
 		CasUp.whileHeld(new CascadeUp());
 		CasUp.whenReleased(new CascadeStop());
@@ -91,15 +90,16 @@ public class OI {
 		release.whileHeld(new Release());
 		release.whenReleased(new AcquirerStop());
 				
-		intake.whenPressed(new ShiftIntake(true));
-		outtake.whenPressed(new ShiftIntake(false));
-				
+		intakePist.toggleWhenPressed(new ShiftIntake());
+		
+		lockCascade.toggleWhenPressed(new Lock());
+		
 		pivotUp.whileHeld(new PivotUp());
 		pivotUp.whenReleased(new PivotStop());
 			
 		pivotDown.whileHeld(new PivotDown());
 		pivotDown.whenReleased(new PivotStop());
-				
+		
 		//launchpad 
 		casup.whileHeld(new CascadeUp());
 		casup.whenReleased(new CascadeStop());

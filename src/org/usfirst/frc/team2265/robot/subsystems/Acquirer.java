@@ -28,8 +28,7 @@ public class Acquirer extends Subsystem {
 	public static TalonSRX piv = new TalonSRX(RobotMap.pivPort);
 	
 	public static DoubleSolenoid intakePiston1 = new DoubleSolenoid(RobotMap.intakeRPort1, RobotMap.intakeRPort2);
-	//public static DoubleSolenoid intakePiston2 = new DoubleSolenoid(RobotMap.intakeLPort1, RobotMap.intakeLPort2);
-	
+	public static DoubleSolenoid intakePiston2 = new DoubleSolenoid(RobotMap.intakeLPort1, RobotMap.intakeLPort2);
 	
 	//public static DigitalInput limitswitch = new DigitalInput(RobotMap.acqlimPort);*/
 	
@@ -43,23 +42,25 @@ public class Acquirer extends Subsystem {
 	
 	public static void extend() {
 		intakePiston1.set(DoubleSolenoid.Value.kForward);
-		//intakePiston2.set(DoubleSolenoid.Value.kForward);
+		intakePiston2.set(DoubleSolenoid.Value.kForward);
 	}
-	
+	                                                                                                                                
 	public static void retract() {
 		intakePiston1.set(DoubleSolenoid.Value.kReverse);
-		//intakePiston2.set(DoubleSolenoid.Value.kReverse);
+		intakePiston2.set(DoubleSolenoid.Value.kForward);
 	} 
 	
 	public void acquire(){
-		acqLeft.set(ControlMode.PercentOutput, 0.75);
-		acqRight.set(ControlMode.PercentOutput, 0.75);
+		acqLeft.set(ControlMode.PercentOutput, 0.9);
+		acqRight.set(ControlMode.PercentOutput, 0.9);
 	}
 	
 	public void release(){
-		acqLeft.set(ControlMode.PercentOutput, -0.75);
-		acqRight.set(ControlMode.PercentOutput, -0.75);
+		acqLeft.set(ControlMode.PercentOutput, -0.9);
+		acqRight.set(ControlMode.PercentOutput, -0.9);
 	}
+	
+	
 	
 	public static void pivotDown(){
 		/*encPivLeft.reset();

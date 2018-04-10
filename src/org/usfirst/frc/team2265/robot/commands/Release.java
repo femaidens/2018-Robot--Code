@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Release extends Command {
-
+	
     public Release() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	
     }
 
     // Called just before this Command runs the first time

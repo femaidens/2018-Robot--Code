@@ -57,6 +57,11 @@ public class RobotMap {
 	//solenoid ports
 	public static int intakeRPort1 = 0;
 	public static int intakeRPort2 = 1;
+	public static int intakeLPort1 = 2;
+	public static int intakeLPort2 = 3;
+	
+	public static int lockPort1 = 4;
+	public static int lockPort2 = 5;
 	
 	//Gyro port
 	public static int gyroPort = 1;

@@ -32,13 +32,11 @@ public class CenterAuton extends CommandGroup {
     		gameData = DriverStation.getInstance().getGameSpecificMessage();
     		if (gameData.charAt(0) == 'R') {
     			//addSequential(new GyroStraight(.65, 168-33/2));
-    			addSequential(new TimedPivot(0.6));
-    			addSequential(new TimedDrive(0.8));
-    			addSequential(new TurnDegrees(20));
-    			addSequential(new TimedDrive(0.65));
-    			addSequential(new TurnDegrees(-20));
-    			addSequential(new TimedCascade(0.3));
-    			addSequential(new ShiftIntake(false));
+    			addSequential(new TimedDrive(2.09));
+    			//addSequential(new TurnDegrees(20));
+    			//addSequential(new TimedDrive(0.65));
+    			addSequential(new TurnDegrees(85));
+    			//addSequential(new ShiftIntake(false));
     			addSequential(new Release());
     			//addSequential(new TurnDegrees(degrees));
     			//Sequential(new GyroStraight(.65, Math.sqrt(Math.pow(base, 2) + Math.pow(height, 2))));
@@ -48,15 +46,13 @@ public class CenterAuton extends CommandGroup {
     			// 33 = width of the robot(along side)
     		} 
     		else {
-    			addSequential(new TimedPivot(0.6));
-    			addSequential(new TimedDrive(0.4));
-    			addSequential(new TurnDegrees(-14));
-    			addSequential(new TimedDrive(0.8));
-    			addSequential(new TurnDegrees(14));
-    			addSequential(new TimedDrive(0.4));
-    			addSequential(new TimedCascade(0.3));
-    			addSequential(new ShiftIntake(false));
-    			addSequential(new Release());
+    			addSequential(new TimedDrive(2.5));
+    			//addSequential(new TurnDegrees(-14));
+    			//addSequential(new TimedDrive(0.8));
+    			//addSequential(new TurnDegrees(14));
+    			//addSequential(new TimedDrive(0.4));
+    			//addSequential(new ShiftIntake(false));
+    			//addSequential(new Release());
     		}
     	//addSequential(new DriveAuton);
         // Add Commands here:

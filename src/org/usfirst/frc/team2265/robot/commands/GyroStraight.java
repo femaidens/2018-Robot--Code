@@ -30,12 +30,11 @@ public class GyroStraight extends Command {
 		leftVel = v;
 		rightVel = v;
 		distance = d;
-
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		//
+		
 		angle = Drivetrain.gyro.getAngle();
 	}
 
@@ -55,7 +54,6 @@ public class GyroStraight extends Command {
 			Robot.drivetrain.frontRight.set(rightVel);
 			System.out.println("Right: "+Drivetrain.gyro.getAngle());
 		}*/
-		
 		//works for second robot?
 		if (Drivetrain.gyro.getAngle() < angle) {
 			Drivetrain.frontRight.set(ControlMode.PercentOutput, rightVel + 0.1);

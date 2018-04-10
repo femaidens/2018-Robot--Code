@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Servo;
 import org.usfirst.frc.team2265.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Cascade extends Subsystem {
 
@@ -21,20 +22,28 @@ public class Cascade extends Subsystem {
 	public static TalonSRX casRight1 = new TalonSRX(RobotMap.casR1);
 	public static TalonSRX casRight2 = new TalonSRX(RobotMap.casR2);
 	//public static Servo serv = new Servo(RobotMap.servPort);
-
-	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
+	public static DoubleSolenoid lockPiston = new DoubleSolenoid(RobotMap.lockPort1, RobotMap.lockPort2);
 	
+	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.limSwitchPort1);
 	//one encoder for two talon/motor.
 	public static Encoder encLeft = new Encoder(RobotMap.casEncL1, RobotMap.casEncL2, true,
 			Encoder.EncodingType.k1X);
 	public static Encoder encRight = new Encoder(RobotMap.casEncR1, RobotMap.casEncR2, true, 
 			Encoder.EncodingType.k1X);
 	
-	
 	public Cascade() {
 		encLeft.reset();
 		encRight.reset();
 	}
+	
+	public static void extend() {
+		lockPiston.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public static void retract() {
+		lockPiston.set(DoubleSolenoid.Value.kReverse);
+	}
+	
 	// method to make the cascade go up
 	public static void cascadeUp(){
 		//casL2 is wired reversely

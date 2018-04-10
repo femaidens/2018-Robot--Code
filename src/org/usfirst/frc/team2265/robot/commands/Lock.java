@@ -1,15 +1,15 @@
- package org.usfirst.frc.team2265.robot.commands;
+package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
+import org.usfirst.frc.team2265.robot.subsystems.Cascade;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ShiftIntake extends Command {
-	
-    public ShiftIntake() {
+public class Lock extends Command {
+
+    public Lock() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -19,8 +19,8 @@ public class ShiftIntake extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-		Acquirer.retract();
+    protected void execute() { 
+    	Cascade.extend();	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,6 +35,6 @@ public class ShiftIntake extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-		Acquirer.extend();
+    	Cascade.retract();
     }
 }
