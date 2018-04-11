@@ -55,8 +55,8 @@ public class OI {
 	public static Button CasDown = new JoystickButton(driveJoystick, 1);
 	public static Button CasUp = new JoystickButton(driveJoystick, 3);
 	
-	public static Button acquire = new JoystickButton(driveJoystick, 5);
-	public static Button release = new JoystickButton(driveJoystick, 6);
+	public static Button Acquire = new JoystickButton(driveJoystick, 5);
+	public static Button Release = new JoystickButton(driveJoystick, 6);
 
 	public static Button intakePist = new JoystickButton(driveJoystick, 7);
 	
@@ -70,8 +70,11 @@ public class OI {
 	public static Button casup = new JoystickButton(launchpad, 2);
 	public static Button casdown = new JoystickButton(launchpad, 5);
 	
-	public static Button pivUp = new JoystickButton(launchpad, 14);
-	public static Button pivDown = new JoystickButton(launchpad, 4);
+	public static Button acquire = new JoystickButton(launchpad, 14);
+	public static Button release = new JoystickButton(launchpad, 4);
+	
+	//public static Button pivUp = new JoystickButton(launchpad, 14);
+	//public static Button pivDown = new JoystickButton(launchpad, 4);
 	
 	
 	public void bindButtons() {
@@ -84,11 +87,11 @@ public class OI {
 		CasDown.whileHeld(new CascadeDown());
 		CasDown.whenReleased(new CascadeStop());
 				
-		acquire.whileHeld(new Acquire());
-		acquire.whenReleased(new AcquirerStop());
+		Acquire.whileHeld(new Acquire());
+		Acquire.whenReleased(new AcquirerStop());
 				
-		release.whileHeld(new Release());
-		release.whenReleased(new AcquirerStop());
+		Release.whileHeld(new Release());
+		Release.whenReleased(new AcquirerStop());
 				
 		intakePist.toggleWhenPressed(new ShiftIntake());
 		
@@ -106,11 +109,17 @@ public class OI {
 				
 		casdown.whileHeld(new CascadeDown());
 		casdown.whenReleased(new CascadeStop());
+		
+		acquire.whileHeld(new Acquire());
+		acquire.whenReleased(new AcquirerStop());
 				
-		pivUp.whileHeld(new PivotUp());
-		pivUp.whenReleased(new PivotStop());
+		release.whileHeld(new Release());
+		release.whenReleased(new AcquirerStop());
 				
-		pivDown.whileHeld(new PivotDown());
-		pivDown.whenReleased(new PivotStop());;
+		//pivUp.whileHeld(new PivotUp());
+		//pivUp.whenReleased(new PivotStop());
+				
+		//pivDown.whileHeld(new PivotDown());
+		//pivDown.whenReleased(new PivotStop());;
 	}
 }
