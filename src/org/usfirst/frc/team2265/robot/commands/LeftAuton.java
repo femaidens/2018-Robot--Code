@@ -1,31 +1,26 @@
 package org.usfirst.frc.team2265.robot.commands;
 
-import org.usfirst.frc.team2265.robot.Robot;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
-//import com.ctre.phoenix.motorcontrol.ControlMode;
-
-import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class RightAuton extends CommandGroup {
+public class LeftAuton extends CommandGroup {
 	String gameData;
 	public static Timer timer = new Timer();
 
-	public RightAuton() {
+	public LeftAuton() {
+
 		timer.reset();
 		timer.start();
 		Drivetrain.gyro.reset();
 		double angle = 0;
 
-		gameData = "RRR";//DriverStation.getInstance().getGameSpecificMessage();
-		
+		gameData =  "LLL";//DriverStation.getInstance().getGameSpecificMessage();
 
 		// add sequential/parallel stuff
 
@@ -42,14 +37,13 @@ public class RightAuton extends CommandGroup {
 
 		}
 		addSequential(new DriveAuton(0.0, -0.0));
-		
+
 		if (gameData.length() > 0) {
-			if (gameData.charAt(0) == 'R') {
-				addSequential (new TurnDegrees (-90));
-				addSequential (new Release ()); 
+			if (gameData.charAt(0) == 'L') {
+				addSequential(new TurnDegrees(90));
+				addSequential(new Release());
 			}
 		}
-
 		// Add Commands here:
 		// e.g. addSequential(new Command1());
 		// addSequential(new Command2());
