@@ -11,23 +11,35 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveAuton extends Command {
 	private double l,r;
-    public DriveAuton(double x, double y) {
+	double angle;
+    public DriveAuton(double x) {
     	l=x;
-    	r=y;
+    	r=x;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	angle = Drivetrain.gyro.getAngle();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Drivetrain.frontLeft.set(ControlMode.PercentOutput, l);
-		Drivetrain.rearLeft.set(ControlMode.PercentOutput, l);
-		Drivetrain.rearRight.set(ControlMode.PercentOutput, r);
-		Drivetrain.frontRight.set(ControlMode.PercentOutput, r);
+		
+		if (Drivetrain.gyro.getAngle() < angle) {
+			Drivetrain.frontLeft.set(ControlMode.PercentOutput, l);
+			Drivetrain.rearLeft.set(ControlMode.PercentOutput, l);
+			Drivetrain.rearRight.set(ControlMode.PercentOutput, -r - 0.1);
+			Drivetrain.frontRight.set(ControlMode.PercentOutput, -r - 0.1);
+			System.out.println("Left:"  + Drivetrain.gyro.getAngle());
+		} else if (Drivetrain.gyro.getAngle() > angle) {
+			Drivetrain.frontLeft.set(ControlMode.PercentOutput, l + 0.1);
+			Drivetrain.rearLeft.set(ControlMode.PercentOutput, l + 0.1);
+			Drivetrain.rearRight.set(ControlMode.PercentOutput, -r);
+			Drivetrain.frontRight.set(ControlMode.PercentOutput, -r);
+		}                                                            
+		System.out.println("autonomous COMMAND!");
     }
 
     // Make this return true when this Command no longer needs to run execute()
