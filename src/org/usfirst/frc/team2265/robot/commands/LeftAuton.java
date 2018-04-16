@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftAuton extends CommandGroup {
 	String gameData;
 	public LeftAuton() {
-		gameData = "RRR"; //DriverStation.getInstance()).getGameSpecificMessage();
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		// add sequential/parallel stuff
 			if(gameData.length() > 0) {
 				if (gameData.charAt(0) == 'L') {
 					addSequential(new DriveAuton(0.65), 1.6); 
 					addSequential(new TurnDegrees(90));
 					addSequential(new Release(), 0.5);
-				} else if(gameData.charAt(0) == 'R') {
+				} else {
 					addSequential(new DriveAuton(0.65), 2.3); 
 				}
 			}

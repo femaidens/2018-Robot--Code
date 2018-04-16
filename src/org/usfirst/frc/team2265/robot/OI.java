@@ -23,7 +23,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public static Joystick driveJoystick = new Joystick(RobotMap.driveJoyPort);
-	public static Joystick launchpad = new Joystick(RobotMap.launchpadPort);
+	public static Joystick driveJoystick2 = new Joystick(RobotMap.driveJoyPort2);
+	
+	//public static Joystick launchpad = new Joystick(RobotMap.launchpadPort);
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -64,10 +66,18 @@ public class OI {
 	public static Button pivotDown = new JoystickButton(driveJoystick, 4);
 	
 	//public static Button compressorButton = new JoystickButton(driveJoystick, 1);
-
-	public static Button lockCascade = new JoystickButton(driveJoystick, 8);
+	public static Button CasDown2 = new JoystickButton(driveJoystick2, 1);
+	public static Button CasUp2 = new JoystickButton(driveJoystick2, 3);
 	
-	public static Button casup = new JoystickButton(launchpad, 2);
+	public static Button Acquire2 = new JoystickButton(driveJoystick2, 5);
+	public static Button Release2 = new JoystickButton(driveJoystick2, 6);
+
+	public static Button intakePist2 = new JoystickButton(driveJoystick2, 7);
+	
+	public static Button lockCascade = new JoystickButton(driveJoystick2, 8);
+	
+	//launchpad buttons
+	/*public static Button casup = new JoystickButton(launchpad, 2);
 	public static Button casdown = new JoystickButton(launchpad, 5);
 	
 	public static Button acquire = new JoystickButton(launchpad, 14);
@@ -75,8 +85,7 @@ public class OI {
 	
 	//public static Button pivUp = new JoystickButton(launchpad, 14);
 	//public static Button pivDown = new JoystickButton(launchpad, 4);
-	
-	
+	*/
 	public void bindButtons() {
 		//compressorButton.toggleWhenPressed(new ToggleCompressor());
 			
@@ -103,7 +112,26 @@ public class OI {
 		pivotDown.whileHeld(new PivotDown());
 		pivotDown.whenReleased(new PivotStop());
 		
-		//launchpad 
+		//joystick2
+		
+		CasUp2.whileHeld(new CascadeUp());
+		CasUp2.whenReleased(new CascadeStop());
+				
+		CasDown2.whileHeld(new CascadeDown());
+		CasDown2.whenReleased(new CascadeStop());
+				
+		Acquire2.whileHeld(new Acquire());
+		Acquire2.whenReleased(new AcquirerStop());
+				
+		Release2.whileHeld(new Release());
+		Release2.whenReleased(new AcquirerStop());
+				
+		intakePist2.toggleWhenPressed(new ShiftIntake());
+		
+		lockCascade.toggleWhenPressed(new Lock());
+		
+		
+		/*launchpad 
 		casup.whileHeld(new CascadeUp());
 		casup.whenReleased(new CascadeStop());
 				
@@ -120,6 +148,6 @@ public class OI {
 		//pivUp.whenReleased(new PivotStop());
 				
 		//pivDown.whileHeld(new PivotDown());
-		//pivDown.whenReleased(new PivotStop());;
+		//pivDown.whenReleased(new PivotStop());;*/
 	}
 }

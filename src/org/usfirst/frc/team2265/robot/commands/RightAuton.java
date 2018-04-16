@@ -25,7 +25,7 @@ public class RightAuton extends CommandGroup {
 					addSequential(new DriveAuton(0.65), 1.6); 
 					addSequential(new TurnDegrees(-90));
 					addSequential(new Release(), 0.5);
-				} else if(gameData.charAt(0) == 'L') {
+				} else {
 					addSequential(new DriveAuton(0.65), 2.3); 
 				}
 			}
