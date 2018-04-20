@@ -23,7 +23,6 @@ import org.usfirst.frc.team2265.robot.subsystems.Acquirer;
 import org.usfirst.frc.team2265.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2265.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2265.robot.commands.AutonomousDrive;
-import org.usfirst.frc.team2265.robot.commands.CenterAuton;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -70,7 +69,6 @@ public class Robot extends IterativeRobot {
 		    camera.setBrightness(0);
 		    
 		    autonomousCommand = new AutonomousDrive();
-					  //new CenterAuton();
 		
 	}
 
@@ -115,7 +113,7 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
-		autonomousCommand = new LeftAuton();
+		//autonomousCommand = new LeftAuton();
 							// = new RightAuton();
 	}
 	

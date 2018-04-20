@@ -18,7 +18,7 @@ public class RightAuton extends CommandGroup {
 	String gameData; 
 	
 	public RightAuton() {
-		gameData = "RRR"; //DriverStation.getInstance()).getGameSpecificMessage();
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		// add sequential/parallel stuff
 			if(gameData.length() > 0) {
 				if (gameData.charAt(0) == 'R') {
