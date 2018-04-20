@@ -8,8 +8,10 @@
 package org.usfirst.frc.team2265.robot;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -40,6 +42,9 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	public static final PIDDrive drive = new PIDDrive("Drive", 0.1, 0.0, 0.1);
+	public static byte[] toSend = new byte[1]; 
+	public static boolean endgame;
+	public static double matchTime;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -68,7 +73,7 @@ public class Robot extends TimedRobot {
 			Wire.transaction(WriteData, WriteData.length, null, 0);
 		}
 	}*/
-
+	
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
@@ -111,6 +116,28 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.start();
 		}
 	}
+	
+	@Override
+	public void robotPeriodic() {
+		connectToLaunchpad();
+	}
+	
+	public static void connectToLaunchpad() {
+		// constantly updates values
+		matchTime = DriverStation.getInstance().getMatchTime();
+		endgame = (matchTime <= 40 && !(DriverStation.getInstance().isAutonomous()));
+		if (endgame) {
+			// endgame: yellow, then red
+			toSend[0] = 1;
+		} else {
+			// default: chase? I dunno
+			toSend[0] = 2;
+		}
+		i2c.transaction(toSend, 1, null, 0);
+		Timer.delay(0.0005);
+	}
+
+
 
 	/**
 	 * This function is called periodically during autonomous.

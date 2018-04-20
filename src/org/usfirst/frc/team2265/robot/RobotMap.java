@@ -58,10 +58,10 @@ public class RobotMap {
 	public static int encPort2 = 6;
 	public static int encPort3 = 7;
 	public static int encPort4 = 8;*/
-	public static int encPort1 = 4;
-	public static int encPort2 = 5;
+	public static int encPort1 = 1;
+	public static int encPort2 = 0;
 	public static int encPort3 = 6;
-	public static int encPort4 = 7;
+	public static int encPort4 = 5;
 	
 	public static int encPivPort1 = 5;
 	public static int encPivPort2 = 5;

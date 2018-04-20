@@ -60,7 +60,7 @@ public class PIDDrive extends PIDSubsystem {  //You're doing great Zarrin! Keep 
 		// this is a 20% tolerable error
 		getPIDController().setAbsoluteTolerance(20.0);
 		//sets value to singular setpoint
-		getPIDController().setContinuous(true);				
+		//getPIDController().setContinuous(true);				
 		}
 	
 	//initializes the two modes; one to drive and one to use the sensors

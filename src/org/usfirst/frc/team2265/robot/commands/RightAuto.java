@@ -26,7 +26,7 @@ public class RightAuto extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	String gameData; // stores the position of our alliance’s color on switches and scale
+    	String gameData; // stores the position of our alliance's color on switches and scale
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData.charAt(0) == 'R'){
     		addSequential(new DriveDistance(16, 0.5)); // placeholder,16ft
@@ -48,9 +48,9 @@ public class RightAuto extends CommandGroup {
     			//addSequential(new TurnDegrees(-90));
     	}
     	
-    	/*SmartDashboard.putString(“OurSwitchColor”,gameData.charAt(0));
-    	SmartDashboard.putString(“ScaleColor”,gameData.charAt(1));
-    	SmartDashboard.putString(“OtherSwitchColor”,gameData.charAt(2));*/
+    	/*SmartDashboard.putString("OurSwitchColor",gameData.charAt(0));
+    	SmartDashboard.putString("ScaleColor",gameData.charAt(1));
+    	SmartDashboard.putString("OtherSwitchColor",gameData.charAt(2));*/
     	
     }
 }
