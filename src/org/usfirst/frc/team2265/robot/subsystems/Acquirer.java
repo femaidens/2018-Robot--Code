@@ -50,7 +50,7 @@ public class Acquirer extends Subsystem {
 		intakePiston2.set(DoubleSolenoid.Value.kForward);
 	} 
 	
-	public void acquire(){
+	public void acquire() {
 		acqLeft.set(ControlMode.PercentOutput, 0.9);
 		acqRight.set(ControlMode.PercentOutput, 0.9);
 	}
@@ -93,9 +93,7 @@ public class Acquirer extends Subsystem {
 		piv.set(ControlMode.PercentOutput, 0);
 	}
 	
-	public void pivot90(int ticks){
-		
-	}
+	
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
